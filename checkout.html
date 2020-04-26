@@ -1,0 +1,305 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout</title>
+        <link rel="stylesheet" href="./assests/styles/w3.css">
+        <link rel="stylesheet" href="./assests/styles/mobile-view.css">
+         <link rel="stylesheet" href="./assests/styles/large-screen.css">
+         <style>
+             .testcase{
+              
+                 border:3px solid green;
+             }
+         </style>
+
+         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
+         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+         <script src="./assests/scripts/script.js"></script>
+         <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+         <script src="./assests/scripts/jquery.connections.js"></script>
+         <script >
+             $(document).ready(()=>{
+                 $('#cart_itm').connections({
+                     to:'#addr_itm',
+                     'class': 'testcase'
+                 })
+                 $('#addr_itm').connections({
+                     to:'#paym_itm',
+                     'class': 'testcase'
+                 })
+
+
+             })
+         </script>
+    </head>
+    <body>
+         
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    <div id="nav-section" class="w3-row">
+                        <div id="home-icon" class="w3-col s4 m4 l4">
+                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
+                        </div>
+                        <div id="search-section" class="w3-col s8 m8 l4 ">
+                            <form action="#" method="get">
+                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
+                            </form>
+                        </div>
+                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
+                            <ul id="account-actions-ul">
+                                <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                    <ul><li>
+                                       Cart
+                                    </li></ul>
+                                   
+                                </li>
+        
+                                <li class="nav-icon">    <i class="fas fa-user"></i>
+                                <ul><li>
+                                    Account
+                                </li></ul>
+                                
+                                </li>
+                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
+                                    <ul><li>
+                                      Logout
+                                    </li></ul>
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div>
+                <div class="w3-card-2" id="checkout-sect">
+                    <div class="w3-panel w3-center w3-large" style="text-decoration: underline;font-size: 2em;">Checkout</div>
+                     
+                        <div class="progress-section  w3-row w3-center w3-text-black w3-border-bottom">
+                      
+                            <div class="cart-confirm  progress-item  w3-col s4 l4 "  >
+                                <div id="cart_itm" class="w3-border">
+                                    Cart</i> <br><i  class="fas fa-shopping-cart" ></i>  
+                                </div>
+                                      
+                            </div>
+                            
+                            <div class="address-section  progress-item w3-col s4 l4"  >
+                                <div id="addr_itm" class="w3-border" >
+                                    Address <br> <i class="fas fa-map-marker"  ></i>
+                                </div> 
+                            </div>
+                            <div  class="payment-method   progress-item w3-col s4 l4">
+                                <div id="paym_itm" class="w3-border">
+                                    Payment<br> <i class="fas fa-money-bill-alt" ></i>
+                                </div>
+                               
+                            </div>  
+                        
+                            
+                            
+                        
+                        
+
+
+
+                        
+
+                     </div>
+                
+                   
+                      <!-- cart -->
+                      <div id="cart-checkout">
+                        <div class="w3-margin-top" >
+                            <div class="w3-panel w3-center" style="font-weight: bold;text-decoration: underline;">Cart Details</div>
+                            <div class="w3-row w3-center w3-grey">
+                                <div class="w3-col s4 l5">Item</div>
+                                 <div class="w3-col l2 s2">Quantity</div>
+                                 <div class="w3-col s3 l2">Delete</div>
+                                 <div class="w3-col s3 l3">Total Price</div>
+         
+                              </div>
+                         </div>
+                       
+    
+                         <div class="cart-section w3-margin-top">
+                            <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
+                                <div class="w3-hide" id="unitPriceSM13">14000</div>
+                                 <div class="w3-col s4 w3-center l5 cart-item-desc">
+                                     <img src="./assests/images/Samsung/J7.jpg" alt="s2"><br>
+                                     <span class="cart-item-title w3-small">Samsung J7 </span> <br>
+                                     <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 14000</span>
+                                 </div>
+                                 <div class="w3-col s2 l2  cart-item-desc">
+                                <div class='addQuantity  SM13' ><i class="fas fa-plus-square" ></i><br></div>
+                                    <input type="text"  disabled class="w3-input w3-center" value="1"   name="quantity" min="1" step="1" id="SM13">
+                                  <div class="decQuantity SM13"><i class="fas fa-minus-square "  ></i></div>  
+                                </div>
+                                <div class="w3-col s3 l2 cart-item-desc">
+                                  <i class="fas delete-icon fa-trash w3-center"></i>
+                                </div>
+                                
+                                <div class="w3-col s3 l3 w3-center cart-item-desc">
+                                    <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM13">14000</span></span> 
+                                </div>
+                                
+                                
+                             </div>
+                              <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
+                                <div class="w3-hide" id="unitPriceSM15">22000</div>
+                                <div class="w3-col s4 w3-center l5 cart-item-desc">
+                                    <img src="./assests/images/Samsung/S20.jpg" alt="s2"><br>
+                                    <span class="cart-item-title w3-small">Samsung s20</span> <br>
+                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 22000</span>
+                                
+                                </div>
+                                <div class="w3-col s2 l2  cart-item-desc">
+                                    <div class='addQuantity SM15' ><i class="fas fa-plus-square" ></i><br></div>
+                                   <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="SM15">
+                                   <div class="decQuantity SM15"><i class="fas fa-minus-square"  ></i></div>  
+                               </div>
+                               <div class="w3-col s3 l2 cart-item-desc">
+                                 <i class="fas delete-icon fa-trash w3-center"></i>
+                               </div>
+                               
+                               <div class="w3-col s3 l3 w3-center cart-item-desc">
+                                   <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM15">22000</span></span> 
+                               </div>
+                               
+                               
+                            </div>
+                            <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
+                                <div class="w3-hide" id="unitPriceSM14">17000</div>
+                                <div class="w3-col s4 w3-center l5 cart-item-desc">
+                                    <img src="./assests/images/Samsung/A50.jpg" alt="s2"><br>
+                                    <span class="cart-item-title w3-small">Samsung A50</span> <br>
+                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 17000</span>
+                                
+                                </div>
+                                <div class="w3-col s2 l2  cart-item-desc">
+                                    <div class='addQuantity SM14' ><i class="fas fa-plus-square" ></i><br></div>
+                                   <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="SM14">
+                                   <div class="decQuantity SM14"><i class="fas fa-minus-square "  ></i></div>  
+                               </div>
+                               <div class="w3-col s3 l2 cart-item-desc">
+                                 <i class="fas delete-icon fa-trash w3-center"></i>
+                               </div>
+                               
+                               <div class="w3-col s3 l3 w3-center cart-item-desc">
+                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM14">17000</span></span> 
+                               </div>
+                               
+                               
+                            </div>
+                            
+     
+                            <div id="total-amount" style="font-weight: bold;text-decoration: underline;" class="w3-center w3-margin-top">Total Amount <span class="w3-small" >(Shipping Charges Not inc)</span></div>
+                            <div class="w3-center w3-text-orange w3-margin-top" style="font-weight: bold;text-decoration:underline">KES <span  id="cartTotal"> 0 </span> </div>
+                        
+                            <button id="cartOkay" class="w3-button w3-margin-bottom w3-green w3-text-black w3-margin-top w3-round-xlarge w3-center w3-hover-black w3-hover-text-green cartProceed">Proceed</button>
+
+                        </div>
+                     </div>  
+                  
+                      <!-- address  -->
+                        <div id="delivery-address" style="display: none;" class="address-select w3-card w3-border-right w3-border-left w3-border-bottom w3-border-black">
+                        <div class="w3-panel w3-border w3-center">Delivery Address</div>
+                      
+
+                        <div id="primary-address">
+                            <div class="w3-panel w3-center w3-margin-top" style="font-weight: bolder;text-decoration: underline;" >The default Address below will be used for shippment</div>
+                             <p style="font-weight: bold;" class="w3-border">ERICK NDERITU <br>
+                               P.O BOX 123,<br>
+                              KAKAMEGA,<br>
+                              254727895935  </p>
+
+                              <button class="w3-btn w3-center w3-margin-bottom w3-round-large w3-orange w3-text-black">Select A Different Address</button>
+                        </div>
+                            <button id="pickupSelector" class="w3-btn w3-round-large w3-center w3-margin-top w3-black w3-text-white w3-margin-bottom ">Use a Pick Up station Instead</button>
+                           
+                       
+                            <div class="totalAmount">
+                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : </p>
+                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :</p>
+                                <p style="text-decoration: underline;font-weight: bold;">Vat :</p>
+                            </div>
+
+
+                            <button id="addressOkay" class="w3-btn w3-margin-bottom w3-green w3-text-black w3-round-xlarge w3-center w3-hover-black w3-hover-text-green checkoutProceed">Proceed To Payment</button>
+
+
+                    </div>   
+                        
+                     <!-- payment -->
+                      <div  style="display: none;" id='paym_opt'>
+                        <div class="w3-card-2" id="payForm">
+                            <div  class="w3-center w3-margin-top ">Pay with Mpesa</div>
+                            <div class="w3-small w3-center w3-pale-red w3-center w3-margin-top">NOTE :: To protect both our merchants and YOU as a consumer,we curently only accept MPESA payments</div>
+                         
+                            <form id="paymentForm" action="#" method="post" class="w3-margin-top w3-border w3-padding-16">
+                                <label for="phone">Enter you Mpesa Number</label>
+                                <input type="number" placeholder="0727895935" name="phone" class="w3-margin-bottom w3-input w3-center" id="phone">
+                                <button type="submit" class="w3-button w3-hover-black w3-hover-text-green w3-center w3-green w3-round-large w3-text-black">Proceed</button>
+                            </form>
+
+                            <div class="w3-panel w3-pale-green w3-center">
+                                An mpesa Prompt screen has been sent to your number  <span class="w3-large">(0727895935)</span>  .Check your Phone and Enter your Mpesa Pin to authorize the transaction and complete your purchase.
+                            </div>
+                           
+                        </div>
+                    </div>
+                     
+                </div>           
+            </div>
+    
+            <div id="footer-wrapper">
+                <div class="w3-row" id="nav-bar-small">
+                    <div class="w3-col s3">Home <br><i  class="fas fa-home"></i> </div>
+                    <div class="w3-col s3">Cart <br><i class="fas fa-shopping-cart"></i><sup>3</sup> </div>
+                    <div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div>
+                    <div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div>
+                    
+                </div>
+                <div id="footer-content">
+                 <ul style="list-style-type: none;padding: 0px;">
+                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
+                         <ul>
+                             <li>Samsung</li>
+                             <li>Oppo</li>
+                             <li>Tecno</li>
+                             <li>Laptop</li>
+                             <li>Laptop Accessories</li>
+                          </ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Important Information</span>
+                         <ul><li >About Us</li>
+                              <li>Contact Us</li>
+                               <li>Privacy Policy</li>
+                             <li>Terms and Conditions</li> </ul>
+                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
+                         <ul><li >
+                             BIGHOUSE BUILDING <br>
+                             P.O BOX 123 <br>
+                             NAIROBI
+                         </li></ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
+                         <ul>
+                             <li>Facebook</li>
+                             <li>Twitter</li>
+                             <li>Youtube</li>
+                          </ul>
+                     </li>
+                 </ul>
+                </div>
+           
+            </div>
+        </div>
+   
+        
+
+    
+  
+    </body>
+    </html>

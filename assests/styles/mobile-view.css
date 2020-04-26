@@ -1,0 +1,466 @@
+ @media only screen and (max-width:768px){
+     body{
+       margin: 0%;
+       padding:0px;
+       width: 100%;
+       max-width: 100%!important;
+     }
+
+    #page-wrapper{
+        position: relative;
+        min-height: 100vh;
+       
+    }
+    #content-wrapper{
+        position: relative;
+        padding-bottom: 100px;
+    }
+    #footer-content{
+        display: none;
+    }
+     #footer-wrapper{
+         position :fixed;
+         bottom:0%;
+         overflow: hidden;
+         height:50px;
+         background-color: black;
+         width: 100%;
+         color:white;
+         text-align: center;
+
+    }
+    .prev-price{
+        color: red;
+        font-size: 0.9em;
+    }
+    .new-price{
+        font-weight: bold;
+    }
+    #nav-section{
+        width: 100%;
+        height: 40px;
+        padding : 10px 5px 10px 5px;
+    }
+    #home-icon img{
+      width:100%;
+        height: 40px;
+
+    }
+    #search-section{
+        padding-left: 5px;
+        border: none;
+    }
+   
+    #account-actions{
+        display: none;
+    }
+    #categories-section{
+        position: relative;
+        color: sandybrown;
+        height: 40px; 
+        max-height: 40px;
+        overflow: scroll;
+        width: 100%;
+        white-space: nowrap;
+        padding-left: 10px;
+        text-overflow: ellipsis;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+       
+
+    }
+    .extra-large-col{
+        display: none;
+    }
+    #not-authenticated{
+        display:none;
+    }
+    #categories-section ul{
+        position: absolute;
+        width: 100%;
+        list-style-type: none;
+        height: 100%;
+        top:-20px;
+        left: -20px;
+       
+    }
+    #categories-section li{
+        padding-right: 20px;
+        display: inline;
+    }
+    #highlight-banner{
+       width: 100%; 
+       height: 100px;
+    }
+    #highlight-banner img{
+    width: 100%;
+    height: 100%;
+    }
+   #highlight-section{
+       margin-top:20px;
+       width: 100%;
+       overflow: hidden;
+       padding-bottom: 100px;
+   }
+   #highlight-section img{
+    width: 95%;
+    height: 140px;
+    margin-left: 2.5%;
+     
+  }
+  #highlight-section button{
+      width:100%
+  }
+       
+  #user_avatar {
+      width: 100px;
+     height: 40px;
+     padding: 0%;
+
+  }
+    
+
+  /* Orders */
+  #orders-view{
+      width: 100%;
+      max-width: 100%;
+     
+  }
+  .order-title{
+      padding-left: 20px;
+      font-weight: bold;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      border-right: 1px solid gray;
+  }
+  .order-det{
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+  }
+
+  /* checkout */
+  .progress-item{
+      max-width: 100%!important;
+      padding-left: 10px;
+  }
+  .cart-section img{
+      margin-left: 15%;
+     width: 50%;
+     height: 60px;
+  }
+  .cart-item-title{
+      margin-left: 15%;
+      font-weight: bold;
+  } 
+  .cart-item-desc input{
+     height: 20px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid lightblue;
+  }
+  #primary-address p{
+      margin-left: 20px;
+      font-weight:600;
+      text-decoration: underline;
+      margin-right: 20px;
+      max-width: 100%;
+    
+  }
+  #primary-address button{
+      margin-left: 20%;
+  }
+  .totalAmount{
+      margin-left: 20px;
+  }
+  #pickupSelector{
+       margin-left: 17%;
+  }
+  .checkoutProceed{
+      font-weight: bold;
+      margin-left: 25%;
+      margin-bottom: 30px;
+      margin-top:30px
+  }
+  .address-item p{
+      margin-right: 20px;
+      margin-left: 20px;
+      font-weight: bold;
+      text-decoration: underline;
+  }
+  .address-item button{
+      margin-left: 28%;
+  }
+  #add-address-btn{
+      margin-top:20px;
+      margin-left: 25%;
+  }
+  #pickup-station label{
+      text-decoration: underline;
+      font-weight: bold;
+      margin-left: 10%;
+      width: 80%;
+  }
+  #pickup-station select{
+      width: 80%;
+      margin-left: 10%;
+      border:1px solid orange;
+  }
+   #save-address{
+       margin-left: 23%;
+   }
+   .cartProceed{
+       margin-left: 39%;
+       font-weight: bold;
+   }
+   .delete-icon{
+       margin-top:20px;
+       color: red;
+    
+   }
+   #paymentForm label{
+     margin-left: 5%;
+     font-weight: bold;
+   }
+   #paymentForm input{
+       width: 80%;
+       border:1px solid lightseagreen;
+       margin-left: 5%;
+   }
+   #paymentForm button{
+       margin-left:32%;
+   }
+   .address-loc{
+       width: 95%;
+       margin-left: 2.5%;
+   }
+   .address-loc p{
+  margin-left: 5%;
+   }
+  .actbtn{
+      margin-left: 10%;
+      width: 80%;
+      margin-bottom: 2%;
+  }
+   .add-address-btn{
+       margin-left: 30%;
+   }
+  .coupon-card{
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom: 5%;
+  }
+  .coupon-card img{
+      width: 100%;
+      height: 150px;
+  }
+  #triggerPasswordUpdate{
+      margin-top:2%;
+   margin-left: 30%;
+  }
+  #personalDetails input{
+      width:90%;
+      margin-left: 5%;
+  }
+  #updatePassword input{
+      width:80%;
+      margin-left: 10%;
+  }
+  #updatePassword label{
+    margin-left: 10%;
+  }
+  #updatePassword button{
+    margin-top:2%;
+    margin-left: 30%;
+  }
+  .filterToogler{
+    border:1px solid rgb(161, 134, 134);
+    width: 60px;
+    margin-top:4px;
+  }
+#filterArrows{
+    width: 50%;
+    margin-left: 25%;
+    padding-bottom:8px;
+}
+
+#filterArrows{
+    height: 30px;
+}
+
+#products-section{
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+#products-section img{
+    width: 90%;
+    height: 120px;
+    margin-left: 8%;
+}
+.product-item button{
+    margin-left: -8%;
+}
+.product-images{
+    width: 100%;
+    height: 350px;
+    overflow: scroll;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+    
+}
+.product-images img{  
+    width:70%;
+  padding-top:3%;
+    height: 100%;
+ 
+
+ }
+.product-description{
+ margin-left: 2%;
+ margin-top:10px;
+ width: 96%;
+ padding-bottom: 20px;
+ margin-bottom:50px;
+ 
+}
+.prod_title{
+    font-weight: bold;
+    
+}
+.product_price{
+    color: chocolate;
+    font-weight: bold;
+}
+.product-description{
+    padding-left: 2%;
+}
+.shipping_desc{
+    padding-bottom:20px;
+}
+.prod_act{
+    padding-bottom:20px;
+}
+.prod_act i{
+    margin-top: 20px;
+}
+#login_form{
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+#login_form input{
+ margin-bottom:4%;
+ width:90%;
+ margin-left: 5%;
+}
+#login_form label{
+   
+    width:90%;
+    margin-left: 5%;
+   }
+.authenticatebtn{
+    width: 60%;
+    margin-left: 20%;
+}
+.social-login{
+    margin-top: 40px;
+    margin-left: 18%;
+    margin-bottom: 20px;
+}
+#sign_up_form{
+   
+    padding-top: 4%;
+    padding-bottom: 2%;
+}
+#sign_up_form input{
+    margin-bottom:4%;
+    width: 90%;
+    margin-left: 5%;
+}
+#sign_up_form label{
+
+    width: 100%;
+    margin-left: 5%;
+    
+}
+#login-instead{
+    margin-left: 5%;
+}
+.order-title{
+    border:1px solid black;
+  
+    background-color: mediumseagreen;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+}
+.filtered-orders-title{
+    margin-top:1px;
+    height: 60px;
+   width: 100%;
+   text-align: center;
+   overflow-y: scroll;
+   font-weight: bold;
+}
+.order-stat-title{
+    height: 100%;
+    padding: 2px;
+}
+.filtered-orders-details{
+    overflow: scroll;
+    text-align: center;
+}
+.order-det-item{
+    padding: 5px;
+    width: 100%;
+    max-width: 100%;
+}
+#add-address{
+    width:95%;
+    margin-left:2.5%;
+}
+#add-address input{
+    width: 90%;
+    margin-left: 5%;
+}
+#add-address label{
+    margin-left: 5%;
+    font-weight: bold;
+}
+#add-address button{
+    width:40%;
+    margin-left: 30%;
+    margin-bottom:40px;
+}
+#magnify-prod-image{
+    display:none;
+}
+#forgot-password input{
+    width: 90%;
+    margin-left: 5%;
+  }
+  #forgot-password label{
+      width: 90%;
+      margin-left: 5%;
+    }
+    #forgot-password button{
+        margin-top:40px;
+         margin-left:40%;
+    }
+    #account-rec_form input{
+        margin-left: 5%;
+        width: 90%;
+    }
+    #account-rec_form label{
+        margin-left: 5%;
+        width: 90%;
+    }
+    #account-rec_form button{
+        margin-top:20px;
+        margin-left: 20%;
+    }
+
+
+ }

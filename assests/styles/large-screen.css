@@ -1,0 +1,622 @@
+@media screen and (min-width:786px){
+   
+    body{
+        margin: 0%;
+        padding:0px;
+    }
+    #page-wrapper{
+        position: relative;
+        min-height: 100vh;
+    }
+    #content-wrapper{
+        padding-bottom: 500px;
+       position: relative;
+    }
+    #footer-wrapper{
+        position: absolute;
+        bottom: 0%;
+        background-color: black;
+        width: 100%;
+        height: auto;
+        padding-bottom: 50px;
+        color: white;
+    }
+    #footer-content{
+        padding:0%;
+
+    }
+    #nav-bar-small{
+        display: none;
+    }
+    .footer-item{
+        float: left;
+        width: 25%;
+        padding-left: 5%;
+       
+    }
+    .footer-item ul{
+        list-style-type: none;
+        padding: 0px;
+        padding-top: 10px;
+    }
+    .footer-title{
+        font-size: 1.4em;
+        text-decoration: underline;
+        
+    }
+    #nav-section{
+        width: 100%;
+        height: 60px;
+        padding-left: 10px;
+        padding-top: 5px;
+       
+    }
+     #home-icon img{
+         width: 96%;
+         height: 100%;
+     }
+     #search-section{
+         padding-top: 7px;
+        padding-right: 10px;
+        height: 100%;
+  
+     }
+    
+     #categories-section{
+         top:-5px;
+         background-color: black;
+        position: relative;
+        color: sandybrown;
+        height: 50px; 
+        max-height: 50px;
+        overflow: hidden;
+        width: 100%;
+        white-space: nowrap;
+        padding-left: 10px;
+        text-overflow: ellipsis;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        scrollbar-width: thin;
+        scrollbar-color: dark;
+        font-weight: bold;
+        padding-bottom: 20px;
+    }
+    #categories-section ul{
+        position: absolute;
+        width: 100%;
+        list-style-type: none;
+        height: 100%;
+     
+       
+    }
+    #categories-section li{
+        float: left;
+       width: 200px;    
+       text-align: center;
+    }
+    #categories-section li:hover{
+       border-right:1px solid white;  
+       border-left:1px solid white;  
+    }
+    #categories-section a{
+
+        text-decoration: none;
+    }
+    #filterArrows{
+        width: 40%;
+        margin-left: 30%;
+    }
+    #filter-desc{
+        height: 40px;
+    }
+     #account-actions-ul{
+         width: 100%;
+         height: 60%;
+         background-color: white;
+         list-style-type: none;
+         padding: 0%;
+         font-weight: bold;
+     }
+     #account-actions-ul ul{
+         padding-left: 0%;
+         list-style-type: none;
+     }
+   #settings-section{
+       width: 99%;
+       margin-left: 0.5%;
+       margin-top:10px;
+   }
+    
+   
+    
+     .nav-icon{
+         width: 33%;
+      float: left;
+      max-width: 33%;
+      text-align: center;
+ 
+    }
+   
+
+    #products-section{
+       margin-left: 1.5%;
+        width: 97%;
+
+    }
+    #products-section img{
+        width: 70%;
+        margin-left:15%;
+        height: 200px;
+        max-height: 200px;
+        padding:2px;
+    }
+    #products-section button{
+        width:80%;
+        margin-left: 10%;
+        font-weight: bold;
+    }
+    #highlight-section button{
+        width:80%;
+        margin-left: 10%;
+        font-weight: bold;
+    }
+    .item-cat-overview{
+        margin-left: 7%;
+
+    }
+    .item-cat-title{
+        font-weight: bold;
+        
+    }
+    .favo-icon {
+        color: darkslategray;
+        margin-left: 20px;
+     
+    }
+    .prev-price{
+        color: red;
+    }
+    
+    .products-count {
+        color: black;
+        text-decoration: underline;
+        font-weight: weight;
+    }
+    #sticky-content{
+        border-bottom: 1px solid black;
+        z-index: 10;
+        background-color: white;
+        position: sticky;
+        top:0px;
+    }
+    #highlight-banner{
+        width: 100%;
+        height: 60vh;
+        padding-top: 40px;
+    }
+    #highlight-banner img{
+        width: 60%;
+        height: 100%;
+    }
+
+     #highlight-section{
+         width: 97%;
+         margin-left: 1.5%;
+         margin-top: 10px;
+     }
+     #highlight-section img{
+         padding:20px;
+        width: 80%;
+        height: 220px;
+        margin-left: 10%;
+        max-height: 220px;
+     }
+     #sign-in-sett{
+         display: none;
+     }
+     #user_avatar{
+         margin-left: 20px;
+         width: 120px;
+         height: 140px;
+        
+     }
+     #current-sect{
+         margin-left: 20px;
+     }
+     #settings-act{
+        margin-top: 30px;
+        padding-left: 30px;
+     }
+     .settings-act-icon{
+         display: none;
+     }
+    #user_name_avatar{
+        font-size: 0.8em;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-left: 2px;
+    }
+    #orders-view{
+        width: 99%;
+        margin-left: 0.5%;
+    }
+    .order-title{
+        border:1px solid black;
+        height: 30px;
+        background-color: mediumseagreen;
+        text-align: center;
+        width: 100%;
+    }
+    #orders-section{
+        width: 99%;
+        margin-left: 0.5%;
+        text-align: center;
+    }
+    .filtered-orders-title{
+      font-size: 1em;
+    }
+   .filtered-orders-details{
+       padding:10px;
+       font-size: 0.9em;
+   }
+  #filter_by_select{
+      padding: 10px;
+  }
+  #checkout-sect{
+      width: 99%;
+      margin-left: 0.5%;
+      padding-bottom: 20px;
+  }
+   #payForm{
+       width: 80%;
+       margin-left: 10%;
+      border-radius: 20px 20px 5px 5px;
+   }
+    #paymentForm input{
+     width: 80%;
+     margin-left: 10%;
+    }
+    #paymentForm label{
+        font-weight: bold;
+        width: 80%;
+        margin-left: 10%;
+    }
+    #paymentForm button{
+        width: 20%;
+        margin-left: 40%;
+        font-weight: bold;
+    }
+   
+   .cart-item-desc{
+      width: 60%;
+       height: 130px;
+       display: block;
+   }
+   .cart-item-title{
+       font-weight: bold;
+   }
+   .cart-item-desc img{
+       width: 100px; 
+       height: 100px;
+   }
+   #cart-checkout{
+       width:80%;
+       margin-left:10%;
+   }
+   .cart-item-desc input{
+       text-align: center;
+       width:30%;
+       margin-left:33%;
+       margin-top:5px;
+       margin-bottom: 10px;
+   }
+   .delete-icon{
+       color: red;
+   }
+   .delete-icon:hover{
+       cursor: pointer;
+   }
+   #item-total-price{
+       font-weight: bold;
+   }
+   .cartProceed{
+       margin-top: 20px;
+     margin-left:46%;
+   }
+   #delivery-address{
+     width: 100%;
+   }
+   #primary-address{
+    margin-left: 1%;
+    width:98%;
+   }
+ 
+   #delivery-address button{
+       margin-left:40%;
+       font-weight: bold;
+       width: 23%;
+   }
+   .totalAmount{
+     margin-left:2%;
+   }
+ #select-address{
+     width:9%0;
+     margin-left: 0.5%;
+    
+ }
+.address-item{
+    font-weight: bold;
+    margin-left:20px;
+    padding-left: 10px;
+    width:40%;
+}
+.select-del-address {
+    margin-left: 30%;
+}
+#add-address-btn{
+    margin-top:40px;
+    margin-left: 40%;
+    margin-bottom: 50px;
+}
+#pickup-station{
+    width: 90%;
+    margin-left: 5%;
+}
+#pickup-station form{
+    border:1px solid black;
+    width: 60%;
+    margin-left: 20%;
+    padding:30px;
+    border-radius: 0px 0px 20px 20px;
+}
+#save-address{
+    margin-left: 36%;
+} 
+#myfav{
+    font-weight: bold;
+    width: 99%;
+    margin-left: 0.5%;
+}   
+#coupons-center{
+    width: 99%;
+    margin-left: 0.5%;
+}
+#coupons-center img{
+    width: 100%;
+    height: 250px;
+}
+.coupon-card{
+    margin-bottom: 30px;
+}
+#address-settings{
+    width: 80%;
+    margin-left:5%;
+}
+#address-settings p{
+  margin-left: 2%;
+  font-weight: bold;
+}
+.address-loc{
+    width: 60%;
+    padding-bottom: 30px;
+}
+.actbtn{
+    margin-left: 20px;
+}
+#add-new-address{
+    font-weight: bold;
+    margin-left: 37%;
+    margin-top:100px;
+    width: 300px;
+    margin-bottom: 40px;
+}
+#add-address{
+    width:70%;
+    margin-left:15%;
+    margin-top: 40px;
+}
+#add-address input{
+    width: 90%;
+    margin-left: 5%;
+}
+#add-address label{
+    margin-left: 5%;
+    font-weight: bold;
+}
+#add-address button{
+    margin-top: 20px;
+    width:20%;
+    margin-left: 37%;
+    margin-bottom:40px;
+}
+#pers-det{
+ width: 98%;
+ margin-left: 1%;   
+ padding-top:10px;
+ padding-bottom:20px;
+}
+#personalDetails input{
+    margin-left:3%;
+    font-weight: bold;
+    width:80%;
+}
+
+#triggerPasswordUpdate{
+    margin-top:50px;
+    margin-bottom:40px;
+    margin-left:42%;
+}
+#updatePassword{
+    width:70%;
+    margin-left:15%;
+    padding:50px;
+    border:1px solid gray;
+}
+#updatePassword button{
+    margin-left:40%;
+}
+
+#view-spes-prod{
+    width:98%;
+    margin-left:1%;
+}
+.product-images{
+    border: 1px solid black;;
+    width:30%;
+    margin-left:2%;
+    max-width:15%;
+    height:300px;
+    overflow: scroll;
+    display: block;
+    scrollbar-width: none;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin-top:10px;
+}
+.product-images img{
+  width:98%;
+  margin-left:1%;
+  height: 60%;
+  padding:10px;
+  margin-bottom:20px;
+ 
+}
+
+#magnify-prod-image{
+    margin-top:10px;
+    width:60%;
+    border:1px solid gray;
+    margin-left:3%;
+}
+#magnify-prod-image img{
+    width:70%;
+   height: 430px;
+   margin-left: 15%;
+}   
+.product-description {
+    margin-left:1%;
+    padding-top:20px;
+    padding-left: 20px;
+    padding-right: 7px;
+    padding-bottom: 50px;
+}
+.prod_title{
+    font-weight: bold;
+}
+.product_price{
+    font-weight: bold;
+    color: tomato;
+}
+.selling_shop{
+    font-weight: bold;
+}
+.prod_act  button{
+    width: 15%;
+    margin-right: 40px;
+    margin-bottom:20px;
+}
+.h3{
+    font-weight: bold;
+}
+#authent-form-section{
+    width: 40%;
+    margin-left: 30%;
+    margin-top:30px;
+    
+}
+
+#login_form input,#login_form label {
+    width: 90%;
+    margin-left: 3%;
+}
+
+#login_form form button{
+    margin-left: 37%;
+    width: 20%;
+    margin-top: 20px;
+}
+.social-login{
+    margin-top: 30px;
+    margin-left: 27%;
+    margin-bottom: 20px;
+}
+
+#sign_up_form input,#sign_up_form label {
+    width: 90%;
+    margin-left: 3%;
+}
+
+#sign_up_form form button{
+    margin-left:40%;
+    margin-top: 20px;
+}
+.social-login{
+    margin-top: 30px;
+    margin-left: 27%;
+    margin-bottom: 20px;
+}
+#login-instead {
+ margin-left: 3%;
+}
+#forgot-password input{
+  width: 90%;
+  margin-left: 5%;
+}
+#forgot-password label{
+    width: 90%;
+    margin-left: 5%;
+  }
+  #forgot-password button{
+      margin-top:40px;
+       margin-left:40%;
+  }
+#account-rec_form input{
+    margin-left: 5%;
+    width: 90%;
+}
+#account-rec_form label{
+    margin-left: 5%;
+    width: 90%;
+}
+#account-rec_form button{
+    margin-top:20px;
+    margin-left: 40%;
+}
+#addr_itm{
+    width: 40%;
+    margin-left:30%;
+    margin-bottom:20px;
+}
+#paym_itm{
+    width: 40%;
+    margin-left: 30%;
+    margin-bottom:20px;
+}
+#cart_itm{
+    width: 40%;
+    margin-left: 30%;
+    margin-bottom:20px;
+   
+}
+.order-det{
+ text-align: center;
+}
+#view-spec-ord{
+    width: 90%;
+    margin-top: 40px;
+    margin-left: 5%;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+}
+.nav-icon{
+    cursor: pointer;
+}
+#categories-section li:hover{
+ color:white;
+
+}
+#home-icon{
+    cursor: pointer;
+}
+}
