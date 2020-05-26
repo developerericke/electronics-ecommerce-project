@@ -13,78 +13,107 @@
          
         <div id="page-wrapper">
             <div id="content-wrapper">
-                 <div id="sticky-content">
-                <div id="nav-section" class="w3-row">
-                    <div id="home-icon" class="w3-col s4 m4 l4">
-                        <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
-                    </div>
-                    <div id="search-section" class="w3-col s8 m8 l4 ">
-                        <form action="#" method="get">
-                            <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
-                        </form>
-                    </div>
-                    <div id="account-actions" class="l4 w3-col w3-round-xlarge">
-                        <ul id="account-actions-ul">
-                            <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
+                <div id="sticky-content">
+                    <div id="nav-section" class="w3-row">
+                        <div id="home-icon" class="w3-col s4 m4 l4">
+                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
+                        </div>
+                        <div id="search-section" class="w3-col s8 m8 l4 ">
+                            <form action="#" method="get">
+                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
+                            </form>
+                        </div>
+                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
+                            <ul id="account-actions-ul">
+                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
+                                    <ul><li class="shop_basket">
+                                     <span class="w3-small">Cart </span>
+                                     </li></ul>
+                                   
+                                </li>
+        
+                                <li class="nav-icon">    <i class="fas fa-user"></i>
                                 <ul><li>
-                                   Cart
+                                 <span class="w3-small">Account</span>     
                                 </li></ul>
-                               
-                            </li>
-    
-                            <li class="nav-icon">    <i class="fas fa-user"></i>
-                            <ul><li>
-                                Account
-                            </li></ul>
-                            
-                            </li>
-                            <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
-                                <ul><li>
-                                  Logout
-                                </li></ul>
-                               
-                            </li>
-                        </ul>
+                                
+                                </li>
+                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
+                                    <ul><li>
+                                      <span class="w3-small">Logout</span> 
+                                    </li></ul>
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                         
                     </div>
-                     
-                </div>
-            </div>
+                </div>  
                <div class="w3-card-4 " id="orders-section" >
                    <div  style="text-decoration: underline;font-weight: bold;margin-top:20px" class="w3-panel w3-large">My Orders</div>
-                  <div class="w3-row filter_by_select" >           
-                      <div class="w3-col w3-button order-title s4">Completed <i class="fas fa-arrow-down"></i> </div>
-                      <div class="w3-col w3-button order-title s4">Pending  <i class="fas fa-arrow-down"></i> </div>
-                      <div class="w3-col w3-button  order-title s4">All <i class="fas fa-arrow-down"></i> </div>  
-                  </div>
-                  <div class="w3-row filtered-orders-title w3-grey w3-margin-top">
-                    <div class="w3-col w3-border-right order-stat-title s2">Order ID </div>
-                    <div class="w3-col w3-border-right order-stat-title s4">Description</div>
-                    <div class="w3-col w3-border-right order-stat-title s2">Status</div>
-                    <div class="w3-col  w3-border-right order-stat-title s2">Order Date</div>
-                    <div class="w3-col  order-stat-title s2">Expected Delivery </div>
-                  </div>
-                       
-                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
-                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
-                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
-                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
-                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
-                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
-                  </div>
-                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
-                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
-                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
-                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
-                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
-                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
-                  </div>
-                  <div class="w3-row filtered-orders-details w3-padding-top w3-border-bottom">
-                    <div class="w3-col  w3-border-right order-det-item s2" >A126B10</div>
-                    <div class="w3-col w3-border-right order-det-item s4">Samsung Galaxy S9</div>
-                    <div class="w3-col w3-border-right order-det-item s2">Pending</div>
-                    <div class="w3-col   w3-border-right order-det-item s2">12-04-2020</div>
-                    <div class="w3-col  order-det-item s2">18-04-2020 </div>
-                  </div>
+                <div id="orders">
+                    <div id="filter-section">
+                        <div class="filter-desc">
+                            <div>Filter By</div>
+                            <div>Sort</div>
+                            <div>Keywords</div>
+                            <div>Apply</div>
+                            <div>Rest</div>
+                         </div>
+                        <div class="filter-order">
+                         <select class="w3-input" name="filterType" id="filterType">
+                             <option value="default">--Filter By--</option>
+                             <option value="Description">Description</option>
+                             <option value="Status">Order-Status</option>
+                         </select>
+                         <select class="w3-input" name="SortResult" id="SortResult">
+                            <option value="default">--Sort By--</option>
+                            <option value="Description">Ascending</option>
+                            <option value="Status">Descending</option>
+                        </select>
+                        <input class="w3-input w3-round-large" type="search" placeholder="Search ..." name="searchBY" id="searchBy">
+                        <button style="font-weight: bold;" class="w3-btn w3-pale-green w3-hover-green w3-text-black w3-hover-text-black" type="submit">Apply Filter</button>
+                        <button style="font-weight: bold;" class="w3-btn w3-pale-red w3-hover-red w3-text-black w3-hover-text-black"  type="reset">Reset</button>
+                        </div>
+                    </div>
+                  
+                   
+                    <div style="border:0px solid black;" class="order-sec titles">
+                        <div class="order-id">Order N<sup class="w3-small">o</sup></div>
+                        <div class="order-data-time">Order Data/Time</div>
+                        <div class="expected-delivery">Expected Delivery Date</div>
+                        <div class="order-descr">Description</div>
+                        <div class="order-status">Order Status</div>
+                        <div class="delivery-date">Delivery Date</div>
+                    </div>
+                    <div class="order-sec">
+                        <div class="order-id">1234567</div>
+                        <div class="order-data-time">12-10-2020 ,12.34.02 pm</div>
+                        <div class="expected-delivery">15-10-2020</div>
+                        <div class="order-descr">2pc Samsung s20</div>
+                        <div class="order-status">Awaiting Dispatch</div>
+                        <div class="delivery-date">N/A</div>
+                    </div>
+                    <div class="order-sec">
+                        <div class="order-id">1234567</div>
+                        <div class="order-data-time">12-10-2020 ,12.34.02 pm</div>
+                        <div class="expected-delivery">15-10-2020</div>
+                        <div class="order-descr">2pc Samsung s20</div>
+                        <div class="order-status">Awaiting Dispatch</div>
+                        <div class="delivery-date">N/A</div>
+                    </div>
+                    <div class="order-sec">
+                        <div class="order-id">1234567</div>
+                        <div class="order-data-time">12-10-2020 ,12.34.02 pm</div>
+                        <div class="expected-delivery">15-10-2020</div>
+                        <div class="order-descr">2pc Samsung s20</div>
+                        <div class="order-status">Awaiting Dispatch</div>
+                        <div class="delivery-date">N/A</div>
+                    </div>
+                </div>
+                  
+              
                   
                </div>
             
@@ -94,50 +123,52 @@
             </div>
     
             <div id="footer-wrapper">
-               <div class="w3-row" id="nav-bar-small">
-                   <div class="w3-col s3">Home <br><i  class="fas fa-home"></i> </div>
-                   <div class="w3-col s3">Cart <br><i class="fas fa-shopping-cart"></i><sup>3</sup> </div>
-                   <div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div>
-                   <div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div>
-                   
-               </div>
-               <div id="footer-content">
-                <ul style="list-style-type: none;padding: 0px;">
-                    <li class="footer-item"> <span class="footer-title">Quick Links</span> 
-                        <ul>
-                            <li>Samsung</li>
-                            <li>Oppo</li>
-                            <li>Tecno</li>
-                            <li>Laptop</li>
-                            <li>Laptop Accessories</li>
-                         </ul>
-                    </li>
-                    <li  class="footer-item"><span class="footer-title">Important Information</span>
-                        <ul><li >About Us</li>
-                             <li>Contact Us</li>
-                              <li>Privacy Policy</li>
-                            <li>Terms and Conditions</li> </ul>
-                    <li  class="footer-item"><span class="footer-title"> Our Location</span>
-                        <ul><li >
-                            BIGHOUSE BUILDING <br>
-                            P.O BOX 123 <br>
-                            NAIROBI
-                        </li></ul>
-                    </li>
-                    <li  class="footer-item"><span class="footer-title">Contact Us</span>
-                        <ul>
-                            <li>Facebook</li>
-                            <li>Twitter</li>
-                            <li>Youtube</li>
-                         </ul>
-                    </li>
-                </ul>
-               </div>
+                <input type="text" value='0'  class="cartVALUE w3-hide">
+                <div class="w3-row" id="nav-bar-small">
+                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
+                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
+                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
+                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
+                    
+                </div>
+                <div id="footer-content">
+                 <ul style="list-style-type: none;padding: 0px;">
+                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
+                         <ul>
+                             <li>Samsung</li>
+                             <li>Oppo</li>
+                             <li>Tecno</li>
+                             <li>Laptop</li>
+                             <li>Laptop Accessories</li>
+                          </ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Important Information</span>
+                         <ul><li >About Us</li>
+                              <li>Contact Us</li>
+                               <li>Privacy Policy</li>
+                             <li>Terms and Conditions</li> </ul>
+                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
+                         <ul><li >
+                             BIGHOUSE BUILDING <br>
+                             P.O BOX 123 <br>
+                             NAIROBI
+                         </li></ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
+                         <ul>
+                             <li>Facebook</li>
+                             <li>Twitter</li>
+                             <li>Youtube</li>
+                          </ul>
+                     </li>
+                 </ul>
+                </div>
            
             </div>
         </div>
     
-    
+        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+                
     
     </body>
     </html>

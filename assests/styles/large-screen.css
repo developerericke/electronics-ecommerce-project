@@ -63,44 +63,45 @@
      }
     
      #categories-section{
-         top:-5px;
-         background-color: black;
+         top:-13px;
+         background-color: #333;
         position: relative;
         color: sandybrown;
-        height: 50px; 
-        max-height: 50px;
-        overflow: hidden;
-        width: 100%;
-        white-space: nowrap;
-        padding-left: 10px;
-        text-overflow: ellipsis;
-        overflow-y: hidden;
-        scroll-behavior: smooth;
-        scrollbar-width: thin;
-        scrollbar-color: dark;
         font-weight: bold;
-        padding-bottom: 20px;
+        min-height: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+       
+
     }
     #categories-section ul{
-        position: absolute;
-        width: 100%;
-        list-style-type: none;
         height: 100%;
-     
-       
+        list-style-type: none;
+        display: flex;
+        padding: 0px;
+        flex-wrap: wrap;
+        justify-content:flex-start ;
     }
     #categories-section li{
-        float: left;
-       width: 200px;    
-       text-align: center;
-    }
-    #categories-section li:hover{
-       border-right:1px solid white;  
-       border-left:1px solid white;  
+        flex:0 0 10%;
+        width: 10%;
+        max-width: 10%;
     }
     #categories-section a{
-
+        display: block;
         text-decoration: none;
+        padding: 10px 10px;  
+        font-size: 0.8em;  
+        height: 100%;
+    }
+    #categories-section a:hover{
+       border-right:1px solid white;
+       border-left:1px solid white;
+       color:white;   
+    }
+    #sub-options{
+        margin-top:-20px;
+        border:1px solid burlywood;
     }
     #filterArrows{
         width: 40%;
@@ -138,23 +139,7 @@
     }
    
 
-    #products-section{
-       margin-left: 1.5%;
-        width: 97%;
-
-    }
-    #products-section img{
-        width: 70%;
-        margin-left:15%;
-        height: 200px;
-        max-height: 200px;
-        padding:2px;
-    }
-    #products-section button{
-        width:80%;
-        margin-left: 10%;
-        font-weight: bold;
-    }
+   
     #highlight-section button{
         width:80%;
         margin-left: 10%;
@@ -188,29 +173,67 @@
         background-color: white;
         position: sticky;
         top:0px;
+        padding-bottom: 3px;
     }
+    @keyframes cartEffect {
+        from {color: black;font-weight: 100;font-size: 0em;}
+        to {color: brown;font-weight: bolder;font-size: medium;}
+      }
+      .anime-class{
+        animation-name: cartEffect;
+        animation-duration: 0.3s;
+      
+      }
+  
     #highlight-banner{
+        margin-top:-20px;
+        box-sizing: border-box;
         width: 100%;
         height: 60vh;
-        padding-top: 40px;
+        border:1px solid gray;
     }
     #highlight-banner img{
-        width: 60%;
+        margin-left:0.5%;
+        width: 99%;
         height: 100%;
     }
 
      #highlight-section{
+         display: flex;
          width: 97%;
          margin-left: 1.5%;
          margin-top: 10px;
+         padding: 10px 0px;
      }
-     #highlight-section img{
-         padding:20px;
-        width: 80%;
-        height: 220px;
-        margin-left: 10%;
-        max-height: 220px;
-     }
+    .high_sub_sec{
+        flex:0 0 50%;
+        max-width: 50%;
+        
+    
+    }
+    .highlight-list{
+        box-sizing: border-box;
+        display: flex;
+        width:100%;
+        margin: 0px 0%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+       
+    }
+    .highlight-list-item{
+        flex: 0 0 49%;
+        margin-bottom: 20px;
+        height:400px;
+        padding:20px 0px;
+        border:1px solid gray;
+        margin-left:0.5%;
+    }
+    .highlight-list img{
+        min-width: 90%;
+        width: 95%;
+        margin: 0px 2.5%;
+        height: 65%;
+    }
      #sign-in-sett{
          display: none;
      }
@@ -240,6 +263,36 @@
         width: 99%;
         margin-left: 0.5%;
     }
+    .filter-order{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+     
+        padding:4px 0;
+        justify-content: space-around;
+        margin-bottom:15px;
+        text-align: center;
+        font-size: small;
+        
+    }
+    .filter-order select,.filter-order button,.filter-order input{    
+       flex: 0 0 18%;
+       border:1px solid lightblue;
+    }
+    .filter-desc{
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+       
+    }
+    .filter-desc div{
+        flex: 0 0 18%;
+        text-decoration: underline;
+        font-weight: bolder;
+      
+    }
     .order-title{
         border:1px solid black;
         height: 30px;
@@ -250,7 +303,31 @@
     #orders-section{
         width: 99%;
         margin-left: 0.5%;
-        text-align: center;
+        padding-bottom: 1vh;
+   
+    }
+    #filter-section{
+        border:1px solid grey;
+        padding: 1px 0;
+    }
+    .order-sec{
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center; 
+        margin:5px 0;    
+        
+    }
+    #orders .titles div{
+         background-color: gray;
+        flex:0 0 16%;
+        border:1px solid black;
+        padding:5px 0;
+    }
+    .order-sec div{
+      border:0.5px solid grey;
+        flex :0 0 16%;
+       text-align: center;
+       padding:5px 0;
     }
     .filtered-orders-title{
       font-size: 1em;
@@ -266,16 +343,136 @@
       width: 99%;
       margin-left: 0.5%;
       padding-bottom: 20px;
+    
   }
+ 
    #payForm{
        width: 80%;
        margin-left: 10%;
-      border-radius: 20px 20px 5px 5px;
+      border-radius: 10px 10px 5px 5px;
+      padding-bottom: 30px;
+    
    }
+   #paym-methods{
+    display:flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-around;
+    padding-top: 20px;
+   }
+   #paym-methods div{
+       text-align: center;
+       cursor: pointer;
+     flex: 0 0 15%;
+     height:100px;
+     border:2px solid lightblue;
+
+   }
+   #paym-methods div:hover{
+       border:3px solid darkcyan;
+       font-weight: bold;
+   }
+   #pay-mpesa{
+       padding: 5px 5px;
+       display: flex;
+       margin-left: 10%;
+       width:80%;
+       flex-wrap: wrap;
+       margin-top:40px;
+       border: 1px solid gray;
+   }
+   #verify-mpesa-code button,#verify-mpesa-code input{
+     width:70%;
+     margin-left: 15%; 
+    
+   }
+   #verify-mpesa-code label{
+       display: block;
+       max-width: 80%;
+       margin-left: 15%;
+   
+    
+   }
+   #loader-receipt{
+       padding: 30px 0;
+   }
+   #receiptSection{
+       margin-top:10px;
+       width:90%;
+       margin-left: 5%;
+   }
+   #loader-receipt img{
+       margin-top:20px;
+      
+   }
+   .loadgif-button{
+    width:10%;
+    height: 10%;
+   }
+   .loadgif-mpesaOkay{
+       width:6%;
+       height: 10%;
+   }
+   /* #receiptSection{
+       margin-top:2vh;
+       border: 1px solid blue;;
+       height: 40vh;
+   } */
+   #pay-mpesa div{
+       
+       flex:1 0 50%;
+   }
+   #cash-on-delivery{
+       width:50%;
+       padding:20px 5px;
+       margin-left: 25%;
+       margin-top:30px;
+   }
+   #recieptCard{
+       border:5px dashed brown;
+       margin-top:30px;
+       width: 100%;
+      height:60vh;
+   }
+   #ReceiptDetails{
+       max-height: 100%;
+       height: 90%;
+       border:3px solid black;
+   }
+   #order-details{
+       padding: 5px 0;
+       display: flex;
+       flex-wrap: wrap;
+       text-align: center;
+   }
+   #order-details div{
+    margin:3px 0;
+      flex:0 0 18%;
+      border:1px solid gray;
+      padding:3px 5px;
+   }
+  #order-details .title{
+      display: block;
+      background-color: gray;
+    font-weight: bold;
+    text-decoration: underline;
+    color:black;
+  }
+  #order-details .describe{
+       font-style: italic;
+      font-weight: lighter;
+  }
+   
     #paymentForm input{
      width: 80%;
      margin-left: 10%;
     }
+    #paymentForm div{
+        width: 80%;
+        margin-left: 10%;
+        margin-bottom: 40px;
+       }
     #paymentForm label{
         font-weight: bold;
         width: 80%;
@@ -321,7 +518,21 @@
    }
    .cartProceed{
        margin-top: 20px;
-     margin-left:46%;
+     margin-left:40%;
+     width:20%;
+   }
+   #checkoutPreload{
+       border:1px solid grey;
+       margin-top:30px;
+       width:90%;
+       margin-left:5%;
+       height:40vh;
+   }
+   #checkoutPreload img{
+       margin-left: 40%;
+   }
+   .loadgif-cartokay{
+       height: 20px;
    }
    #delivery-address{
      width: 100%;
@@ -339,6 +550,13 @@
    .totalAmount{
      margin-left:2%;
    }
+   .totalAmount p{
+       padding-left: 5px;
+   }
+   #totSumm{
+       margin-top: 30px;
+    width:30%;
+}
  #select-address{
      width:9%0;
      margin-left: 0.5%;
@@ -372,11 +590,7 @@
 #save-address{
     margin-left: 36%;
 } 
-#myfav{
-    font-weight: bold;
-    width: 99%;
-    margin-left: 0.5%;
-}   
+ 
 #coupons-center{
     width: 99%;
     margin-left: 0.5%;
@@ -389,21 +603,56 @@
     margin-bottom: 30px;
 }
 #address-settings{
-    width: 80%;
-    margin-left:5%;
+    width: 99%;
+    margin-left:0.5%;
+    margin-top: 1%;
+   
 }
-#address-settings p{
-  margin-left: 2%;
-  font-weight: bold;
+#avail-address{
+    border:1px solid gray;
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding:1% 1%;
+    justify-content: flex-start;
+
 }
 .address-loc{
-    width: 60%;
-    padding-bottom: 30px;
+    padding:1% 1%;
+    margin-left: 2%;
+    flex:0 0 30%;  
+}
+.address-loc .title{
+    color:gray;
+    font-weight: bold;
+}
+.address-loc .content{
+    font-size: small;
+    color:black;
+    font-weight: bold;
 }
 .actbtn{
-    margin-left: 20px;
+    margin-top:3%;
+ font-size: small;
+ width:49%;
+ font-weight: bold;
 }
+#AddrNA{
+    cursor: pointer;
+   display:flex;
+   align-items: center;
+   justify-content: center;
+}
+#AddrNA:hover{
+    text-decoration: underline;
+  
+}
+#AddrNA div{
+    font-weight:bold;
+     text-shadow: gray;
+ }
 #add-new-address{
+
     font-weight: bold;
     margin-left: 37%;
     margin-top:100px;
@@ -411,9 +660,15 @@
     margin-bottom: 40px;
 }
 #add-address{
-    width:70%;
-    margin-left:15%;
-    margin-top: 40px;
+   width: 100%;
+}
+#addressFormStatus{
+    width: 90%;
+    margin-left: 5%;
+}
+#new-add-modal{
+    height:95vh;
+    margin-top:-6%;
 }
 #add-address input{
     width: 90%;
@@ -435,10 +690,17 @@
  padding-top:10px;
  padding-bottom:20px;
 }
+.loadgif{
+    height: 20px;
+}
 #personalDetails input{
     margin-left:3%;
     font-weight: bold;
     width:80%;
+    font-size: small;
+}
+#personalDetails  #formSect button{
+    font-size: smaller;
 }
 
 #triggerPasswordUpdate{
@@ -545,6 +807,10 @@
     width: 90%;
     margin-left: 3%;
 }
+#sign_up_form{
+    margin:0px;
+}
+
 
 #sign_up_form form button{
     margin-left:40%;
@@ -555,8 +821,9 @@
     margin-left: 27%;
     margin-bottom: 20px;
 }
-#login-instead {
+.login-instead {
  margin-left: 3%;
+ cursor: pointer;
 }
 #forgot-password input{
   width: 90%;
@@ -570,14 +837,11 @@
       margin-top:40px;
        margin-left:40%;
   }
-#account-rec_form input{
+#account-rec_form input,#account-rec_form  div,#account-rec_form label{
     margin-left: 5%;
     width: 90%;
 }
-#account-rec_form label{
-    margin-left: 5%;
-    width: 90%;
-}
+
 #account-rec_form button{
     margin-top:20px;
     margin-left: 40%;
@@ -602,9 +866,9 @@
  text-align: center;
 }
 #view-spec-ord{
-    width: 90%;
+    width: 100%;
     margin-top: 40px;
-    margin-left: 5%;
+
     padding-left: 10px;
     padding-right: 10px;
     padding-bottom: 20px;
@@ -612,11 +876,80 @@
 .nav-icon{
     cursor: pointer;
 }
-#categories-section li:hover{
- color:white;
 
-}
 #home-icon{
     cursor: pointer;
 }
+.products-section{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding:10px 5px;
+}
+#toogleViewProd{
+    display: none;
+}
+.product-item{
+   flex:0 0 25%;
+   height:350px;
+   padding: 1px 4px;
+   border:2px solid black;
+   margin:20px 0;
+}
+.product-item a{
+    text-decoration: none;
+}
+.product-item:hover{
+    background-color: #e6ffe6;
+}
+ 
+
+ .products-section img{
+    cursor: pointer;
+     width: 75%;
+     margin-left:12.5%;
+     height: 210px;
+     max-height: 250px;
+    
+ }
+ .products-section button{
+     width:80%;
+     margin-left: 10%;
+     font-weight: bold;
+ }
+ #myfav{
+    font-weight: bold;
+    width:60%;
+    margin-left: 1%;
+   
+}  
+ .fav-box{
+     box-sizing: border-box;
+    height:150px;
+ }
+ .fav-box img{
+    box-sizing: border-box;
+   height:80%;
+   width: 40%;
+
+}
+.fav-box div{
+    padding:10px 5px;
+}
+
+.cart-section-itm{
+    height:170px;
+   padding:7px 5px;
+}
+.cart-section-itm img{
+    width: 130px;
+   
+}
+.quantity-contr{
+    padding:30px 5px;
+}
+.del-contr,.prc-cont{
+    padding:50px 5px;
+}
+
 }

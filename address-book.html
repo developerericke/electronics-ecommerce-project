@@ -28,22 +28,23 @@
                         </div>
                         <div id="account-actions" class="l4 w3-col w3-round-xlarge">
                             <ul id="account-actions-ul">
-                                <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                    <ul><li>
-                                       Cart
-                                    </li></ul>
+                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
+                                    <ul><li class="shop_basket">
+                                     <span class="w3-small">Cart </span>
+                                     </li></ul>
                                    
                                 </li>
         
                                 <li class="nav-icon">    <i class="fas fa-user"></i>
                                 <ul><li>
-                                    Account
+                                 <span class="w3-small">Account</span>     
                                 </li></ul>
                                 
                                 </li>
                                 <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
                                     <ul><li>
-                                      Logout
+                                      <span class="w3-small">Logout</span> 
                                     </li></ul>
                                    
                                 </li>
@@ -51,66 +52,144 @@
                         </div>
                          
                     </div>
-                </div>
+                </div> 
                 <div class="w3-cad-2">
                     <div id="address-settings" class="w3-border">
-                        <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top w3-margin-bottom">Settings</div>
-                        <div class="address-loc w3-card-2  ">
-                            <p>
-                             JOE DOE <br>
-                             P.O BOX 123 <br>
-                             KAKAMEGA <br>
-                             254724144002. <br>
-                            </p>
-                            
-                             <div class="actbtn w3-btn w3-border w3-pale-green w3-text-black w3-border">Default Selected</div>
-                             <div class="actbtn w3-btn w3-border w3-text-red w3-border">Delete Address</div>
-  
-                            
-                        </div> 
-                        <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
-                            <p>
-                             Mitchelle Wanjiru <br>
-                             P.O BOX 456 <br>
-                             NAIROBI <br>
-                             254729093444. <br>
-                            </p>
-                     
-                            <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
-                             <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
-                        
-                         </div> 
-                     <div class="address-loc w3-card-2 w3-margin-top w3-margin-top">
-                         <p>
-                             JOE DOE <br>
-                             P.O BOX 123 <br>
-                             KAKAMEGA <br>
-                             254724144002. <br>
-                         </p>
-                        
-                         <div class="actbtn w3-btn w3-border w3-text-green ">Select as Default</div>
-                            <div class="actbtn w3-btn w3-border w3-text-red ">Delete Address</div>
-                        
-                     </div> 
- 
-                  <button id="add-new-address" class="w3-btn w3-margin-bottom w3-round-large add-address-btn w3-black w3-text-green w3-margin-top w3-center">Add Address</button>
- 
+                        <!-- <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top w3-margin-bottom">Settings</div>
+                        <button id="add-new-address" class="w3-btn w3-margin-bottom w3-round-large add-address-btn w3-black w3-text-green w3-margin-top w3-center">Add Address</button>
+  -->
+                        <div id="avail-address">
+
+                            <div id='address0' class="address-loc w3-card-2  w3-margin-bottom">
+                                <div>
+                                    <span class="title">Name  :</span> <span  class="content">JOE DOE</span>  <br>
+                                    <span class="title">Phone :</span> <span  class="content">0724144002</span> <br>
+                                   <span class="title">County :</span> <span  class="content">County</span><br>
+                                   <span class="title">Location:</span> <span  class="content">Location</span><br>
+                                   <span class="title">P.O BOX  :</span> <span  class="content">123-KAK </span>  <br>
+                                    <span class="title">Description :</span> <span  class="content">Some Description</span><br>
+                                   
+                                </div>
+                                 
+                                
+                                 <div  class="actbtn  w3-btn w3-border w3-pale-green  w3-border">Default Selected</div>
+                                 <div class="actbtn w3-disabled  w3-btn w3-border w3-text-red w3-border">Delete Address</div>
+      
+                                
+                            </div>   
+                            <div id='address1' class="address-loc w3-card-2  w3-margin-bottom">
+                                <div>
+                                    <span class="title">Name  :</span> <span  class="content">JOE DOE</span>  <br>
+                                    <span class="title">Phone :</span> <span  class="content">0724144002</span> <br>
+                                   <span class="title">County :</span> <span  class="content">County</span><br>
+                                   <span class="title">Location:</span> <span  class="content">Location</span><br>
+                                   <span class="title">P.O BOX  :</span> <span  class="content">123-KAK </span>  <br>
+                                    <span class="title">Description :</span> <span  class="content">Some Description</span><br>
+                                   
+                                </div>
+                                 
+                                
+                                 <div style="color:blue" class="actbtn defSelect  w3-btn   w3-border">Select as Default</div>
+                                 <div style="color:lightcoral;"  class="actbtn  w3-btn w3-border delAddress ">Delete Address</div>
+      
+                                
+                            </div>   
+                            <div id='address2' class="address-loc w3-card-2  w3-margin-bottom">
+                                <div>
+                                    <span class="title">Name  :</span> <span  class="content">JOE DOE</span>  <br>
+                                    <span class="title">Phone :</span> <span  class="content">0724144002</span> <br>
+                                   <span class="title">County :</span> <span  class="content">County</span><br>
+                                   <span class="title">Location:</span> <span  class="content">Location</span><br>
+                                   <span class="title">P.O BOX  :</span> <span  class="content">123-KAK </span>  <br>
+                                    <span class="title">Description :</span> <span  class="content">Some Description</span><br>
+                                   
+                                </div>
+                                 
+                                
+                                 <div style="color:blue" class="actbtn defSelect  w3-btn   w3-border">Select as Default</div>
+                                 <div style="color:lightcoral;"  class="actbtn  w3-btn w3-border delAddress ">Delete Address</div>
+      
+                                
+                            </div>   
+                            <div id='address3' class="address-loc w3-card-2  w3-margin-bottom">
+                                <div>
+                                    <span class="title">Name  :</span> <span  class="content">JOE DOE</span>  <br>
+                                    <span class="title">Phone :</span> <span  class="content">0724144002</span> <br>
+                                   <span class="title">County :</span> <span  class="content">County</span><br>
+                                   <span class="title">Location:</span> <span  class="content">Location</span><br>
+                                   <span class="title">P.O BOX  :</span> <span  class="content">123-KAK </span>  <br>
+                                    <span class="title">Description :</span> <span  class="content">Some Description</span><br>
+                                   
+                                </div>
+                                 
+                                
+                                 <div style="color:blue" class="actbtn defSelect  w3-btn   w3-border">Select as Default</div>
+                                 <div style="color:lightcoral;"  class="actbtn  w3-btn w3-border delAddress ">Delete Address</div>
+      
+                                
+                            </div>   
+                            <div id='address4' class="address-loc w3-card-2  w3-margin-bottom">
+                                <div>
+                                    <span class="title">Name  :</span> <span  class="content">JOE DOE</span>  <br>
+                                    <span class="title">Phone :</span> <span  class="content">0724144002</span> <br>
+                                   <span class="title">County :</span> <span  class="content">County</span><br>
+                                   <span class="title">Location:</span> <span  class="content">Location</span><br>
+                                   <span class="title">P.O BOX  :</span> <span  class="content">123-KAK </span>  <br>
+                                    <span class="title">Description :</span> <span  class="content">Some Description</span><br>
+                                   
+                                </div>
+                                 
+                                
+                                 <div style="color:blue" class="actbtn defSelect  w3-btn   w3-border">Select as Default</div>
+                                 <div style="color:lightcoral;"  class="actbtn  w3-btn w3-border delAddress ">Delete Address</div>
+      
+                                
+                            </div>     
+                            <div id='AddrNA' class="address-loc w3-card-2  w3-hover-pale-yellow w3-margin-bottom">
+                               
+                                            <div class="w3-large">Add New</div>
+                                       
+                                          
+                                        
+                                
+                            </div>    
+                 
                     </div>
+                    <div id="new-address" class="w3-modal" style="z-index: 90;">
+                        <div id="new-add-modal" class="w3-modal-content">
+                            <div class="w3-panel w3-right w3-large w3-hover-text-red" id="close" style="cursor: pointer;">X</div>
+                            
+                            <div style="text-decoration: underline;" class=" w3-xlarge w3-center w3-text-blue ">Add Address Form</div>
+                                
+                        
+                            <form action="post"  id="add-address">
+                               <div id="addressFormStatus" style="font-weight: bold;" class="w3-panel w3-small w3-center"></div>
+                                <label id="recipientLabel" for="recipient" class="w3-small" style="font-weight: bold;">Recipient Name</label>
+                                <input required placeholder="i.e JOE DOE" class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="recipient" id="recipient">
+                                
+                                <label id='phoneLabel' for="phone" class="w3-small" style="font-weight: bold;">Phone</label>
+                                <input maxlength="13" minlength="13"  required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="phone" id="phone">
+                               
+                                <label id='CountyLabel' for="County" class="w3-small" style="font-weight: bold;" >County</label>
+                                <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="County" id="County">
+                                
+                                <label id='locationLabel' for="location" class="w3-small" style="font-weight: bold;" >Location</label>
+                                <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="location" id="location">
+                               
+                                
+                                <label id='poBOXLabel' for="P.O BOX" class="w3-small" style="font-weight: bold;" >P.O BOX</label>
+                                <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="poBOX" id="poBOX">
+                               
+                              <label id='locDescLabel' for="locDesc" class="w3-small" style="font-weight: bold;" >Location Description <span class="w3-small">(optional)</span> </label>
+                                <input  class="w3-input w3-center w3-border" type="text" name="locDesc" id="locDesc">
+                                <button type="submit" class="w3-btn w3-black w3-round-large">Submit</button>
+                            </form>
+                        </div>
+                        
+                    </div>
+                   
 
-
-                   <form action="post" class="w3-card-2 " style="display: none;" id="add-address">
-                       <div class="w3-panel w3-center w3-margin-bottom w3-blue">Add Address Form</div>
-                       <div class="w3-panel w3-black w3-center"></div>
-                       <label id="recipientLabel" for="recipient" class="w3-small" style="font-weight: bold;">Reciever Name</label>
-                       <input required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="recipient" id="recipient">
-                       <label id='poBOXLabel' for="P.O BOX" class="w3-small" style="font-weight: bold;" >P.O BOX</label>
-                       <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="poBOX" id="poBOX">
-                       <label id='locationLabel' for="location" class="w3-small" style="font-weight: bold;" >Location</label>
-                       <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="location" id="location">
-                       <label id='phoneLabel' for="phone" class="w3-small" style="font-weight: bold;">Phone</label>
-                       <input maxlength="13" minlength="13"  required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="phone" id="phone">
-                       <button type="submit" class="w3-btn w3-black w3-round-large">Submit</button>
-                   </form>
+                  
                   
                   </div>
                  
@@ -119,11 +198,12 @@
             </div>
     
             <div id="footer-wrapper">
-                <div class="w3-row"  id="nav-bar-small">
-                    <div class="w3-col s3">Home <br><i  class="fas fa-home"></i> </div>
-                    <div class="w3-col s3">Cart <br><i class="fas fa-shopping-cart"></i><sup>3</sup> </div>
-                    <div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div>
-                    <div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div>
+                <input type="text" value='0'  class="cartVALUE w3-hide">
+                <div class="w3-row" id="nav-bar-small">
+                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
+                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
+                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
+                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
                     
                 </div>
                 <div id="footer-content">
@@ -158,12 +238,32 @@
                      </li>
                  </ul>
                 </div>
-            
            
             </div>
         </div>
     
-    
+
+        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+       
+        <script>
+            $(document).ready(()=>{
+               
+            //    $('#new-address').toggle(250,()=>{
+            //     $('#new-address #close').click(()=>{
+            //         $('#new-address').toggle()
+            //     })
+            //    })
+
+               $('#AddrNA').click(()=>
+               $('#new-address').toggle(250,()=>{
+                $('#new-address #close').click(()=>{
+                  
+                    $('#new-address').hide()
+                })
+               }))
+
+            })
+        </script>
     
     </body>
     </html>

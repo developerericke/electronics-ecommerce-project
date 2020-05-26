@@ -6,32 +6,18 @@
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
          <link rel="stylesheet" href="./assests/styles/large-screen.css">
+         <link rel="stylesheet" href="./assests/styles/fontawesome.css">
          <style>
              .testcase{
-              
                  border:3px solid green;
              }
+           
          </style>
 
          <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
          <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
-         <script src="./assests/scripts/script.js"></script>
-         <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
-         <script src="./assests/scripts/jquery.connections.js"></script>
-         <script >
-             $(document).ready(()=>{
-                 $('#cart_itm').connections({
-                     to:'#addr_itm',
-                     'class': 'testcase'
-                 })
-                 $('#addr_itm').connections({
-                     to:'#paym_itm',
-                     'class': 'testcase'
-                 })
-
-
-             })
-         </script>
+           <script src="./assests/scripts/script.js"></script>  
+       
     </head>
     <body>
          
@@ -49,22 +35,23 @@
                         </div>
                         <div id="account-actions" class="l4 w3-col w3-round-xlarge">
                             <ul id="account-actions-ul">
-                                <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                    <ul><li>
-                                       Cart
-                                    </li></ul>
+                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
+                                    <ul><li class="shop_basket">
+                                     <span class="w3-small">Cart </span>
+                                     </li></ul>
                                    
                                 </li>
         
                                 <li class="nav-icon">    <i class="fas fa-user"></i>
                                 <ul><li>
-                                    Account
+                                 <span class="w3-small">Account</span>     
                                 </li></ul>
                                 
                                 </li>
                                 <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
                                     <ul><li>
-                                      Logout
+                                      <span class="w3-small">Logout</span> 
                                     </li></ul>
                                    
                                 </li>
@@ -72,26 +59,27 @@
                         </div>
                          
                     </div>
-                </div>
+                </div> 
+            <div id="cart-items-wrapper" >    
                 <div class="w3-card-2" id="checkout-sect">
                     <div class="w3-panel w3-center w3-large" style="text-decoration: underline;font-size: 2em;">Checkout</div>
                      
-                        <div class="progress-section  w3-row w3-center w3-text-black w3-border-bottom">
+                     <div  class="progress-section w3-margin-bottom w3-row w3-center w3-text-black w3-border-bottom">
                       
                             <div class="cart-confirm  progress-item  w3-col s4 l4 "  >
-                                <div id="cart_itm" class="w3-border">
+                                <div  style="font-weight: bold;cursor: pointer;" id="cart_itm" class="w3-border w3-small w3-hover-pale-blue">
                                     Cart</i> <br><i  class="fas fa-shopping-cart" ></i>  
                                 </div>
                                       
                             </div>
                             
                             <div class="address-section  progress-item w3-col s4 l4"  >
-                                <div id="addr_itm" class="w3-border" >
+                                <div style="font-weight: bold;cursor:pointer" id="addr_itm" class="w3-border w3-small w3-hover-pale-blue" >
                                     Address <br> <i class="fas fa-map-marker"  ></i>
                                 </div> 
                             </div>
-                            <div  class="payment-method   progress-item w3-col s4 l4">
-                                <div id="paym_itm" class="w3-border">
+                            <div   class="payment-method   progress-item w3-col s4 l4">
+                                <div  style="font-weight: bold;cursor: pointer;" id="paym_itm" class="w3-border w3-small w3-hover-pale-blue ">
                                     Payment<br> <i class="fas fa-money-bill-alt" ></i>
                                 </div>
                                
@@ -107,158 +95,230 @@
                         
 
                      </div>
+
+                      <div id="checkoutPreload" class="w3-display-container" >
+                       
+                            <div class="w3-pale-yellow w3-small w3-center" style="font-weight: bold;color:green">Preparing your Cart .Please Wait ...</div>
+                           
+                         
+                        <div class="w3-display-middle w3-center" style="font-weight: bold;" id="animator-effect">
+                           <img src="./assests/images/372.gif" alt="loader">
+                        </div>
+                         
+                     </div>
                 
-                   
-                      <!-- cart -->
-                      <div id="cart-checkout">
+                     <div id="cart-wrapper" style="display:none;">
+           
+                    <!-- cart -->
+                    <div  id="cart-checkout">
                         <div class="w3-margin-top" >
                             <div class="w3-panel w3-center" style="font-weight: bold;text-decoration: underline;">Cart Details</div>
                             <div class="w3-row w3-center w3-grey">
                                 <div class="w3-col s4 l5">Item</div>
-                                 <div class="w3-col l2 s2">Quantity</div>
-                                 <div class="w3-col s3 l2">Delete</div>
-                                 <div class="w3-col s3 l3">Total Price</div>
-         
-                              </div>
-                         </div>
-                       
-    
-                         <div class="cart-section w3-margin-top">
-                            <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
-                                <div class="w3-hide" id="unitPriceSM13">14000</div>
-                                 <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                     <img src="./assests/images/Samsung/J7.jpg" alt="s2"><br>
-                                     <span class="cart-item-title w3-small">Samsung J7 </span> <br>
-                                     <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 14000</span>
-                                 </div>
-                                 <div class="w3-col s2 l2  cart-item-desc">
-                                <div class='addQuantity  SM13' ><i class="fas fa-plus-square" ></i><br></div>
-                                    <input type="text"  disabled class="w3-input w3-center" value="1"   name="quantity" min="1" step="1" id="SM13">
-                                  <div class="decQuantity SM13"><i class="fas fa-minus-square "  ></i></div>  
+                                <div class="w3-col l2 s2">Quantity</div>
+                                <div class="w3-col s3 l2">Delete</div>
+                                <div class="w3-col s3 l3">Total Price</div>
+
+                            </div>
+                        </div>
+                    
+
+                        <div class="cart-section w3-margin-top">
+                            <div class="w3-row cart-section-itm w3-margin-top w3-border w3-center">
+                                <div class="w3-hide" id="unitPriceID1yt54">14000</div>
+                                <div class="w3-col s4 w3-center l5 cart-item-desc">
+                                    <img src="./assests/images/Samsung/J7.jpg" alt="s2"><br>
+                                    <span class="cart-item-title w3-small">Samsung J7 </span> <br>
+                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 14000</span>
                                 </div>
-                                <div class="w3-col s3 l2 cart-item-desc">
-                                  <i class="fas delete-icon fa-trash w3-center"></i>
+                                <div class="w3-col s2 l2 quantity-contr  cart-item-desc">
+                                <div class='addQuantity  ID1yt54' ><i class="fas fa-plus-square" ></i><br></div>
+                                    <input type="text"  disabled class="w3-input w3-center" value="1"   name="quantity" min="1" step="1" id="ID1yt54">
+                                <div class="decQuantity ID1yt54"><i class="fas fa-minus-square "  ></i></div>  
                                 </div>
-                                
-                                <div class="w3-col s3 l3 w3-center cart-item-desc">
-                                    <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM13">14000</span></span> 
+                                <div class="w3-col del-contr s3 l2 cart-item-desc">
+                                <div class="ID1yt54  del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>
                                 </div>
                                 
+                                <div class="w3-col prc-cont s3 l3 w3-center cart-item-desc">
+                                    <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID1yt54">14000</span></span> 
+                                </div>
                                 
-                             </div>
-                              <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
-                                <div class="w3-hide" id="unitPriceSM15">22000</div>
+                                
+                            </div>
+                            <div class="w3-row w3-margin-top cart-section-itm w3-border w3-center">
+                                <div class="w3-hide" id="unitPriceID3656h">22000</div>
                                 <div class="w3-col s4 w3-center l5 cart-item-desc">
                                     <img src="./assests/images/Samsung/S20.jpg" alt="s2"><br>
                                     <span class="cart-item-title w3-small">Samsung s20</span> <br>
                                     <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 22000</span>
                                 
                                 </div>
-                                <div class="w3-col s2 l2  cart-item-desc">
-                                    <div class='addQuantity SM15' ><i class="fas fa-plus-square" ></i><br></div>
-                                   <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="SM15">
-                                   <div class="decQuantity SM15"><i class="fas fa-minus-square"  ></i></div>  
-                               </div>
-                               <div class="w3-col s3 l2 cart-item-desc">
-                                 <i class="fas delete-icon fa-trash w3-center"></i>
-                               </div>
-                               
-                               <div class="w3-col s3 l3 w3-center cart-item-desc">
-                                   <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM15">22000</span></span> 
-                               </div>
-                               
-                               
+                                <div class="w3-col s2 l2 quantity-contr cart-item-desc">
+                                    <div class='addQuantity ID3656h' ><i class="fas fa-plus-square" ></i><br></div>
+                                <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="ID3656h">
+                                <div class="decQuantity ID3656h"><i class="fas fa-minus-square"  ></i></div>  
                             </div>
-                            <div class="w3-row w3-margin-top w3-border w3-padding-24 w3-center">
-                                <div class="w3-hide" id="unitPriceSM14">17000</div>
+                            <div class="w3-col del-contr s3 l2 cart-item-desc">
+                             <div class="ID3656h del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>    
+                            </div>
+                            
+                            <div class="w3-col s3 prc-cont l3 w3-center cart-item-desc">
+                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID3656h">22000</span></span> 
+                            </div>
+                            
+                            
+                            </div>
+                            <div class="w3-row w3-margin-top cart-section-itm w3-border w3-center">
+                                <div class="w3-hide" id="unitPriceID245e5">17000</div>
                                 <div class="w3-col s4 w3-center l5 cart-item-desc">
                                     <img src="./assests/images/Samsung/A50.jpg" alt="s2"><br>
                                     <span class="cart-item-title w3-small">Samsung A50</span> <br>
                                     <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 17000</span>
                                 
                                 </div>
-                                <div class="w3-col s2 l2  cart-item-desc">
-                                    <div class='addQuantity SM14' ><i class="fas fa-plus-square" ></i><br></div>
-                                   <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="SM14">
-                                   <div class="decQuantity SM14"><i class="fas fa-minus-square "  ></i></div>  
-                               </div>
-                               <div class="w3-col s3 l2 cart-item-desc">
-                                 <i class="fas delete-icon fa-trash w3-center"></i>
-                               </div>
-                               
-                               <div class="w3-col s3 l3 w3-center cart-item-desc">
-                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalSM14">17000</span></span> 
-                               </div>
-                               
-                               
+                                <div class="w3-col s2 l2 quantity-contr cart-item-desc">
+                                    <div class='addQuantity ID245e5' ><i class="fas fa-plus-square" ></i><br></div>
+                                <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="ID245e5">
+                                <div class="decQuantity ID245e5"><i class="fas fa-minus-square "  ></i></div>  
+                            </div>
+                            <div class="w3-col del-contr s3 l2 cart-item-desc">
+                                <div class="ID245e5 del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>  
+                              
                             </div>
                             
-     
+                            <div class="w3-col prc-cont s3 l3 w3-center cart-item-desc">
+                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID245e5">17000</span></span> 
+                            </div>
+                            
+                            
+                            </div>
+                            
+
                             <div id="total-amount" style="font-weight: bold;text-decoration: underline;" class="w3-center w3-margin-top">Total Amount <span class="w3-small" >(Shipping Charges Not inc)</span></div>
                             <div class="w3-center w3-text-orange w3-margin-top" style="font-weight: bold;text-decoration:underline">KES <span  id="cartTotal"> 0 </span> </div>
                         
-                            <button id="cartOkay" class="w3-button w3-margin-bottom w3-green w3-text-black w3-margin-top w3-round-xlarge w3-center w3-hover-black w3-hover-text-green cartProceed">Proceed</button>
+                            <button id="cartOkay" style="font-weight: bold;color:white;color: black;" class="w3-btn w3-margin-bottom w3-border w3-margin-top w3-round w3-center w3-border-green cartProceed">Proceed</button>
 
                         </div>
-                     </div>  
-                  
-                      <!-- address  -->
+                    </div>  
+                
+                    <!-- address  -->
                         <div id="delivery-address" style="display: none;" class="address-select w3-card w3-border-right w3-border-left w3-border-bottom w3-border-black">
                         <div class="w3-panel w3-border w3-center">Delivery Address</div>
-                      
+                    
 
                         <div id="primary-address">
-                            <div class="w3-panel w3-center w3-margin-top" style="font-weight: bolder;text-decoration: underline;" >The default Address below will be used for shippment</div>
-                             <p style="font-weight: bold;" class="w3-border">ERICK NDERITU <br>
-                               P.O BOX 123,<br>
-                              KAKAMEGA,<br>
-                              254727895935  </p>
+                            <div class="w3-panel w3-center w3-margin-top" style="font-weight: bolder;text-decoration: underline;" >The  Address below will be used for shippment</div>
+                            <p style="font-weight: bold;"  class="w3-border w3-text-black">
+                              <span>Recipient : <span class="w3-small w3-text-grey addITEM"></span></span>  <br>
+                              <span>Phone : <span class="w3-small w3-text-grey addITEM"></span> </span><br>
+                              <span>County : <span class="w3-small w3-text-grey addITEM"></span></span> <br>
+                              <span>Location : <span class="w3-small w3-text-grey addITEM"></span></span> <br>
+                              <span>P.O Box  : <span class="w3-small w3-text-grey addITEM"> </span></span> <br>
+                              <span>Station  : <span class="w3-small w3-text-grey addITEM"> </span></span> <br>
+                              <span>Location Description : <span class="w3-small w3-text-grey addITEM"></span>   </span> 
+                            </p>
+                              
 
-                              <button class="w3-btn w3-center w3-margin-bottom w3-round-large w3-orange w3-text-black">Select A Different Address</button>
+                            <button class="w3-btn w3-center w3-margin-bottom w3-small w3-round-large w3-orange w3-text-black">Select A Different Address</button>
                         </div>
-                            <button id="pickupSelector" class="w3-btn w3-round-large w3-center w3-margin-top w3-black w3-text-white w3-margin-bottom ">Use a Pick Up station Instead</button>
-                           
-                       
+                            <button id="pickupSelector" class="w3-btn w3-small w3-round-large w3-center w3-margin-top w3-black w3-text-white w3-margin-bottom ">Use a Pick Up station Instead</button>
+                        
+                    
                             <div class="totalAmount">
-                                <p style="text-decoration: underline;font-weight: bold;" >Shipping Charges : </p>
-                                <p style="text-decoration: underline;font-weight: bold;">Total Amount <span class="w3-small">(inc Shipping)</span> :</p>
-                                <p style="text-decoration: underline;font-weight: bold;">Vat :</p>
+                                <div class="w3-border" id='totSumm' >
+                                    <div style="font-weight: bold;" class="w3-center w3-pale-yellow">Charges Summary</div>
+                                    <p class="w3-small w3-text-gray" style="text-decoration: underline;font-weight: bold;" > Total Products Charges + vat: Kes <span class='w3-text-gray cost'></span> </p>
+                                    <p class="w3-small w3-text-gray" style="text-decoration: underline;font-weight: bold;">Vat : Kes  <span class='w3-text-gray cost'></span></p>
+                                    <p class="w3-small w3-text-gray" style="text-decoration: underline;font-weight: bold;">Shipping Charges : Kes  <span class='w3-text-gray cost'></span></p> 
+                                    
+                                </div>
+                               <h4 style="font-weight: bold;">Amount to Pay <span class="w3-small">(inc Shipping)</span> : Kes  <span style="font-weight: bolder;color:#54542b;text-decoration: underline;" class='cost'></span></h4>
+                               
                             </div>
 
 
-                            <button id="addressOkay" class="w3-btn w3-margin-bottom w3-green w3-text-black w3-round-xlarge w3-center w3-hover-black w3-hover-text-green checkoutProceed">Proceed To Payment</button>
+                            <button id="addressOkay" style="background-color:white;color:green" class="w3-btn w3-margin-bottom w3-border w3-border-green  w3-round w3-center  checkoutProceed">Proceed To Payment</button>
 
 
                     </div>   
                         
-                     <!-- payment -->
-                      <div  style="display: none;" id='paym_opt'>
-                        <div class="w3-card-2" id="payForm">
-                            <div  class="w3-center w3-margin-top ">Pay with Mpesa</div>
-                            <div class="w3-small w3-center w3-pale-red w3-center w3-margin-top">NOTE :: To protect both our merchants and YOU as a consumer,we curently only accept MPESA payments</div>
+                    <!-- payment -->
+                    <div  style="display: none;" id='paym_opt'>
+                        
+                        <div class=" w3-border-right w3-border-left w3-border-bottom w3-border-black" id="payForm">
+                            <div style="font-weight:bolder;border:1px dashed green;" class="w3-panel w3-pale-yellow w3-center ">You are about to pay  <span style="font-weight: bold;" id="aboutTOpay"> </span><span class="w3-small">(Product Totals & shippment Cost) </span></div>
+                            
+                            <div style="text-decoration: underline;"  class="w3-center w3-medium w3-margin-top ">Choose a Payment Method </div>
+                       
+                           <div id="paym-methods">
+                            <div class="w3-display-container "  id="mpesaOnline">
+                                 <p class="w3-center w3-margin-bottom">Pay With Mpesa</p>
+                                 
+                                
+                                            
+                             </div>
+                             <div class="w3-display-container " id="mpesaonDelivery" >
+                                <p class="w3-center">Mpesa on Delivery</p>
+                                                   
+                            </div>
+                            <div class="w3-display-container" id="paypal" >
+                                <p class="w3-center">Paypal</p>
                          
-                            <form id="paymentForm" action="#" method="post" class="w3-margin-top w3-border w3-padding-16">
-                                <label for="phone">Enter you Mpesa Number</label>
-                                <input type="number" placeholder="0727895935" name="phone" class="w3-margin-bottom w3-input w3-center" id="phone">
-                                <button type="submit" class="w3-button w3-hover-black w3-hover-text-green w3-center w3-green w3-round-large w3-text-black">Proceed</button>
-                            </form>
-
-                            <div class="w3-panel w3-pale-green w3-center">
-                                An mpesa Prompt screen has been sent to your number  <span class="w3-large">(0727895935)</span>  .Check your Phone and Enter your Mpesa Pin to authorize the transaction and complete your purchase.
+                                           
                             </div>
                            
+                            <div class="w3-display-container " id="cashOndelivery" >
+                                <p class="w3-center">Cash on Delivery</p>
+                             
+                                           
+                            </div>
+                           </div>  
+                           <div id="pay-mpesa" style="display: none;" class="w3-sand">
+                               <div id="instructions"  class="w3-light-gray">
+                                   <span style="font-weight: bolder;">To pay with Mpesa,</span>  
+                                   <ul>
+                                       <li>Go to Lipa Mpesa </li>
+                                       <li>Select Paybill/Buy Goods</li>
+                                       <li>Enter Till Number</li>
+                                       <li>Enter Amount to Pay (Kes 2000)</li>
+                                       <li>Enter you Mpesa Pin</li>
+                                   </ul>
+                               </div>
+                               <div id="verify-mpesa-code">
+                                   <form action="" method="post">
+                                        <label class="w3-small" style="font-weight: bold;color:black" for="code">Enter the Mpesa Transaction Code to Proceed</label><br>
+                                       <input class="w3-input w3-margin-bottom w3-border w3-border-gray" placeholder="Mpesa Code" type="text" name="code" id="code">
+                                       <button style="font-weight: bold;" class="w3-btn w3-border w3-white w3-border-gray w3-text-green" type="submit">Submit</button>
+                                   </form>
+                               </div>
+                           </div>
+
+                           <div style="display: none;" class="w3-center  w3-sand w3-text-black "  id="cash-on-delivery">
+                           </div>
+                           
+
+
+                        
                         </div>
                     </div>
+                   
+                    </div>
+           </div>
+
+                 
                      
-                </div>           
+           </div>           
             </div>
     
             <div id="footer-wrapper">
+                <input type="text" value='0'  class="cartVALUE w3-hide">
                 <div class="w3-row" id="nav-bar-small">
-                    <div class="w3-col s3">Home <br><i  class="fas fa-home"></i> </div>
-                    <div class="w3-col s3">Cart <br><i class="fas fa-shopping-cart"></i><sup>3</sup> </div>
-                    <div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div>
-                    <div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div>
+                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
+                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
+                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
+                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
                     
                 </div>
                 <div id="footer-content">
@@ -300,6 +360,291 @@
         
 
     
-  
+        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+        <script src="./assests/scripts/jquery.connections.js"></script>
+        <script >
+            $(document).ready(()=>{
+                $('#cart_itm').connections({
+                    to:'#addr_itm',
+                    'class': 'testcase'
+                })
+                $('#addr_itm').connections({
+                    to:'#paym_itm',
+                    'class': 'testcase'
+                })
+                $('#mpesaOnline').click(function(){
+                
+                    $('#pay-mpesa').toggle(200)
+                    $('#cash-on-delivery').hide()
+                    
+                    $('#mpesaOnline').append('<i style="display: block;" class="fas fa-check w3-display-middle"></i>').css({'background-color':'#ccffcc',"border":"2px solid green"})
+                    $('#mpesaonDelivery').html( '<p class="w3-center">Mpesa on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#cashOndelivery').html( '<p class="w3-center">Cash on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#paypal').html( '<p class="w3-center">Paypal</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                  
+                })
+                $('#pay-mpesa').submit((e)=>{
+                    e.preventDefault();
+                    $('#pay-mpesa label').css({"color":"black"})
+                    $('#pay-mpesa label').html('Enter the Mpesa Transaction Code to Proceed')
+                 
+                    if($('#pay-mpesa input').val() ==='' || $('#pay-mpesa input').val().length<5 ){
+                        $('#pay-mpesa label').css({'color':'red'})
+                        $('#pay-mpesa label').html('Enter A valid Mpesa Code')
+                    }else{
+                        $('#pay-mpesa label').css({"color":"green"})
+                        $('#pay-mpesa label').html('<span class="w3-small">Verifying Mpesa Transaction Code </span><img class="loadgif-mpesaOkay" src="./assests/images/328.gif" alt="loader">')
+                        $('#pay-mpesa button').attr('disabled',true)
+
+                        let formdata =$('#verify-mpesa-code form').serialize()
+                     
+
+                       
+                        $.ajax({
+                            method:'POST',
+                            url:'http://localhost:9090/verifympesa',
+                            data:formdata,
+                            success : function(data,status,xhr){
+                               if(xhr.status===200){
+                                $('#pay-mpesa label').css({'color':'green'})
+                                 $('#pay-mpesa label').html('Mpesa Transaction Code Verified  <i class="fas fa-check"></i>')
+                                  localStorage.removeItem('basketDetails')
+                               localStorage.removeItem('navigationTrack')
+                               localStorage.removeItem('cartOkay')
+                               localStorage.removeItem('addressOkay')
+                               localStorage.removeItem('selectedAddress')
+                               document.cookie = "curruser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "locationID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                                 window.location.href='receipt.html?verify-code='+ data
+                              
+                               } 
+                            },
+                            error: function(xhr,status,error){
+                              if(xhr.status===0){
+                                $('#pay-mpesa label').css({'color':'red'})
+                                 $('#pay-mpesa label').html('Oops. You seem to have lost your internet connection')
+                                 $('#pay-mpesa button').attr('disabled',false)
+                               }else if(xhr.status===401){
+                                $('#pay-mpesa label').css({'color':'red'})
+                                 $('#pay-mpesa label').html('Oops. The Mpesa Transacton Code Provides is incorrect')
+                                 $('#pay-mpesa button').attr('disabled',false)
+                               }else{
+                                $('#pay-mpesa label').css({'color':'red'})
+                                 $('#pay-mpesa label').html('Oops. Something went wrong.')
+                                 $('#pay-mpesa button').attr('disabled',false)
+                               }
+                            
+                            }
+                            
+                        })
+                    }
+
+                })
+
+
+                $('#mpesaonDelivery').click(()=>{
+                   
+                    
+                    $('#cashOndelivery').html( '<p class="w3-center">Cash on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#paypal').html( '<p class="w3-center">Paypal</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#mpesaOnline').html( '<p class="w3-center">Pay with Mpesa</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#mpesaonDelivery').css({'background-color':'#ccffcc',"border":"2px solid green"}).append('<i style="display: block;" class="fas fa-check w3-display-middle "></i>')
+                    $('#pay-mpesa').hide()
+                    
+                    if($('#cash-on-delivery').css('display')==='none'){
+                        $('#cash-on-delivery').toggle(200,()=>{ 
+                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> through Mpesa when you collect your '+
+                          '  items at your delivery address<br><br>'+
+                            '<button style="font-weight: bold;background-color:green" class="w3-btn w3-border w3-border-green w3-text-black">Proceed</button>')
+                            $('#cash-on-delivery button').click(()=>{
+                  
+                                $('#cash-on-delivery button').css({'background-color':'white'}).html('<span class="w3-small">Processing </span><img class="loadgif-button" src="./assests/images/328.gif" alt="loader">')
+                                $.ajax({
+                            method:'POST',
+                            url:'http://localhost:9090/payondelivery',
+                            data:'paymentoption=MpesaOndelivery',
+                            success : function(data,status,xhr){
+                                $('#cash-on-delivery button').html('Success').css({'color':'black','background-color':'lightgreen'}).attr('disabled',true)
+                                localStorage.removeItem('basketDetails')
+                               localStorage.removeItem('navigationTrack')
+                               localStorage.removeItem('cartOkay')
+                               localStorage.removeItem('addressOkay')
+                               localStorage.removeItem('selectedAddress')
+                               document.cookie = "curruser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "locationID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+                                window.location.href='receipt.html?verify-code='+ data
+
+                            },
+                            error: function(xhr,status,err){
+                            
+                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
+                                    $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
+                                })
+                               
+
+                            }
+                        })  
+                       
+                       
+                            })
+                      
+                      
+                        })
+
+                       
+                    
+                    }else{
+
+                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> through Mpesa when you collect your '+
+                          '  items at your delivery address<br><br>'+
+                            '<button style="font-weight: bold;background-color:green" class="w3-btn  w3-border w3-border-green w3-text-black">Proceed</button>')
+                            $('#cash-on-delivery button').click(()=>{
+                                $('#cash-on-delivery button').css({'background-color':'white'}).html('<span class="w3-small">Processing </span><img class="loadgif-button" src="./assests/images/328.gif" alt="loader">')
+                       
+                  
+                                $.ajax({
+                            method:'POST',
+                            url:'http://localhost:9090/payondelivery',
+                            data:'paymentoption=MpesaOndelivery',
+                            success : function(data,status,xhr){
+                                $('#cash-on-delivery button').html('Success').css({'color':'black','background-color':'lightgreen'}).attr('disabled',true)
+                                localStorage.removeItem('basketDetails')
+                               localStorage.removeItem('navigationTrack')
+                               localStorage.removeItem('cartOkay')
+                               localStorage.removeItem('addressOkay')
+                               localStorage.removeItem('selectedAddress')
+                               document.cookie = "curruser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "locationID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+                                window.location.href='receipt.html?verify-code='+ data
+
+                            },
+                            error: function(xhr,status,err){
+                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
+                                    $('#cash-on-delivery button').css({'color':'black','background-color':'green'}).html('Proceed').fadeIn(500)
+                                })
+                               
+
+                            }
+                        })  
+                       
+                       
+                            })
+                      
+                      
+                      
+                    }
+                   
+
+                 
+                })
+                $('#cashOndelivery').click(()=>{
+                    $('#mpesaOnline').html( '<p class="w3-center">Pay With Mpesa</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#mpesaonDelivery').html( '<p class="w3-center">Mpesa on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                    $('#cashOndelivery').append('<i style="display: block;" class="fas fa-check w3-display-middle "></i>').css({'background-color':'#ccffcc',"border":"2px solid green"})
+                    $('#paypal').html( '<p class="w3-center">Paypal</p>').css({'background-color':'white',"border":"2px solid lightblue"})
+                  
+                    $('#pay-mpesa').hide()
+                    if(  $('#cash-on-delivery').css('display')==='none'){
+                        $('#cash-on-delivery').toggle(200,()=>{
+                        
+                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> cash when you collect your '+
+                          '  items at your delivery address<br><br>'+
+                            '<button style="font-weight: bold;color:black;background-color:green"  id="cashONDelivery" class="w3-btn  w3-border w3-border-green">Proceed</button>')
+                            $('#cash-on-delivery button').click(()=>{
+                        
+                                $('#cash-on-delivery button').css({'background-color':'white'}).html('<span class="w3-small">Processing </span><img class="loadgif-button" src="./assests/images/328.gif" alt="loader">')
+                       
+                        $.ajax({
+                            method:'POST',
+                            url:'http://localhost:9090/payondelivery',
+                            data:'paymentoption=cashOndelivery',
+                            success : function(data,status,xhr){
+                                $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
+                                localStorage.removeItem('basketDetails')
+                               localStorage.removeItem('navigationTrack')
+                               localStorage.removeItem('cartOkay')
+                               localStorage.removeItem('addressOkay')
+                               localStorage.removeItem('selectedAddress')
+                               document.cookie = "curruser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "locationID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
+                                window.location.href='receipt.html?verify-code='+ data
+
+                            },
+                            error: function(xhr,status,err){
+                                $('#cash-on-delivery button').css({'color':'red','background-color':'white'}).html('Error').fadeOut(2000,()=>{
+                                    $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
+                                })
+                               
+
+                            }
+                        })  
+            
+                       
+                       })
+                    })
+                  
+                     
+                    }else{
+                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> cash when you collect your '+
+                          'items at your delivery address<br><br>'+
+                            '<button  style="font-weight: bold;background-color:green" id="cashONDelivery" class="w3-btn w3-border w3-border-green w3-text-black">Proceed</button>')   
+                     
+                     $('#cash-on-delivery button').click(()=>{
+                     
+                        $('#cash-on-delivery button').css({'background-color':'white'}).html('<span class="w3-small">Processing </span><img class="loadgif-button" src="./assests/images/328.gif" alt="loader">')
+                       
+                       $.ajax({
+                            method:'POST',
+                            url:'http://localhost:9090/payondelivery',
+                            data:'paymentoption=cashOndelivery',
+                            success : function(data,status,xhr){
+                                $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
+                                localStorage.removeItem('basketDetails')
+                               localStorage.removeItem('navigationTrack')
+                               localStorage.removeItem('cartOkay')
+                               localStorage.removeItem('addressOkay')
+                               localStorage.removeItem('selectedAddress')
+                               document.cookie = "curruser=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "locationID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                               document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                                window.location.href='receipt.html?verify-code='+ data
+
+                            },
+                            error: function(xhr,status,err){
+                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
+                                    $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
+                                })
+                               
+
+                            }
+                        })  
+                       
+                       
+
+                     })
+
+
+                   }
+                  
+
+
+                   
+
+                  
+                }) 
+             
+
+            })
+        </script>
+       
     </body>
     </html>

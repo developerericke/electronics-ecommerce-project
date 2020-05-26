@@ -1,0 +1,136 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dashboard</title>
+        <link rel="stylesheet" href="./assests/styles/w3.css">
+        <link rel="stylesheet" href="./assests/styles/mobile-view.css">
+         <link rel="stylesheet" href="./assests/styles/large-screen.css">
+         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
+         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+         <script src="./assests/scripts/script.js"></script>
+    </head>
+    <body>
+         
+        <div id="page-wrapper">
+            <div id="content-wrapper">
+                <div id="sticky-content">
+                    <div id="nav-section" class="w3-row">
+                        <div id="home-icon" class="w3-col s4 m4 l4">
+                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
+                        </div>
+                        <div id="search-section" class="w3-col s8 m8 l4 ">
+                            <form action="#" method="get">
+                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
+                            </form>
+                        </div>
+                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
+                            <ul id="account-actions-ul">
+                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
+                                    <ul><li class="shop_basket">
+                                     <span class="w3-small">Cart </span>
+                                     </li></ul>
+                                   
+                                </li>
+        
+                                <li class="nav-icon">    <i class="fas fa-user"></i>
+                                <ul><li>
+                                 <span class="w3-small">Account</span>     
+                                </li></ul>
+                                
+                                </li>
+                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
+                                    <ul><li>
+                                      <span class="w3-small">Logout</span> 
+                                    </li></ul>
+                                   
+                                </li>
+                            </ul>
+                        </div>
+                         
+                    </div>
+                </div> 
+              
+              
+                <div class="w3-card "  id="receiptSection">
+                    <div style="font-weight: bold;" class="w3-center" id="loader-receipt">
+                     
+                            <div style="font-weight: bold;color:brown" class="w3-center">Generating Receipt. Please wait</div>
+                            <img src="./assests/images/285.gif" alt="Loader">
+     
+                    
+     
+                    </div> 
+                    <div style="display: none;" id="recieptCard">
+                        <div style="background-color: lightgoldenrodyellow;">
+                            <div style="font-weight: bold;" class="w3-green w3-text-black w3-xlarge w3-center">ORDER RECIEPT</div>
+                            <div id="ReceiptDetails">
+                                <div class="w3-center">
+                                    Your Order N<sup>o</sup> <span id="orderID" style="font-weight: bold;"></span> has been placed succesfully with payment of KES <span id="orderPrice" style="text-decoration: underline;font-weight: bold;color:blue">20000</span> confirmed.<br>
+                                    You will recieve a confirmation on the status of your order subsequently through your email.You can track the
+                                    status of your order <a  style="font-weight: bold;color:brown" href="" >Here</a> or go to<span style="font-weight: bold;"> 'Account>Settings>Manage Orders'</span> 
+                               
+                                </div>
+                               
+                            
+                            </div>
+                            
+                       </div>
+                    </div>
+                   
+                 
+                </div>
+    
+               
+                          
+            </div>
+            <div id="footer-wrapper">
+                <input type="text" value='0'  class="cartVALUE w3-hide">
+                <div class="w3-row" id="nav-bar-small">
+                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
+                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
+                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
+                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
+                    
+                </div>
+                <div id="footer-content">
+                 <ul style="list-style-type: none;padding: 0px;">
+                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
+                         <ul>
+                             <li>Samsung</li>
+                             <li>Oppo</li>
+                             <li>Tecno</li>
+                             <li>Laptop</li>
+                             <li>Laptop Accessories</li>
+                          </ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Important Information</span>
+                         <ul><li >About Us</li>
+                              <li>Contact Us</li>
+                               <li>Privacy Policy</li>
+                             <li>Terms and Conditions</li> </ul>
+                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
+                         <ul><li >
+                             BIGHOUSE BUILDING <br>
+                             P.O BOX 123 <br>
+                             NAIROBI
+                         </li></ul>
+                     </li>
+                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
+                         <ul>
+                             <li>Facebook</li>
+                             <li>Twitter</li>
+                             <li>Youtube</li>
+                          </ul>
+                     </li>
+                 </ul>
+                </div>
+           
+            </div>
+        </div>
+    
+    
+    
+    </body>
+    </html>

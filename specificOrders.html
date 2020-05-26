@@ -25,22 +25,23 @@
                     </div>
                     <div id="account-actions" class="l4 w3-col w3-round-xlarge">
                         <ul id="account-actions-ul">
-                            <li class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                <ul><li>
-                                   Cart
-                                </li></ul>
+                            <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
+                                <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
+                                <ul><li class="shop_basket">
+                                 <span class="w3-small">Cart </span>
+                                 </li></ul>
                                
                             </li>
     
                             <li class="nav-icon">    <i class="fas fa-user"></i>
                             <ul><li>
-                                Account
+                             <span class="w3-small">Account</span>     
                             </li></ul>
                             
                             </li>
                             <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
                                 <ul><li>
-                                  Logout
+                                  <span class="w3-small">Logout</span> 
                                 </li></ul>
                                
                             </li>
@@ -48,52 +49,26 @@
                     </div>
                      
                 </div>
-            </div>
+            </div> 
                <div class="w3-card-4 " id='view-spec-ord' >
-               <div class="w3-margin-bottom w3-large" style="text-decoration: underline;font-weight: bolder;" ><i class="fas fa-arrow-left w3-margin-right w3-margin-left"></i> Back to Orders   </div> 
-               <div class="w3-row w3-border w3-border-grey">
-                 <div class="w3-col s6 l4 order-title">Order ID</div>
-                 <div class="w3-col s6 l8 order-det">6ty4eh6s</div>
-               </div>
-               <div class="w3-row w3-border w3-border-grey" >
-                <div class="w3-col s6 l4 order-title">Payment Status</div>
-                <div class="w3-col s6 l8 order-det">Paid</div>
-              </div>
-              
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col s6 l4 order-title">Order Description</div>
-                <div class="w3-col s6  l8 order-det">Samsung Xjsbdjnmdkj</div>
-              </div>
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col s6 l4 order-title">Order Quantity</div>
-                <div class="w3-col s6 l8 order-det">1</div>
-              </div>
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col l4 s6 order-title">Order Price(Inc Shipment)</div>
-                <div class="w3-col l8 s6 order-det">Kes 102,100</div>
-              </div>
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col l4 s6 order-title">Order Date</div>
-                <div class="w3-col l8 s6 order-det">01-04-2020</div>
-              </div>
 
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col l4 s6 order-title">Expected Delivery</div>
-                <div class="w3-col l8 s6 order-det">08-04-2020</div>
-              </div>  
-              <div class="w3-row w3-border w3-border-grey">
-                <div class="w3-col s6 l4 order-title">Order Status</div>
-                <div class="w3-col s6 l8 order-det">Completed</div>
-              </div>
-               <div class="order-action w3-panel w3-center">
-                   <button class="w3-btn w3-red w3-center">Cancel Order</button>
+
+               <div class="w3-margin-bottom w3-large" style="text-decoration: underline;font-weight: bolder;" ><i class="fas fa-arrow-left w3-margin-right w3-margin-left"></i> Back to Orders   </div> 
+              
+               <div id="order-details">
+                 <div class="orderID"> <span class="title">Order ID </span> <br> <span class="describe">6egd6shs</span> </div>
+                 <div class="orderDesc"><span class="title"> Order Description  </span><br> <span class="describe"> Lorem ipsum dolor sit amet, co Harum facere quas error obcaecati officiis est vel unde, molestias miReiciendis exercitationem odio ea.</span></div>
+                 <div class="orderStatus"><span class="title">Order Status </span>  <br> <span class="describe">Pending</span> </div>
+                 <div class="paymstatus"><span class="title">Payment Status </span>  <br><span class="describe">Paid</span> </div>
+                 <div class="orderPrice"><span class="title">Order Price </span>  <br><span class="describe">Kes 22,000</span> </div>
+                 <div class="orderdate"><span class="title">Order Date/Time </span>  <br><span class="describe">12-06-2019 ,10:09:26 am</span> </div>
+                 <div class="expectedDate"><span class="title"> Expected Delivery </span> <br> <span class="describe">15-06-2019</span> <br>  </div>
+                 <div style="font-weight: bold;" class="cancelOrder w3-btn w3-pale-red w3-hover-red w3-text-black w3-hover-text-black">Cancel Order</div>
+                <div style="font-weight: bold;" class="afterSale w3-btn w3-pale-yellow w3-hover-yellow w3-text-black w3-hover-text-black">After Sale</div>
+                 
+
                </div>
-               <div class="order-action w3-panel w3-center">
-                <button class="w3-btn w3-green w3-center">After Sale</button>
-                </div>
-                <div class="order-action w3-panel w3-center">
-                    <button class="w3-btn w3-yellow w3-center">Return Product</button>
-                </div>
+       
               
             
                   
@@ -105,11 +80,12 @@
             </div>
     
             <div id="footer-wrapper">
-              <div class="w3-row"  id="nav-bar-small">
-                  <div class="w3-col s3">Home <br><i  class="fas fa-home"></i> </div>
-                  <div class="w3-col s3">Cart <br><i class="fas fa-shopping-cart"></i><sup>3</sup> </div>
-                  <div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div>
-                  <div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div>
+              <input type="text" value='0'  class="cartVALUE w3-hide">
+              <div class="w3-row" id="nav-bar-small">
+                  <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
+                  <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
+                  <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
+                  <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
                   
               </div>
               <div id="footer-content">
@@ -144,7 +120,6 @@
                    </li>
                </ul>
               </div>
-          
          
           </div>
         </div>
