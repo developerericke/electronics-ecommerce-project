@@ -2,288 +2,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
+    <title>Products</title>
     <link rel="stylesheet" href="./assests/styles/w3.css">
     <link rel="stylesheet" href="./assests/styles/mobile-view.css">
      <link rel="stylesheet" href="./assests/styles/large-screen.css">
     
      <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
      <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
-     <script src="./assests/scripts/script.js"></script>
+    
 </head>
 <body>
+    
+    <div id="pageloader" class="w3-display-container w3-border">
+        <div class="w3-display-middle w3-center">
+            <div class="w3-large">Loading. Please wait</div><br>
+            <img src="./assests/images/830.gif" alt="loader">
+        </div>
+     </div>
      
-    <div id="page-wrapper">
+    <div class="w3-hide" id="page-wrapper">
         <div id="content-wrapper">
             <div id="sticky-content">
                 <div id="nav-section" class="w3-row">
-                    <div id="home-icon" class="w3-col s4 m4 l4">
-                        <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
-                    </div>
-                    <div id="search-section" class="w3-col s8 m8 l4 ">
-                        <form action="#" method="get">
-                            <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
-                        </form>
-                    </div>
-                    <div id="account-actions" class="l4 w3-col w3-round-xlarge">
-                        <ul id="account-actions-ul">
-                            <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
-                                <ul><li class="shop_basket">
-                                 <span class="w3-small">Cart </span>
-                                 </li></ul>
-                               
-                            </li>
-    
-                            <li class="nav-icon">    <i class="fas fa-user"></i>
-                            <ul><li>
-                             <span class="w3-small">Account</span>     
-                            </li></ul>
-                            
-                            </li>
-                            <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
-                                <ul><li>
-                                  <span class="w3-small">Logout</span> 
-                                </li></ul>
-                               
-                            </li>
-                        </ul>
-                    </div>
-                     
+                    <div id="nav-bar-large"></div>    
                 </div>
             </div> 
-                <div id="categories-section" >
-                    <ul>
-                        <li style="cursor: pointer;"> <a href="list-products.html">All Categories</a> </li>
-                        <li style="cursor: pointer;"> <a href="list-products.html">Samsung</a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Oppo</a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Tecno </a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Iphone</a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Dell</a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Hp</a></li>
-                        <li style="cursor: pointer;"><a href="list-products.html">Macbook</a></li>
-                       <li style="cursor: pointer;"><a href="list-products.html">Accessories</a></li>
-                       
-                    </ul>
-                </div>
+            <div id="categories-section"  >
+                <ul>
+                 
+                </ul>
+           </div>
             
-            
-
-             <div id="sub-options" class="w3-row">
-                <div class="w3-col s5 l4">
-                    <div class="w3-panel products-count w3-center w3-small">2002 products found</div>
-                </div>
-               <div class="w3-col w3-center w3-margin-top w3-margin-bottom w3-border  s4 l4">                
-                  <div class="filteritem">
-                      <select class="w3-input w3-center w3-small" name="filterBy" id="filterBy">
-                          <option value="">--Filter By --</option>
-                          <option value="">Price</option>
-                          <option value="">Shipping Price</option>
-                      </select>
-                      
+            <div id="cont-sect">
+                <div id="sub-options" >
+                    <div class="sub-options-item">
+                        <div class="w3-panel products-count w3-center w3-small"></div>
                     </div>
-                 </div>
-               <div class="w3-col l4 s3 w3-center w3-margin-top">
-                <div id="filterArrows" class="w3-border">
-                    <i  id="filter-desc" class="fas  fa-arrow-down"></i>
-                    <i class="fas fa-arrow-up"></i>
+                    <div class="sub-options-item">
+                       <select class="w3-input w3-medium" name="filterby" id="filterby">
+                         <option value="default">--Filter By--</option>
+                         <option value="price">--Price--</option>
+                         <option value="name">--Name--</option>
+                         <option value="model">--Model--</option>
+                         <option value="seller">--Seller--</option>
+                       </select>
+                    </div>
+                    <div class="sub-options-item">
+                         <input style="border:1ps solid gray" class="w3-input " type="search" name="keywords" id="keywords" placeholder="Search ...">
+                    </div>
+                    <div class="sub-options-item">
+                       <button id="filterbtn" class="w3-btn w3-round-large  w3-pale-green w3-text-black">Apply Filter</button>
+                    </div>
+                    <div class="sub-options-item">
+                        <button id="resetbtn" class="w3-btn w3-round-large w3-pale-red w3-text-black">Reset</button>
+                     </div>
+                  
+                   
                 </div>
-               
-               </div>
-               
-            </div>
-            <div id="toogleViewProd">
-                <span id="single-viewProd">
-                    List View
-                </span>
-                <span id="grid-viewProd">
-                    Grid View
-                </span>
+                <div id="toogleViewProd">
+                    <span id="single-viewProd">
+                        List View
+                    </span>
+                    <span id="grid-viewProd">
+                        Grid View
+                    </span>
+                </div>
+    
+                <div id="products-sectionGrab"  class="w3-border w3-border-black w3-margin-top products-section">           
+              </div> 
             </div>
 
-          
-            <div id="products-sectionGrab"  class="w3-border w3-border-black w3-margin-top products-section">         
-                <div class="product-item product-item-grab w3-border">
-                    <a href="view-product.html">
-                        <img src="./assests/images/Samsung/S2.jpg" class="w3-margin-top" alt="A50">
-                    </a>
-                    <div class="w3-panel item-cat-overview" >
-                       <span class="w3-small item-cat-title">Samsung S2  <i class="fas favo-icon fa-bookmark"></i> </span> <br>
-                       <span class="new-price w3-small"> Kes 57,999<br></span>
-                       <span class="prev-price w3-small" ><strike></strike><br></span>
-                       <button value='{"itemID":"1ytt554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                       
-                   </div>
-                   </div>
-                   <div class="product-item product-item-grab w3-border">
-                    <a href="view-product.html">
-                       <img src="./assests/images/Samsung/NOTE 10.jpg"  class="w3-margin-top" alt="A50">
-                       </a>
-                       <div class="w3-panel item-cat-overview">
-                          <span class="w3-small item-cat-title">Note 10 <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                          <span class="new-price w3-small"> Kes 57,999<br></span>
-                          <span class="prev-price w3-small" ><strike></strike><br></span>
-                          <button value='{"itemID":"33t554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                      </div> 
-                   </div>
-                    <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                       <img src="./assests/images/Samsung/S20.jpg"  class="w3-margin-top" alt="A50">
-                       </a>
-                       <div class="w3-panel item-cat-overview">
-                          <span class="w3-small item-cat-title">Samsung S20 <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                          <span class="new-price w3-small"> Kes 57,999<br></span>
-                          <span class="prev-price w3-small" ><strike></strike><br></span>
-                          <button value='{"itemID":"87tt554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                          </div> 
-                    </div>
-                    <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                           <img src="./assests/images/Samsung/S20.jpg"  class="w3-margin-top" alt="A50">
-                           </a>
-                           <div class="w3-panel item-cat-overview">
-                              <span class="w3-small item-cat-title">Samsung S20 <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                              <span class="new-price w3-small"> Kes 57,999<br></span>
-                              <span class="prev-price w3-small" ><strike></strike><br></span>
-                              <button value='{"itemID":"167t554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                          </div> 
-                    </div>            
-                   <div class="product-item  product-item-grab w3-border">
-                    <a href="view-product.html">
-                       <img src="./assests/images/Samsung/A60.jpg" class="w3-margin-top" alt="A50">
-                       </a>
-                       <div class="w3-panel item-cat-overview">
-                          <span class="w3-small item-cat-title ">Samsung A60  <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                          <span class="new-price w3-small"> Kes 57,999<br></span>
-                          <span class="prev-price w3-small"><strike>Kes 29,999</strike><br></span> 
-                          <button value='{"itemID":"90t554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                      </div>
-                      </div>
-                      <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                          <img src="./assests/images/Samsung/J7.jpg"  class="w3-margin-top" alt="A50">
-                          </a>
-                          <div class="w3-panel item-cat-overview">
-                             
-                             <span class="w3-small item-cat-title">Samsung J7 <i class="fas favo-icon  fa-bookmark"></i></span> <br>
-                             <span class="new-price w3-small"> Kes 57,999<br></span>
-                             <span class="prev-price w3-small" ><strike></strike><br></span>
-                             <button value='{"itemID":"129t554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                         </div> 
-                      </div>
-                      <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                        <img src="./assests/images/Samsung/S9.jpg"  class="w3-margin-top" alt="A50">
-                        </a>
-
-                        <div class="w3-panel item-cat-overview">
-                           <span class="w3-small item-cat-title">Samsung S9 <i class="fas favo-icon fa-bookmark"></i> </span> <br>
-                           <span class="new-price w3-small"> Kes 57,999<br></span>
-                           <span class="prev-price w3-small" ><strike></strike><br></span>
-                           <button value='{"itemID":"85tt554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                       </div> 
-                     </div>
-                     <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                               <img src="./assests/images/Samsung/S9.jpg"  class="w3-margin-top" alt="A50">
-                               </a>
-                               <div class="w3-panel item-cat-overview">
-                                  <span class="w3-small item-cat-title">Samsung S9 <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                                  <span class="new-price w3-small"> Kes 57,999<br></span>
-                                  <span class="prev-price w3-small" ><strike></strike><br></span>
-                                  <button value='{"itemID":"7ft554","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                              </div> 
-                     </div>
-                     <div class="product-item product-item-grab w3-border">
-                        <a href="view-product.html">
-                               <img src="./assests/images/Samsung/S9.jpg"  class="w3-margin-top" alt="A50">
-                               </a>
-                               <div class="w3-panel item-cat-overview">
-                                  <span class="w3-small item-cat-title">Samsung S9 <i class="fas favo-icon  fa-bookmark"></i> </span> <br>
-                                  <span class="new-price w3-small"> Kes 57,999<br></span>
-                                  <span class="prev-price w3-small" ><strike></strike><br></span>
-                                  <button value='{"itemID":"98t54","itemQuantity":"0"}' class="w3-btn addtoCart w3-hover-green w3-hover-text-black  w3-white w3-border w3-border-back w3-text-green w3-small w3-center">Add to Cart <i class="fas fa-shopping-cart"></i></button>
-                      
-                              </div> 
-                     </div> 
-          </div>    
+                
           
                    
         </div>
 
         <div id="footer-wrapper">
             <input type="text" value='0'  class="cartVALUE w3-hide">
-            <div class="w3-row" id="nav-bar-small">
-                <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
-                <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
-                <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
-                <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
-                
-            </div>
+           <div id="nav-bar-small"></div>
             <div id="footer-content">
-             <ul style="list-style-type: none;padding: 0px;">
-                 <li class="footer-item"> <span class="footer-title">Quick Links</span> 
-                     <ul>
-                         <li>Samsung</li>
-                         <li>Oppo</li>
-                         <li>Tecno</li>
-                         <li>Laptop</li>
-                         <li>Laptop Accessories</li>
-                      </ul>
-                 </li>
-                 <li  class="footer-item"><span class="footer-title">Important Information</span>
-                     <ul><li >About Us</li>
-                          <li>Contact Us</li>
-                           <li>Privacy Policy</li>
-                         <li>Terms and Conditions</li> </ul>
-                 <li  class="footer-item"><span class="footer-title"> Our Location</span>
-                     <ul><li >
-                         BIGHOUSE BUILDING <br>
-                         P.O BOX 123 <br>
-                         NAIROBI
-                     </li></ul>
-                 </li>
-                 <li  class="footer-item"><span class="footer-title">Contact Us</span>
-                     <ul>
-                         <li>Facebook</li>
-                         <li>Twitter</li>
-                         <li>Youtube</li>
-                      </ul>
-                 </li>
-             </ul>
+            
             </div>
        
         </div>
     </div>
 
-    <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
-    <script>
-    $(document).ready(()=>{
-       
-        $('#single-viewProd').click(()=>{
-            $('#products-sectionGrab').removeClass('products-section')
-            $('#products-sectionGrab').addClass('products-sectionLview')
-            $('.product-item-grab').removeClass('product-item')
-            $('.product-item-grab').addClass('product-itemLview')
+    <div id="scriptsAll">
+  
+        <script  src="./assests/scripts/jquery-3.4.1.min.js"></script>
+        <script  src="./assests/scripts/url.js"></script>
+        <script src="./assests/scripts/prepload.js"></script>
+     
+        <script>
+        $(document).ready(()=>{
            
-        })
-        $('#grid-viewProd').click(()=>{
-            $('#products-sectionGrab').removeClass('products-sectionLview')
-            $('#products-sectionGrab').addClass('products-section')
-            $('.product-item-grab').removeClass('product-itemLview')
-            $('.product-item-grab').addClass('product-item')
+            $('#single-viewProd').click(()=>{
+                $('#products-sectionGrab').removeClass('products-section')
+                $('#products-sectionGrab').addClass('products-sectionLview')
+                $('.product-item-grab').removeClass('product-item')
+                $('.product-item-grab').addClass('product-itemLview')
+               
+            })
+            $('#grid-viewProd').click(()=>{
+                $('#products-sectionGrab').removeClass('products-sectionLview')
+                $('#products-sectionGrab').addClass('products-section')
+                $('.product-item-grab').removeClass('product-itemLview')
+                $('.product-item-grab').addClass('product-item')
+                
+               
+            })
             
-           
         })
-    })
-    </script>
+        </script>
+    </div>
+
 
 </body>
 </html>

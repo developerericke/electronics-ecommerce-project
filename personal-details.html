@@ -8,48 +8,23 @@
          <link rel="stylesheet" href="./assests/styles/large-screen.css">
          <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
          <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
-           <script src="./assests/scripts/script.js"></script>
+    
     </head>
     <body>
+        <div id="pageloader" class="w3-display-container w3-border">
+            <div class="w3-display-middle w3-center">
+                <div class="w3-large">Loading. Please wait</div><br>
+                <img src="./assests/images/830.gif" alt="loader">
+            </div>
+         </div> 
          
-        <div id="page-wrapper">
+        <div id="page-wrapper" class="w3-hide">
             <div id="content-wrapper">
-                <div id="sticky-content">
-                    <div id="nav-section" class="w3-row">
-                        <div id="home-icon" class="w3-col s4 m4 l4">
-                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
-                        </div>
-                        <div id="search-section" class="w3-col s8 m8 l4 ">
-                            <form action="#" method="get">
-                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
-                            </form>
-                        </div>
-                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
-                            <ul id="account-actions-ul">
-                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
-                                    <ul><li class="shop_basket">
-                                     <span class="w3-small">Cart </span>
-                                     </li></ul>
-                                   
-                                </li>
-        
-                                <li class="nav-icon">    <i class="fas fa-user"></i>
-                                <ul><li>
-                                 <span class="w3-small">Account</span>     
-                                </li></ul>
-                                
-                                </li>
-                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
-                                    <ul><li>
-                                      <span class="w3-small">Logout</span> 
-                                    </li></ul>
-                                   
-                                </li>
-                            </ul>
-                        </div>
-                         
+                <div id="sticky-content"  >
+                    <div id="nav-section"  class="w3-row">
+                        <div id="nav-bar-large"></div>
                     </div>
+                   
                 </div> 
                
                     <div style="text-decoration: underline;font-weight: bold;" class="w3-large w3-margin-left w3-margin-top w3-margin-bottom">Settings</div>
@@ -59,7 +34,7 @@
                           <div id="formSect">
                             <div class="w3-row" >
                                 <div class="w3-col s6 l6">
-                                    <input id='currentName' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="Eric Nderitu" type="text" name="names" id="names">
+                                    <input id='currentName' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="" type="text" name="names" >
                                 </div>
                                
                                 <button  id="modifyName" style="font-weight: bold;color:#2196F3" class="w3-btn l3 w3-margin-top  w3-col  s3"><i class="fas fa-pen"></i>Edit</button>
@@ -68,7 +43,7 @@
                             <div class="w3-row">
                                 <div class="w3-col s6 l6" >
                     
-                                  <input  id="currentPhone" maxlength="13" minlength="13" disabled class="w3-input w3-border " value="+254724144002" type="tel" name="phoneNo" id="phoneNo">                  
+                                  <input  id="currentPhone" maxlength="13" minlength="13" disabled class="w3-input w3-border " value="" type="tel" name="phoneNo" >                  
                                 </div>
                                 
                                
@@ -81,7 +56,7 @@
                         
                     </div>
 
-                    <form class="w3-margin-top " style="display: none;" id="updatePassword" method="POST">
+                    <form class="w3-margin-top w3-border " style="display: none;" id="updatePassword" method="POST">
                         <div class="w3-center w3-margin-bottom" style="font-weight: bold;text-decoration: underline;">Update Password</div>
 
                         <div  id="updPassForm" class=" w3-margin-bottom w3-center w3-small" style="font-weight:bold"></div>
@@ -100,50 +75,20 @@
                           
             </div>
     
-            <div id="footer-wrapper">
-                <input type="text" value='0'  class="cartVALUE w3-hide">
-                <div class="w3-row" id="nav-bar-small">
-                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
-                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
-                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
-                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
-                    
-                </div>
-                <div id="footer-content">
-                 <ul style="list-style-type: none;padding: 0px;">
-                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
-                         <ul>
-                             <li>Samsung</li>
-                             <li>Oppo</li>
-                             <li>Tecno</li>
-                             <li>Laptop</li>
-                             <li>Laptop Accessories</li>
-                          </ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Important Information</span>
-                         <ul><li >About Us</li>
-                              <li>Contact Us</li>
-                               <li>Privacy Policy</li>
-                             <li>Terms and Conditions</li> </ul>
-                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
-                         <ul><li >
-                             BIGHOUSE BUILDING <br>
-                             P.O BOX 123 <br>
-                             NAIROBI
-                         </li></ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
-                         <ul>
-                             <li>Facebook</li>
-                             <li>Twitter</li>
-                             <li>Youtube</li>
-                          </ul>
-                     </li>
-                 </ul>
-                </div>
-           
-            </div>
+            
         </div>
+        <div id="footer-wrapper">
+            <input type="text" value='0'  class="cartVALUE w3-hide">
+           <div id="nav-bar-small"></div>
+            <div id="footer-content">
+            
+            </div>
+       
+        </div>
+        </div>
+        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+        <script  src="./assests/scripts/url.js"></script>
+        <script src="./assests/scripts/prepload.js"></script>
     
     
     

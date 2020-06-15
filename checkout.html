@@ -16,8 +16,8 @@
 
          <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
          <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
-           <script src="./assests/scripts/script.js"></script>  
-       
+         <script  src="./assests/scripts/url.js"></script>
+         <script defer src="./assests/scripts/script.js"></script> 
     </head>
     <body>
          
@@ -25,41 +25,9 @@
             <div id="content-wrapper">
                 <div id="sticky-content">
                     <div id="nav-section" class="w3-row">
-                        <div id="home-icon" class="w3-col s4 m4 l4">
-                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
-                        </div>
-                        <div id="search-section" class="w3-col s8 m8 l4 ">
-                            <form action="#" method="get">
-                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
-                            </form>
-                        </div>
-                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
-                            <ul id="account-actions-ul">
-                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
-                                    <ul><li class="shop_basket">
-                                     <span class="w3-small">Cart </span>
-                                     </li></ul>
-                                   
-                                </li>
-        
-                                <li class="nav-icon">    <i class="fas fa-user"></i>
-                                <ul><li>
-                                 <span class="w3-small">Account</span>     
-                                </li></ul>
-                                
-                                </li>
-                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
-                                    <ul><li>
-                                      <span class="w3-small">Logout</span> 
-                                    </li></ul>
-                                   
-                                </li>
-                            </ul>
-                        </div>
-                         
+                        <div id="nav-bar-large"></div>    
                     </div>
-                </div> 
+                </div>
             <div id="cart-items-wrapper" >    
                 <div class="w3-card-2" id="checkout-sect">
                     <div class="w3-panel w3-center w3-large" style="text-decoration: underline;font-size: 2em;">Checkout</div>
@@ -123,76 +91,11 @@
                         </div>
                     
 
-                        <div class="cart-section w3-margin-top">
-                            <div class="w3-row cart-section-itm w3-margin-top w3-border w3-center">
-                                <div class="w3-hide" id="unitPriceID1yt54">14000</div>
-                                <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                    <img src="./assests/images/Samsung/J7.jpg" alt="s2"><br>
-                                    <span class="cart-item-title w3-small">Samsung J7 </span> <br>
-                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 14000</span>
-                                </div>
-                                <div class="w3-col s2 l2 quantity-contr  cart-item-desc">
-                                <div class='addQuantity  ID1yt54' ><i class="fas fa-plus-square" ></i><br></div>
-                                    <input type="text"  disabled class="w3-input w3-center" value="1"   name="quantity" min="1" step="1" id="ID1yt54">
-                                <div class="decQuantity ID1yt54"><i class="fas fa-minus-square "  ></i></div>  
-                                </div>
-                                <div class="w3-col del-contr s3 l2 cart-item-desc">
-                                <div class="ID1yt54  del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>
-                                </div>
-                                
-                                <div class="w3-col prc-cont s3 l3 w3-center cart-item-desc">
-                                    <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID1yt54">14000</span></span> 
-                                </div>
-                                
-                                
+                        <div  class="cart-section w3-margin-top">
+                            <div id="cartItemDisplayRow">
+                                    <div></div>
                             </div>
-                            <div class="w3-row w3-margin-top cart-section-itm w3-border w3-center">
-                                <div class="w3-hide" id="unitPriceID3656h">22000</div>
-                                <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                    <img src="./assests/images/Samsung/S20.jpg" alt="s2"><br>
-                                    <span class="cart-item-title w3-small">Samsung s20</span> <br>
-                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 22000</span>
-                                
-                                </div>
-                                <div class="w3-col s2 l2 quantity-contr cart-item-desc">
-                                    <div class='addQuantity ID3656h' ><i class="fas fa-plus-square" ></i><br></div>
-                                <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="ID3656h">
-                                <div class="decQuantity ID3656h"><i class="fas fa-minus-square"  ></i></div>  
-                            </div>
-                            <div class="w3-col del-contr s3 l2 cart-item-desc">
-                             <div class="ID3656h del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>    
-                            </div>
-                            
-                            <div class="w3-col s3 prc-cont l3 w3-center cart-item-desc">
-                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID3656h">22000</span></span> 
-                            </div>
-                            
-                            
-                            </div>
-                            <div class="w3-row w3-margin-top cart-section-itm w3-border w3-center">
-                                <div class="w3-hide" id="unitPriceID245e5">17000</div>
-                                <div class="w3-col s4 w3-center l5 cart-item-desc">
-                                    <img src="./assests/images/Samsung/A50.jpg" alt="s2"><br>
-                                    <span class="cart-item-title w3-small">Samsung A50</span> <br>
-                                    <span class="w3-small w3-text-green" style="font-weight: bold;">Kes 17000</span>
-                                
-                                </div>
-                                <div class="w3-col s2 l2 quantity-contr cart-item-desc">
-                                    <div class='addQuantity ID245e5' ><i class="fas fa-plus-square" ></i><br></div>
-                                <input type="text" disabled class="w3-input w3-center" value="1"  name="quantity" min="1" step="1" id="ID245e5">
-                                <div class="decQuantity ID245e5"><i class="fas fa-minus-square "  ></i></div>  
-                            </div>
-                            <div class="w3-col del-contr s3 l2 cart-item-desc">
-                                <div class="ID245e5 del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>  
-                              
-                            </div>
-                            
-                            <div class="w3-col prc-cont s3 l3 w3-center cart-item-desc">
-                                <span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID245e5">17000</span></span> 
-                            </div>
-                            
-                            
-                            </div>
+                         
                             
 
                             <div id="total-amount" style="font-weight: bold;text-decoration: underline;" class="w3-center w3-margin-top">Total Amount <span class="w3-small" >(Shipping Charges Not inc)</span></div>
@@ -314,44 +217,9 @@
     
             <div id="footer-wrapper">
                 <input type="text" value='0'  class="cartVALUE w3-hide">
-                <div class="w3-row" id="nav-bar-small">
-                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
-                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
-                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
-                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
-                    
-                </div>
+               <div id="nav-bar-small"></div>
                 <div id="footer-content">
-                 <ul style="list-style-type: none;padding: 0px;">
-                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
-                         <ul>
-                             <li>Samsung</li>
-                             <li>Oppo</li>
-                             <li>Tecno</li>
-                             <li>Laptop</li>
-                             <li>Laptop Accessories</li>
-                          </ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Important Information</span>
-                         <ul><li >About Us</li>
-                              <li>Contact Us</li>
-                               <li>Privacy Policy</li>
-                             <li>Terms and Conditions</li> </ul>
-                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
-                         <ul><li >
-                             BIGHOUSE BUILDING <br>
-                             P.O BOX 123 <br>
-                             NAIROBI
-                         </li></ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
-                         <ul>
-                             <li>Facebook</li>
-                             <li>Twitter</li>
-                             <li>Youtube</li>
-                          </ul>
-                     </li>
-                 </ul>
+                
                 </div>
            
             </div>

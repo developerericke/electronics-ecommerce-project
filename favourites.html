@@ -14,143 +14,135 @@
          
         <div id="page-wrapper">
             <div id="content-wrapper">
-                <div id="sticky-content">
-                    <div id="nav-section" class="w3-row">
-                        <div id="home-icon" class="w3-col s4 m4 l4">
-                            <img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">
-                        </div>
-                        <div id="search-section" class="w3-col s8 m8 l4 ">
-                            <form action="#" method="get">
-                                <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">
-                            </form>
-                        </div>
-                        <div id="account-actions" class="l4 w3-col w3-round-xlarge">
-                            <ul id="account-actions-ul">
-                                <li  class="nav-icon "> <i class="fas w3-text-green fa-shopping-cart"></i>
-                                    <sup style="font-weight: bold;" class='basket_status w3-text-brown'></sup>
-                                    <ul><li class="shop_basket">
-                                     <span class="w3-small">Cart </span>
-                                     </li></ul>
-                                   
-                                </li>
-        
-                                <li class="nav-icon">    <i class="fas fa-user"></i>
-                                <ul><li>
-                                 <span class="w3-small">Account</span>     
-                                </li></ul>
-                                
-                                </li>
-                                <li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>
-                                    <ul><li>
-                                      <span class="w3-small">Logout</span> 
-                                    </li></ul>
-                                   
-                                </li>
-                            </ul>
-                        </div>
-                         
+                <div id="sticky-content"  >
+                    <div id="nav-section"  class="w3-row">
+                        <div id="nav-bar-large"></div>
                     </div>
+                   
                 </div> 
-                <div class="w3-cad-2" id="myfav">
+
+            
+                <div class="w3-card-2"  id="myfavourites">
                     <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-large w3-margin-top w3-margin-bottom">Settings</div>
-                    
-                    <div class="cart-section w3-margin-top">
                         <div class="w3-margin-left" style="text-decoration: underline;">My Favourites</div>
-                    <div style="margin-top: 20px;" class="w3-row w3-border w3-center">
-                                
-                        <div  class="fav-box w3-row w3-card-2 w3-border w3-border-black w3-center">
-                                
-                            <div  style="display: block;height: 100%;" class="w3-col s4 w3-center l4 cart-item-desc w3-border-right"  >
-                                <img src="./assests/images/Samsung/S2.jpg" alt="s2"><br>
-                                <span class="cart-item-title itm-desc-fav w3-small"> Samsung s9 dual sim 2020</span> 
-                            </div>
-                            <div style="display: block;height: 100%;" class="w3-col s4 l4 w3-text-green cart-item-desc w3-border-right">
-                                <span>Buy Now</span><br>
-                               <i class="fas fa-shopping-cart"></i>
-                           </div>
-                           <div style="display: block;height: 100%;" class="w3-col s4 l4 cart-item-desc">
-                               <span>Delete</span><br>
-                             <i class="fas delete-icon fa-trash w3-center"></i>
-                           </div>
-                           
-                           
-                           
-                           
-                        </div>
-                        <div  class="fav-box w3-row w3-card-2 w3-border w3-border-black w3-center">
-                                
-                            <div  style="display: block;height: 100%;" class="w3-col s4 w3-center l4 cart-item-desc w3-border-right"  >
-                                <img src="./assests/images/Samsung/S2.jpg" alt="s2"><br>
-                                <span class="cart-item-title itm-desc-fav w3-small"> Samsung s9 dual sim 2020</span> 
-                            </div>
-                            <div style="display: block;height: 100%;" class="w3-col s4 l4 w3-text-green cart-item-desc w3-border-right">
-                                <span>Buy Now</span><br>
-                               <i class="fas fa-shopping-cart"></i>
-                           </div>
-                           <div style="display: block;height: 100%;" class="w3-col s4 l4 cart-item-desc">
-                               <span>Delete</span><br>
-                             <i class="fas delete-icon fa-trash w3-center"></i>
-                           </div>
-                           
-                           
-                           
-                           
-                        </div>
+                    
+                       <div style="display: none;" id="myfav-box">
+                         
                         
                         
-                       
-                       
-                    </div>
-               </div>
+                      </div> 
+                      <div class="w3-display-container" id="loader">
+                          <div class="w3-display-middle w3-center" id="content">
+                            Loading.Please wait ...<br>
+                              <img class="w3-margin-top" src="./assests/images/826.gif" alt="loader">
+                          </div>
+                         
+                      </div>                     
+              
                           
             </div>
     
             <div id="footer-wrapper">
                 <input type="text" value='0'  class="cartVALUE w3-hide">
-                <div class="w3-row" id="nav-bar-small">
-                    <a href="index.html"><div class="w3-col s3">Home  <br><i  class="fas fa-home"></i> </div></a>
-                    <a href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>
-                    <a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>
-                    <a href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>
-                    
-                </div>
+               <div id="nav-bar-small"></div>
                 <div id="footer-content">
-                 <ul style="list-style-type: none;padding: 0px;">
-                     <li class="footer-item"> <span class="footer-title">Quick Links</span> 
-                         <ul>
-                             <li>Samsung</li>
-                             <li>Oppo</li>
-                             <li>Tecno</li>
-                             <li>Laptop</li>
-                             <li>Laptop Accessories</li>
-                          </ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Important Information</span>
-                         <ul><li >About Us</li>
-                              <li>Contact Us</li>
-                               <li>Privacy Policy</li>
-                             <li>Terms and Conditions</li> </ul>
-                     <li  class="footer-item"><span class="footer-title"> Our Location</span>
-                         <ul><li >
-                             BIGHOUSE BUILDING <br>
-                             P.O BOX 123 <br>
-                             NAIROBI
-                         </li></ul>
-                     </li>
-                     <li  class="footer-item"><span class="footer-title">Contact Us</span>
-                         <ul>
-                             <li>Facebook</li>
-                             <li>Twitter</li>
-                             <li>Youtube</li>
-                          </ul>
-                     </li>
-                 </ul>
+                
                 </div>
            
             </div>
         </div>
     
     
+        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+        <script  src="./assests/scripts/url.js"></script>
+        <script src="./assests/scripts/prepload.js"></script>
+        <script>
+          $(document).ready(()=>{
+           let myfavbox = $("#myfav-box")
+           let loader = $('#loader')
+           
+
+
+           $.ajax({
+               url:get_favourites,
+               method:'GET',
+               success: function(data,status,xhr){
+                navbarLarge.html(LoggedInLarge)
+                           navbarSmall.html(LoggedInsmall);
+                  loader.hide(0,()=>{
+                    myfavbox.show(400,function(){
+                    
+                      
+                        this.innerHTML ='' 
+                        data.forEach(item => {
+                            this.innerHTML = this.innerHTML  + ' <div id="'+ item.id+'" class="myfav-content">'+
+                         '      <div><img src="'+item.image+'" alt="'+item.title+'"></div>'+
+                              ' <div>  <h5 style="font-weight:bold">'+item.title+'</h5></div>'+
+                              ' <div class="buyFav"><i style="cursor: pointer;" class="fas w3-hover-text-green   w3-xlarge fa-shopping-cart"></i><br><span style="font-weight:bold" class="w3-text-green">Buy Now</span></div>'+
+                              ' <div class="remFav"><i style="cursor: pointer;" class="fas w3-xlarge delete-icon   fa-trash w3-center"></i><br><span style="font-weight:bold">Remove</span></div>'+
+                          ' </div>'
+                      }); 
+                        
+                     
+                       let remFav = document.querySelectorAll('.remFav')
+                       let buyFav = document.querySelectorAll('.buyFav')
+                    
+
+                         remFav.forEach((item)=>{
+                            
+                              item.addEventListener('click',function () {
+                                
+                                $.ajax({
+                                    method:'POST',
+                                    url :post_delete_favourite,
+                                    data:'id='+item.parentNode.id,
+                                    success: ()=>{
+                                        this.style.color ='green'
+                                        this.innerHTML = "Removed"
+                                        setTimeout(()=>{
+                                            window.location.reload()
+                                        },500)
+                                        
+                                    },
+                                    error:  ()=> {
+                                       
+                                        this.style.color ='red'
+                                        this.innerHTML = "Failed"
+                                        setTimeout(()=>{
+                                           this.innerHTML ='<i style="cursor: pointer;" class="fas w3-xlarge delete-icon   fa-trash w3-center"></i><br>Remove'
+                                        },1000)  
+                                    }
+                                })
+                              })
+                         })
+                        buyFav.forEach((item)=>{
+                             item.addEventListener('click',()=>{
+                                window.location.href = '/view-product.html?id='+item.parentNode.id
+                             })
+                        })
+                     
+
+                       
+                    }) 
+
+                  })
+               },
+               error: function(xhr,status,error){
+                 if(xhr.status===401){
+                    window.location.href='/authentication.html'
+                 }  else{
+                    $('#loader #content').css('color','red').html('<span style="text-decoration:underline;font-weight:bold"> Error :'+ error + '</span> <br><br><a class="w3-text-black" href="">Click here to Retry</a>')
+              
+                 }
+               }
+           })
+       
+
+
+
+          })
+
+        </script>
     
     </body>
     </html>

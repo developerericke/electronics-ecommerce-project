@@ -1,10 +1,133 @@
-document.addEventListener('DOMContentLoaded',ready)
+
+// document.addEventListener('load',ready)
+
+// function ready(){
+ 
+//endpoints declaration with data expected
 
 
-function ready(){
-    var location = window.location.href
 
-let currentL=location.split('/')
+let footerContentScript, LoggedInsmallScript ,LoggedInLargeScript,notLoggedInLargeScript,notLoggedInsmallScript;
+footerContentScript = ' <ul style="list-style-type: none;padding: 0px;">\
+<li class="footer-item"> <span class="footer-title">Quick Links</span> \
+    <ul>\
+        <li>Samsung</li>\
+        <li>Oppo</li>\
+        <li>Tecno</li>\
+        <li>Laptop</li>\
+        <li>Laptop Accessories</li>\
+     </ul>\
+</li>\
+<li  class="footer-item"><span class="footer-title">Important Information</span>\
+    <ul><li >About Us</li>\
+         <li>Contact Us</li>\
+          <li>Privacy Policy</li>\
+        <li>Terms and Conditions</li> </ul>\
+<li  class="footer-item"><span class="footer-title"> Our Location</span>\
+    <ul><li >\
+        BIGHOUSE BUILDING <br>\
+        P.O BOX 123-456 <br>\
+        NAIROBI,KENYA\
+    </li></ul>\
+</li>\
+<li  class="footer-item"><span class="footer-title">Contact Us</span>\
+    <ul>\
+        <li>Facebook</li>\
+        <li>Twitter</li>\
+        <li>Youtube</li>\
+        <li>Tel: +25412345678</li>\
+     </ul>\
+</li>\
+</ul>'
+notLoggedInLargeScript = ''+
+'<a href="/"><div id="home-icon" class="w3-col s5 m4 l4">'+
+    '<img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">\
+</div></a>\
+<div id="search-section" class="w3-col s7 m8 l4 ">\
+    <form action="#" method="get">\
+        <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">\
+    </form>\
+</div>\
+ <div id="account-actions" class="l4 w3-col w3-round-xlarge">\
+    <ul id="account-actions-ul">\
+       <a href="/authentication.html"><li  class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>\
+            <sup style="font-weight: bold;" class="basket_status w3-text-brown"></sup>\
+            <ul><li class="shop_basket"><span class="w3-small">Cart</span></li>\
+            </ul>\
+           \
+        </li></a>\
+\
+        <a href="/authentication.html"><li class="nav-icon">    <i class="fas fa-user"></i>\
+        <ul>\
+            <li id="account-status">\
+         <span class="w3-small">Login/Signup</span>'+     
+       '</li>'+
+       '</ul>\
+          \
+        </li></a>\
+        <li class="nav-icon">  <i class="fas fa-headset"></i>\
+            <ul><li>\
+              <span class="w3-small">Support</span>'+
+            '</li></ul>\
+        </li>\
+    </ul>\
+</div>'
+notLoggedInsmallScript =' <div class="w3-row" id="nav-bar-small">\
+<a id="small-home-link" href="index.html"><div class="w3-col s3">Home<br><i  class="fas fa-home"></i> </div></a>\
+<a id="small-cart-link" href="authentication.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>\
+<a href="support.html"><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
+<a  id="small-dashboard-link" href="authentication.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>\
+\
+</div>'
+
+LoggedInLargeScript = ''+
+'<a href="/"><div id="home-icon" class="w3-col s5 m4 l4">'+
+    '<img src="./assests/images/home-icon.jpg" class="w3-round-large" alt="Home Icon">\
+</div></a>\
+<div id="search-section" class="w3-col s7 m8 l4 ">\
+    <form action="#" method="get">\
+        <input placeholder="Search ..." class="w3-round-xxlarge w3-input w3-border w3-border-bottom  " type="search" name="searchKeywaords" id="serachBar">\
+    </form>\
+</div>\
+ <div id="account-actions" class="l4 w3-col w3-round-xlarge">\
+    <ul id="account-actions-ul">\
+       <a href="/checkout.html"><li  class="nav-icon"> <i class="fas w3-text-green fa-shopping-cart"></i>\
+            <sup style="font-weight: bold;" class="basket_status w3-text-brown"></sup>\
+            <ul><li class="shop_basket"><span class="w3-small">Cart</span></li>\
+            </ul>\
+           \
+        </li></a>\
+\
+       <a href="/dashboard.html" <li class="nav-icon">    <i class="fas fa-user-check"></i>\
+        <ul>\
+            <li id="account-status">\
+         <span class="w3-small">My Account</span>'+     
+       '</li>'+
+       '</ul>\
+          \
+        </li></a>\
+        <a href="/logout.html"><li class="nav-icon">  <i class="fas w3-text-red fa-arrow-right"></i>\
+            <ul><li>\
+              <span class="w3-small">Logout</span>'+
+            '</li></ul>\
+        </li></a>\
+    </ul>\
+</div>'
+
+LoggedInsmallScript =' <div class="w3-row" id="nav-bar-small">\
+<a id="small-home-link" href="index.html"><div class="w3-col s3">Home<br><i  class="fas fa-home"></i> </div></a>\
+<a id="small-cart-link" href="checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>\
+<a href="support.html"><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
+<a id="small-dashboard-link" href="dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>\
+\
+</div>'
+ 
+
+//}
+
+let mylocation = window.location.href
+
+let currentL=mylocation.split('/')
 let xhttp = new XMLHttpRequest()
 class styler{
     constructor(item){ 
@@ -30,22 +153,26 @@ class styler{
  let succbg = "#ccffcc";
  let procbg = "black";
 
- let NavbarLinks = document.querySelectorAll('.nav-icon')  
- NavbarLinks.forEach((bar)=>{
-     bar.addEventListener('click',function(){
-         let  value = this.innerText
+//  let NavbarLinks = document.querySelectorAll('.nav-icon')  
+//  NavbarLinks.forEach((bar)=>{
+//      bar.addEventListener('click',function(){
+//          let  value = this.innerText
         
-         if(value.search('Cart')>-1){
-         window.location.href= '/checkout.html'
-         }else if(value==='Account'){
-           window.location.href= '/dashboard.html'
-         }else if(value==='Logout'){
-            window.location.href= '/index.html'
-         }
+//          if(value.search('Cart')>-1){
+//          window.location.href= '/checkout.html'
+//          }else if(value==='My Account'){
+//            window.location.href= '/dashboard.html'
+//          }else if(value==='Logout'){
+//             window.location.href= '/index.html'
+//          }else if(value.search('Login/Signup')>-1){
+//             window.location.href= '/authentication.html'
+//          }else if(value.search('/Logout')){
+//                window.location.href='/'
+//          }
          
 
-     })
- })
+//      })
+//  })
 
  function animator(){
      
@@ -94,7 +221,8 @@ class styler{
         })
      })
  })
-    if (typeof(Storage) !== "undefined") {
+ if (typeof(Storage) !== "undefined") {
+       
          // localStorage.setItem('basketDetails','[{"itemID":"124363","itemQuantity":"0"}]')
            if(localStorage.navigationTrack ===undefined){
                  localStorage.setItem('navigationTrack',null)
@@ -118,19 +246,24 @@ class styler{
                 })
             
             }
+             if(localStorage.favourites===undefined){
+             localStorage.setItem('favourites','')
+            }
     
   
 
     }else{
-        alert('no local storage')
+       document.querySelector('body').html = 'This website Relies on LocalStorage and Cookie.Please enable them or uprade your browser'
     }
- let home_icon = document.querySelector('#home-icon')
- home_icon.addEventListener('click',function(){
-     window.location.href='index.html'
- })
- 
- if(currentL[3]==='index.html'){
-    
+
+//  let home_icon = document.querySelector('#home-icon')
+//  if(home_icon!==null){
+//  home_icon.addEventListener('click',function(){
+//      window.location.href='index.html'
+//  })
+// }
+ if(currentL[3]==='index.html' || currentL[3]===''){
+
    let cartBTN = document.querySelectorAll('.addtoCart')
    var cartCounter;   
    document.querySelectorAll('.basket_status').forEach((itm)=>{
@@ -139,12 +272,13 @@ class styler{
    })
   
    let  cartValue ;
- 
+    
+   
    cartBTN.forEach((btn)=>{
- 
-    btn.addEventListener('click',function(){
-        
+    
+    btn.addEventListener('click',function(){  
        let itmID = this.value
+       
        let ITEMID = itmID.split(',')[0].split(':')[1].slice(1,-1)
        let ITEMQuant = itmID.split(',')[1].split(':')[1].slice(1,2)
        let BasketDetails =localStorage.basketDetails
@@ -183,7 +317,7 @@ class styler{
                 curr_bask.forEach((itm)=>{
                     cartValue=cartValue + Number(itm.itemQuantity)
                 })
-              console.log(cartValue)
+            
                 document.querySelectorAll('.basket_status').forEach((itm)=>{
                     itm.innerText=cartValue
                     updateCartInput(cartValue)
@@ -227,8 +361,33 @@ class styler{
        }
     })
    })
+   document.querySelectorAll('.favicon').forEach((icon)=>{
+       
+    icon.addEventListener('click',function(){
+    
+      
+        document.getElementById(this.id).style.color ='brown'
+           
+      let key1 ="[" 
+      let key2=']'
+       if(localStorage.favourites.indexOf(key1)>-1 && localStorage.favourites.indexOf(key2)>-1 && localStorage.favourites.indexOf(this.id)===-1 ){
+         
+            let currentFav =  (localStorage.favourites).slice('1','-1')
+            localStorage.favourites= '['+currentFav+','+this.id+']'
+         
+            
+       }else if(localStorage.favourites.indexOf(key1)===-1 && localStorage.favourites.indexOf(key2)===-1 && localStorage.favourites.indexOf(this.id)===-1){
+        localStorage.favourites = '['+this.id+']'
+
+       }
+    })
+})
+
    
  }else  if(currentL[3]==='authentication.html'){
+    let footer = document.querySelector('#footer-content')
+    let navbarLarge = document.querySelector('#nav-bar-large')
+      let navbarSmall = document.querySelector('#nav-bar-small')
     animator()
   
     // authentication
@@ -238,7 +397,9 @@ class styler{
      let forgpassbtn = document.querySelectorAll('.forgot-password-instead') 
      let signupbtn = document.querySelectorAll('.signup-instead') 
      let loginbtn = document.querySelectorAll('.login-instead') 
-   
+   footer.innerHTML= footerContentScript
+   navbarLarge.innerHTML = notLoggedInLargeScript
+   navbarSmall.innerHTML =notLoggedInsmallScript
    signupbtn.forEach(btn=>{
        btn.addEventListener('click',  function(e){
         loginForm.style.display= 'none'
@@ -359,7 +520,7 @@ class styler{
          if(this.readyState===1){
             statusBar.style.backgroundColor='wheat'
             statusBar.style.color = 'green'
-            statusBar.innerText ='Signing Up...'
+            statusBar.innerHTML ='Processing.Please wait <i class="w3-spin fas fa-spinner"></i>'
             defaultLabels()
          }else if(this.readyState===4){
              if(this.status===200){
@@ -386,7 +547,7 @@ class styler{
              }
          }
      }
-     xhttp.open('POST','http://localhost:9090/addUser',true)
+     xhttp.open('POST',post_add_user,true)
      xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
      
      xhttp.send(signupData.join('&'))
@@ -410,7 +571,7 @@ class styler{
      
                 if(this.readyState===1){
                     login_progress.style.backgroundColor = 'wheat'
-                    login_progress.innerText='Authenticating'
+                    login_progress.innerHTML=' Authenticating.Please wait <i class="w3-spin fas fa-spinner"></i>'
                     login_progress.style.color = 'green'
                 }else if(this.readyState===4){
                     if(this.status==0){
@@ -420,7 +581,11 @@ class styler{
                     }else if(this.status===200){
                         login_progress.style.backgroundColor = '#ccffcc'
                         login_progress.innerText='Success'
-                        login_progress.style.color = 'black'                 
+                        login_progress.style.color = 'black'   
+                        
+                      
+                             window.location.href='/dashboard.html'
+                        
                     }else if(this.status===401){
                         login_progress.style.backgroundColor = '#ffcccc'
                         login_progress.innerText='Invalid Login Details'
@@ -429,7 +594,7 @@ class styler{
                 }
             
         }
-         xhttp.open('POST',/*Post Route where Login hits i.e /login */'http://localhost:9090/loginUser',true)
+         xhttp.open('POST',/*Post Route where Login hits i.e /login */post_login_user ,true)
          xhttp.setRequestHeader('Content-type',"application/x-www-form-urlencoded") 
          xhttp.send(LoginData.join('&'))  
       })
@@ -443,12 +608,13 @@ class styler{
             if(this.readyState===1){
                statusbar.style.backgroundColor= 'wheat'
                statusbar.style.color='green'
-               statusbar.innerText= 'Processing ...'
+               statusbar.innerHTML = 'Processing.Please wait <i class="w3-spin fas fa-spinner"></i>'
             }else if(this.readyState===4){
                 if(this.status===200){
                     statusbar.style.backgroundColor= '#ccffcc'
                     statusbar.style.color='black'
                     statusbar.innerText= 'An Email has been sent to '+ recovery_email.value + ' with account recovery instructions'
+                    recovery_email.value=''
                 }else if(this.status===401){
                     statusbar.style.backgroundColor= '#ffcccc'
                     statusbar.style.color='black'
@@ -461,7 +627,7 @@ class styler{
             }
         }
         
-        xhttp.open('POST','http://localhost:9090/recoverAccount',true)
+        xhttp.open('POST',post_recover_account ,true)
         xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
         xhttp.send('recovery_email='+recovery_email.value)
       })
@@ -501,6 +667,7 @@ class styler{
                    
                   document.querySelector('#'+id).querySelectorAll('.delAddress')[0].style.display= 'none'
                 }else if(this.readyState===4){
+                
                     if(this.status===200){
                         btn.style.backgroundColor=succbg
                         btn.style.color = 'black'
@@ -509,8 +676,9 @@ class styler{
                         setTimeout(()=>{
                            window.location.reload()
                         },200)
-                    }else{
-                        
+                    }else if(this.status===401){
+                       window.location.href='/authentication.html'
+                    }else{                        
                     
                         btn.style.color = 'red'
                         btn.innerHTML  ='Something is wrong.'
@@ -524,7 +692,7 @@ class styler{
                     }
                 }
             }
-            xhttp.open('POST','http://localhost:9090/updateloc',true)
+            xhttp.open('POST',post_set_address_as_default,true)
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send('address_id='+id)
         
@@ -557,7 +725,7 @@ class styler{
                     }
                 }
             }
-            xhttp.open('POST','http://localhost:9090/deladdress',true)
+            xhttp.open('POST',post_delete_address,true)
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send('address_id='+id)
         
@@ -726,7 +894,7 @@ class styler{
 
                 }
             }
-            xhttp.open('POST','http://localhost:9090/addaddress',true)
+            xhttp.open('POST',post_add_address,true)
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send(addressdata)
 
@@ -799,6 +967,7 @@ class styler{
                    }else if(this.status===200){
                         modifyName.style.color='green'
                         modifyName.innerHTML= 'Success'
+                        currentNam.style.color='black'
                         currentName.disabled=true
                         setTimeout(()=>{
                             modifyName.style.color = '#2196F3'
@@ -820,7 +989,7 @@ class styler{
                     }
                 }
             }
-            xhttp.open('POST','http://localhost:9090/editexistingdet',true)
+            xhttp.open('POST',post,true)
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send('username='+currentName.value)
             
@@ -869,7 +1038,7 @@ class styler{
                         }else if(this.status===200){
                             modifyPhone.style.color='green'
                             modifyPhone.innerHTML= 'Success'
-                            
+                            currentPhone.style.color='black'
                             setTimeout(()=>{
                                 modifyPhone.style.color = '#2196F3'
                                 modifyPhone.innerHTML= '<i class="fas fa-pen"></i>Edit'
@@ -889,7 +1058,7 @@ class styler{
                         }
                     }
                 }
-                xhttp.open('POST','http://localhost:9090/editexistingdet',true)
+                xhttp.open('POST',post_edit_phone,true)
                 xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
     
                
@@ -1014,7 +1183,7 @@ class styler{
     
        let label = document.querySelector('#'+this.id+'Label')
         if(new_password.value!==value){
-            label.innerHTML ='Confirmation Password  must match Desired Password'
+            label.innerHTML ='Password does not match "New Password"'
             label.style.color= 'red'
         }else{
             label.innerHTML ="Confirm New Password <i class='fas fa-check'></i>"
@@ -1034,7 +1203,12 @@ class styler{
         if(current_password.value==='' || new_password.value==='' || confirm_new_password===''){
             updPassForm.style.color = 'black'
             updPassForm.style.backgroundColor= '#ffb3b3'
-            updPassForm.innerHTML = "Correct the Highlighted Errors" 
+            updPassForm.innerHTML = "Correct the Highlighted Errors"
+        }else if(current_password.value===new_password.value){
+            updPassForm.style.color = 'black'
+            updPassForm.style.backgroundColor= '#ffb3b3'
+            updPassForm.innerHTML = "New Password and Old password CANNOT be the same"
+
         }else{
             xhttp.onreadystatechange = function(){
             
@@ -1045,7 +1219,7 @@ class styler{
                 }else if(this.readyState===1){
                  updPassForm.style.color = '#4dff88'
                  updPassForm.style.backgroundColor= 'black'
-                 updPassForm.innerHTML = "Updating <span class='w3-animate-fading'>...</span>"
+                 updPassForm.innerHTML = "Updating.Please wait <i class='w3-spin fas fa-spinner'></i>"
                  updatePasswordForm.querySelector('button').disabled= true
                 
                 }else if(this.readyState===4){
@@ -1068,6 +1242,10 @@ class styler{
                         setTimeout(()=>{
                             updPassForm.innerHTML = ""
                         },3000)
+                    }else if(this.status===401){
+                        updPassForm.style.color = 'black'
+                        updPassForm.style.backgroundColor= '#ffb3b3'
+                        updPassForm.innerHTML = "You provided an Incorrect 'Current Password'"
                     }else{
                         updPassForm.style.color = 'black'
                         updPassForm.style.backgroundColor= '#ffb3b3'
@@ -1077,7 +1255,7 @@ class styler{
                 }
             }
     
-            xhttp.open('POST','http://localhost:9090/updatepassword',true)
+            xhttp.open('POST',post_update_password,true)
             
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send('currentPassword='+ document.querySelector('#current_password').value + '&newpassword='+document.querySelector('#new_password').value +'&confnewpassword='+document.querySelector('#confirm_new_password').value )
@@ -1090,7 +1268,7 @@ class styler{
 
 
 }else if(currentL[3]==='checkout.html'){
-
+    
   
     animator()
 
@@ -1098,11 +1276,10 @@ class styler{
    let cart_itm = document.querySelector('#cart-checkout')
    let addr_itm = document.querySelector('#delivery-address') 
    let paym_opt = document.querySelector('#paym_opt')
-   let addQuantity = document.querySelectorAll('.addQuantity')
-   let decQuantity = document.querySelectorAll('.decQuantity')
+  
 
    let totalCart =document.querySelector('#cartTotal')
-   let eachItemTotal = document.querySelectorAll('.totalPriceCalc')
+   
    let cartOkayBTN = document.querySelector('#cartOkay')
    let cart_wrapper = document.querySelector('body')
    let addressOkayBTN = document.querySelector('#addressOkay')
@@ -1113,12 +1290,16 @@ class styler{
    let cartwrapper = grabBYID('#cart-wrapper')
    let animatorEffect = new styler(grabBYID('#animator-effect'))
    let addrItem =document.querySelector('#primary-address').querySelectorAll('.addITEM')
+   
    let user
    let shipprice = document.querySelectorAll('.cost')
    let totalcart,shipmcost,vatcharges
 
 
   let usercookiepostion =(document.cookie).search('curruser') 
+  let footer = document.querySelector('#footer-content')
+  let navbarLarge = document.querySelector('#nav-bar-large')
+    let navbarSmall = document.querySelector('#nav-bar-small')
  
    if(document.cookie===''){
     document.cookie ='curruser={"name":null,"phone":null,"shippcharges":null,"County":null,"BOX":null,"Location":null,"station":null,"LocationDescr":null,"LocationID":null};path=/checkout.html;expires=Thu,01 Jan 2099 00:00:00 UTC;'
@@ -1152,144 +1333,189 @@ class styler{
         addrItem[6].innerHTML = user.LocationDescr  
    }
   
-     
 
   // populating the checkout section (address,basket )
    xhttp.onreadystatechange = function () {
        if(this.readyState===4){
-           
+        footer.innerHTML = footerContentScript
            if(this.status===0){
             animatorEffect.applyStyle('red','inherit')
               animatorEffect.updateinnerhtml('Oops.You have lost your internet connection <a class="w3-text-black" onclick="<script>window.location.reload()</script>" href="">Click here to Retry</a>')
               preloader.querySelectorAll('div')[0].innerHTML='Net Error'
+              navbarLarge.innerHTML=notLoggedInLargeScript
+              navbarSmall.innerHTML=notLoggedInsmallScript
             }else if(this.status===200){
                 
-            if(localStorage.cartOkay!==undefined && localStorage.cartOkay!=='null'){ //user has not okayed the cart section
-                cart_itm_prog.style.backgroundColor='palegreen'
-                cart_itm_prog.innerHTML = '<span style="font-weight:bold;color:black">Cart Verified</span> <br><i class="fas fa-check"></i>'
-            
-            }
-            if(localStorage.addressOkay!==undefined && localStorage.addressOkay!=='null'){ //user has not okayed the address section
-                addr_itm_prog.style.backgroundColor = 'palegreen'
-                 addr_itm_prog.innerHTML = '<span style="font-weight:bold;color:black">Address Verified</span> <br><i class="fas fa-check"></i>'
-                          
-            }
-
                preloader.style.display = 'none'
                cartwrapper.style.display= 'block'
-               let result = JSON.parse(this.responseText)
-              
-               document.cookie ='curruser={"name":"' +result.user.name+'","phone":"'+result.user.phone+'","County":"'+result.address.County+'","BOX":"'+result.address.BOX+'","Location":"'+result.address.Location+'","LocationDescr":"'+ result.address.locationDesc+'","LocationID":"'+result.address.locid+'","station":"'+result.address.Station +'","shippcharges":"'+result.address.shippingcharges+'"};path=/checkout.html;expires=Thu,01 Jan 2099 00:00:00 UTC;'
-              
-               user = (document.cookie).split(';').filter((item)=>{
-                if(item.search('curruser')>-1){
-                    return item;
-                }
-                })
-               user = JSON.parse(user[0].split('=')[1])
-               addrItem[0].innerHTML = user.name
-               addrItem[1].innerHTML = user.phone
-               
-               if(localStorage.selectedAddress===undefined){ //default address is in use
-    
-                addrItem[2].innerHTML = user.County
-                addrItem[3].innerHTML = user.Location
-                addrItem[4].innerHTML = user.BOX
-                addrItem[5].innerHTML = user.station
-                addrItem[6].innerHTML = user.LocationDescr  
-            
-                 shipmcost = (document.cookie).split(';').filter((item)=>{
-                    if(item.search('shippcharges')>-1){
-                        return item.shippcharges;
-                    }else{
-                        return 0
-                    }
-                  })
-
-                
-                  totalcart= 0
-                  vatcharges= 0
-                  
-                  shipprice[0].innerHTML = 'N/A'
-                  shipprice[1].innerHTML = 'N/A'
-                  shipprice[2].innerHTML = 'N/A'
-                 shipprice[3].innerHTML =  Number(shipmcost)
-                 
+     
+              if(JSON.parse(this.responseText).authentication===false) {
              
-               }else{ //user opted for a different address
-                document.cookie ='locationID='+user.LocationID+';path=/;expires=Thu,01 Jan 1999 00:00:00 UTC;' 
-                document.cookie ='locationID='+  JSON.parse(localStorage.selectedAddress).LocationID + ';path=/checkout.html;expires=Thu,01 Jan 2099 00:00:00 UTC'
-                addrItem[2].innerHTML = JSON.parse(localStorage.selectedAddress).County
-                addrItem[3].innerHTML = JSON.parse(localStorage.selectedAddress).Location
-                addrItem[4].innerHTML = JSON.parse(localStorage.selectedAddress).BOX
-                addrItem[5].innerHTML = JSON.parse(localStorage.selectedAddress).station
-                addrItem[6].innerHTML = JSON.parse(localStorage.selectedAddress).decribeLoc
- 
-               }
-                       
-           
-               if(localStorage.navigationTrack!=='null'){
-               if(JSON.parse(localStorage.navigationTrack).data==='pickupaddressSelected'){
-                 cart_itm.style.display= 'none' ,addr_itm.style.display='block'
-                
-                totalcart= (document.cookie).split(';').filter((item)=>{
-                    if(item.search('cartTotal')>-1){
-                        return item;
-                    }
-                  })
-                  vatcharges =(document.cookie).split(';').filter((item)=>{
-                    if(item.search('VAT')>-1){
-                        return item;
-                    }
-                  })
-
-                 shipmcost = JSON.parse(localStorage.selectedAddress).charges
-                
-                  totalcart= totalcart[0].split('=')[1]
-                  vatcharges= vatcharges[0].split('=')[1]
-                  
-                  shipprice[0].innerHTML = totalcart
-                  shipprice[2].innerHTML = shipmcost
-                 shipprice[3].innerHTML = Number(totalcart) + Number(shipmcost)
-                 shipprice[1].innerHTML = vatcharges
-                addr_itm.querySelectorAll('button')[0].innerHTML = 'Use Home/Office Address Instead' //customadddress
-                 addr_itm.querySelectorAll('button')[1].innerHTML = 'Select a different Pickup Station' //customadddress
-                localStorage.navigationTrack = '{"from":'+'"/select-address.html",'+'"to":'+'"/checkout.html",'+'"data":"null",'+'"redirect":"/checkout.html"}'
-               
-                      
+                window.location.href= '/authentication.html'
                    
-            }else if(JSON.parse(localStorage.navigationTrack).data==='customaddressSelected'){
-                 cart_itm.style.display= 'none' ,addr_itm.style.display='block'
+              }else if(JSON.parse(this.responseText).authentication===true){
+
+                navbarLarge.innerHTML=LoggedInLargeScript
+                navbarSmall.innerHTML=LoggedInsmallScript
+               //apend cart items
+              let cartItemDisplayRow = document.querySelector('#cartItemDisplayRow')
+         
+              if( JSON.parse(this.responseText).cart.length>0){
+                JSON.parse(this.responseText).cart.forEach((item)=>{
+                    cartItemDisplayRow.innerHTML =  cartItemDisplayRow.innerHTML + '<div class="w3-row cart-section-itm w3-margin-top w3-border w3-center">\
+                   \
+                     \<div class="w3-hide" id="unitPriceID'+item.id+'">'+item.newprice+'</div>\
+                     \<div class="w3-col s4 w3-center l5 cart-item-desc">\
+                        \ <img src="'+item.img+'" alt="s2"><br>\
+                        \ <span class="cart-item-title w3-small">'+item.name+' </span> <br>\
+                         \<span class="w3-small w3-text-green" style="font-weight: bold;">KES '+item.newprice+'</span>\
+                     \</div>\
+                     \<div class="w3-col s2 l2 quantity-contr  cart-item-desc">\
+                     \<div class="addQuantity  ID'+item.id+'" ><i class="fas fa-plus-square" ></i><br></div>\
+                         \<input type="text"  disabled class="w3-input w3-center" value="'+item.quantity+'"   name="quantity" min="1" step="1" id="ID'+item.id+'">\
+                     \<div class="decQuantity ID'+item.id+'"><i class="fas fa-minus-square "  ></i></div>  \
+                     \</div>\
+                     \<div class="w3-col del-contr s3 l2 cart-item-desc">\
+                     \<div class="ID'+item.id+'  del_ico" ><i class="fas  delete-icon fa-trash w3-center"></i></div>\
+                     \</div>\
+                     \
+                     \<div class="w3-col prc-cont s3 l3 w3-center cart-item-desc">\
+                         \<span class="w3-small" id="item-total-price">KES <span class="totalPriceCalc" id="priceTotalID'+item.id+'">'+item.newprice+'</span></span>'
+                     '+</div></div>'
+     
+     
+                   }) 
+              }else{
+               document.getElementById('cart-checkout').innerHTML = '<div style="font-weight:bold;width:95%;margin-left:2.5%" class="w3-panel w3-border w3-border-gray w3-padding-32 w3-pale-yellow w3-center w3-large">You shopping cart is currently empty.</div>'
+              }
+           
+            
+                   
+                 if(localStorage.cartOkay!==undefined && localStorage.cartOkay!=='null'){ //user has not okayed the cart section
+                     cart_itm_prog.style.backgroundColor='palegreen'
+                     cart_itm_prog.innerHTML = '<span style="font-weight:bold;color:black">Cart Verified</span> <br><i class="fas fa-check"></i>'
+                 
+                 }
+                 if(localStorage.addressOkay!==undefined && localStorage.addressOkay!=='null'){ //user has not okayed the address section
+                     addr_itm_prog.style.backgroundColor = 'palegreen'
+                      addr_itm_prog.innerHTML = '<span style="font-weight:bold;color:black">Address Verified</span> <br><i class="fas fa-check"></i>'
+                               
+                 }
+                 let result = JSON.parse(this.responseText)
               
-                addr_itm.querySelectorAll('button')[0].innerHTML = 'Select Different Personal address' //customadddress
-                addr_itm.querySelectorAll('button')[1].innerHTML = 'Use a Pick Up station Instead' //customadddress
-               localStorage.navigationTrack = '{"from":'+'"/select-address.html",'+'"to":'+'"/checkout.html",'+'"data":"null",'+'"redirect":"/checkout.html"}'
-                totalcart= (document.cookie).split(';').filter((item)=>{
-                    if(item.search('cartTotal')>-1){
-                        return item;
-                    }
+                 document.cookie ='curruser={"name":"' +result.user.name+'","phone":"'+result.user.phone+'","County":"'+result.address.County+'","BOX":"'+result.address.BOX+'","Location":"'+result.address.Location+'","LocationDescr":"'+ result.address.locationDesc+'","LocationID":"'+result.address.locid+'","station":"'+result.address.Station +'","shippcharges":"'+result.address.shippingcharges+'"};path=/checkout.html;expires=Thu,01 Jan 2099 00:00:00 UTC;'
+                
+                 user = (document.cookie).split(';').filter((item)=>{
+                  if(item.search('curruser')>-1){
+                      return item;
+                  }
                   })
-                  vatcharges =(document.cookie).split(';').filter((item)=>{
-                    if(item.search('VAT')>-1){
-                        return item;
-                    }
-                  })
-                  shipmcost = JSON.parse(localStorage.selectedAddress).charges
+                 user = JSON.parse(user[0].split('=')[1])
+                 addrItem[0].innerHTML = user.name
+                 addrItem[1].innerHTML = user.phone
+                 
+                 if(localStorage.selectedAddress===undefined){ //default address is in use
+      
+                  addrItem[2].innerHTML = user.County
+                  addrItem[3].innerHTML = user.Location
+                  addrItem[4].innerHTML = user.BOX
+                  addrItem[5].innerHTML = user.station
+                  addrItem[6].innerHTML = user.LocationDescr  
+              
+                   shipmcost = (document.cookie).split(';').filter((item)=>{
+                      if(item.search('shippcharges')>-1){
+                          return item.shippcharges;
+                      }else{
+                          return 0
+                      }
+                    })
+  
+                  
+                    totalcart= 0
+                    vatcharges= 0
+                    
+                    shipprice[0].innerHTML = 'N/A'
+                    shipprice[1].innerHTML = 'N/A'
+                    shipprice[2].innerHTML = 'N/A'
+                   shipprice[3].innerHTML =  Number(shipmcost)
+                   
+               
+                 }else{ //user opted for a different address
+                  document.cookie ='locationID='+user.LocationID+';path=/;expires=Thu,01 Jan 1999 00:00:00 UTC;' 
+                  document.cookie ='locationID='+  JSON.parse(localStorage.selectedAddress).LocationID + ';path=/checkout.html;expires=Thu,01 Jan 2099 00:00:00 UTC'
+                  addrItem[2].innerHTML = JSON.parse(localStorage.selectedAddress).County
+                  addrItem[3].innerHTML = JSON.parse(localStorage.selectedAddress).Location
+                  addrItem[4].innerHTML = JSON.parse(localStorage.selectedAddress).BOX
+                  addrItem[5].innerHTML = JSON.parse(localStorage.selectedAddress).station
+                  addrItem[6].innerHTML = JSON.parse(localStorage.selectedAddress).decribeLoc
+   
+                 }
+                         
+             
+                 if(localStorage.navigationTrack!=='null'){
+                 if(JSON.parse(localStorage.navigationTrack).data==='pickupaddressSelected'){
+                   cart_itm.style.display= 'none' ,addr_itm.style.display='block'
+                  
+                  totalcart= (document.cookie).split(';').filter((item)=>{
+                      if(item.search('cartTotal')>-1){
+                          return item;
+                      }
+                    })
+                    vatcharges =(document.cookie).split(';').filter((item)=>{
+                      if(item.search('VAT')>-1){
+                          return item;
+                      }
+                    })
+  
+                   shipmcost = JSON.parse(localStorage.selectedAddress).charges
+                  
+                    totalcart= totalcart[0].split('=')[1]
+                    vatcharges= vatcharges[0].split('=')[1]
+                    
+                    shipprice[0].innerHTML = totalcart
+                    shipprice[2].innerHTML = shipmcost
+                   shipprice[3].innerHTML = Number(totalcart) + Number(shipmcost)
+                   shipprice[1].innerHTML = vatcharges
+                //   addr_itm.querySelectorAll('button')[0].innerHTML = 'Use Home/Office Address Instead' //customadddress
+                //    addr_itm.querySelectorAll('button')[1].innerHTML = 'Select a different Pickup Station' //customadddress
+                  localStorage.navigationTrack = '{"from":'+'"/select-address.html",'+'"to":'+'"/checkout.html",'+'"data":"null",'+'"redirect":"/checkout.html"}'
+                 
+                        
+                     
+              }else if(JSON.parse(localStorage.navigationTrack).data==='customaddressSelected'){
+                   cart_itm.style.display= 'none' ,addr_itm.style.display='block'
                 
-                  totalcart= totalcart[0].split('=')[1]
-                  vatcharges= vatcharges[0].split('=')[1]
-                  shipprice[0].innerHTML = totalcart
-                  shipprice[2].innerHTML = shipmcost
-                 shipprice[3].innerHTML = Number(totalcart) + Number(shipmcost)
-                 shipprice[1].innerHTML = vatcharges
+                //   addr_itm.querySelectorAll('button')[0].innerHTML = 'Select Different Personal address' //customadddress
+                //   addr_itm.querySelectorAll('button')[1].innerHTML = 'Use a Pick Up station Instead' //customadddress
+                 localStorage.navigationTrack = '{"from":'+'"/select-address.html",'+'"to":'+'"/checkout.html",'+'"data":"null",'+'"redirect":"/checkout.html"}'
+                  totalcart= (document.cookie).split(';').filter((item)=>{
+                      if(item.search('cartTotal')>-1){
+                          return item;
+                      }
+                    })
+                    vatcharges =(document.cookie).split(';').filter((item)=>{
+                      if(item.search('VAT')>-1){
+                          return item;
+                      }
+                    })
+                    shipmcost = JSON.parse(localStorage.selectedAddress).charges
+                  
+                    totalcart= totalcart[0].split('=')[1]
+                    vatcharges= vatcharges[0].split('=')[1]
+                    shipprice[0].innerHTML = totalcart
+                    shipprice[2].innerHTML = shipmcost
+                   shipprice[3].innerHTML = Number(totalcart) + Number(shipmcost)
+                   shipprice[1].innerHTML = vatcharges
+                  
+  
+                  
+              }else{
+                  cart_itm.style.display= 'block' ,addr_itm.style.display='none'
+              }
+                  }
+            
+               
                 
-
-                
-            }else{
-                cart_itm.style.display= 'block' ,addr_itm.style.display='none'
-            }
-                }
-
               cart_itm_prog.addEventListener('click',()=>{
                 addr_itm.style.display='none' 
                 paym_opt.style.display= 'none'
@@ -1300,7 +1526,7 @@ class styler{
               })
            
            
-              addr_itm_prog.addEventListener('click',(()=>{
+              addr_itm_prog.addEventListener('click',()=>{
                 if(localStorage.cartOkay !==undefined && localStorage.cartOkay!=='null' ){
                     let totalcart= (document.cookie).split(';').filter((item)=>{
                         if(item.search('cartTotal')>-1){
@@ -1329,115 +1555,188 @@ class styler{
                 cart_wrapper.scrollTop=0;
                 }
               })
-              )
             
 
-          
+              let eachItemTotal = document.querySelectorAll('.totalPriceCalc')
             eachItemTotal.forEach((itm)=>{
-            
+             
                 totalCart.innerText= Number(totalCart.innerText)+Number(itm.innerText)
 
             })
-          addQuantity.forEach(elm=> {
-     
-            elm.addEventListener('click',function (e) {
-                
-                let valueinput = document.querySelector('#'+this.classList[1])
-                let currValue = Number(valueinput.value)   
-                valueinput.value=currValue+1;
-                let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
-                let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
-                toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)
-                    totalCart.innerText= Number(totalCart.innerText) + Number(unitPrice)
+            
+          
+         
+             
+              let addQuantity = document.querySelectorAll('.addQuantity')
+              let decQuantity = document.querySelectorAll('.decQuantity')
+              
 
-                    let curr_bask = JSON.parse(localStorage.basketDetails)
+              addQuantity.forEach(elm=> {
+                 
+                elm.addEventListener('click',function (e) {
+                    
+                    let valueinput = document.querySelector('#'+this.classList[1])
+                    let currValue = Number(valueinput.value)   
+                    valueinput.value=currValue+1;
+                    let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
+                    let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
+                    toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)
+                        totalCart.innerText= Number(totalCart.innerText) + Number(unitPrice)
+    
+                        let curr_bask = JSON.parse(localStorage.basketDetails)
+                        let itmID =  elm.classList[1]
+                                
+                        let result= curr_bask.filter((item)=>{
+                            if( item.itemID == itmID.slice('2')){
+                                return  item
+                            }
+                                
+                        })
+                    
+                        let newquant = Number(result[0].itemQuantity)+1
+                        let prevvalue = '{"itemID":"'+result[0].itemID +'","itemQuantity":"'+result[0].itemQuantity+'"}'
+                        result = '{"itemID":"'+result[0].itemID+'","itemQuantity":"'+newquant+'"}'
+    
+                        
+                        let newbasket = (localStorage.basketDetails).replace(prevvalue,result)
+                    
+                        localStorage.basketDetails=newbasket
+                    
+                        //update cart
+                        let newnum = JSON.parse(localStorage.basketDetails)
+                        let newv=0;
+                        newnum.forEach(element => {
+                            newv= newv+ Number(element.itemQuantity)
+                        });
+            
+                        document.querySelectorAll('.basket_status').forEach((itm)=>{
+                            itm.innerText=newv
+                            updateCartInput(newv)                     
+                        
+                        })
+                        /////
+                })
+                }); 
+               
+                decQuantity.forEach(elm=> {
+                    elm.addEventListener('click',function (e) {
+                        
+                    let valueinput = document.querySelector('#'+this.classList[1])
+                    let currValue = Number(valueinput.value) 
+                    
+                    
+                    if(valueinput.value>1){
+                        valueinput.value=currValue-1;
+                        let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
+                        let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
+                        toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
+                        totalCart.innerText= Number(totalCart.innerText) - Number(unitPrice)
+                        let curr_bask = JSON.parse(localStorage.basketDetails)
                     let itmID =  elm.classList[1]
-                            
+                    
                     let result= curr_bask.filter((item)=>{
                         if( item.itemID == itmID.slice('2')){
                             return  item
                         }
                             
                     })
-                
-                    let newquant = Number(result[0].itemQuantity)+1
-                    let prevvalue = '{"itemID":"'+result[0].itemID +'","itemQuantity":"'+result[0].itemQuantity+'"}'
+                        let newquant = Number(result[0].itemQuantity)-1
+                        let prevvalue = '{"itemID":"'+result[0].itemID +'","itemQuantity":"'+result[0].itemQuantity+'"}'
                     result = '{"itemID":"'+result[0].itemID+'","itemQuantity":"'+newquant+'"}'
-
-                    
+    
+                            
                     let newbasket = (localStorage.basketDetails).replace(prevvalue,result)
                 
                     localStorage.basketDetails=newbasket
                 
-                    //update cart
                     let newnum = JSON.parse(localStorage.basketDetails)
                     let newv=0;
                     newnum.forEach(element => {
                         newv= newv+ Number(element.itemQuantity)
                     });
-        
+                
                     document.querySelectorAll('.basket_status').forEach((itm)=>{
                         itm.innerText=newv
                         updateCartInput(newv)                     
                     
                     })
-                    /////
-            })
-            }); 
-            decQuantity.forEach(elm=> {
-                elm.addEventListener('click',function (e) {
-                let valueinput = document.querySelector('#'+this.classList[1])
-                let currValue = Number(valueinput.value) 
-                
-                
-                if(valueinput.value>1){
-                    valueinput.value=currValue-1;
-                    let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
-                    let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
-                    toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
-                    totalCart.innerText= Number(totalCart.innerText) - Number(unitPrice)
-                    let curr_bask = JSON.parse(localStorage.basketDetails)
-                let itmID =  elm.classList[1]
-                
-                let result= curr_bask.filter((item)=>{
-                    if( item.itemID == itmID.slice('2')){
-                        return  item
+                    }  else{
+                        this.disabled=true;
+                        let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
+                        let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
+                        toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
+                        toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
+                        
+                        
                     }
-                        
+                    
+                
                 })
-                    let newquant = Number(result[0].itemQuantity)-1
-                    let prevvalue = '{"itemID":"'+result[0].itemID +'","itemQuantity":"'+result[0].itemQuantity+'"}'
-                result = '{"itemID":"'+result[0].itemID+'","itemQuantity":"'+newquant+'"}'
+    
+                })
+              document.querySelectorAll('.del_ico').forEach((itm)=>{
+              
+                itm.addEventListener('click',()=>{
 
+                    let bask = JSON.parse(localStorage.basketDetails);
+                    
+                let todelete=  bask.filter((item)=>{
+                    
+                        if(item.itemID===(itm.classList[0]).slice(2)){
                         
-                let newbasket = (localStorage.basketDetails).replace(prevvalue,result)
-            
-                localStorage.basketDetails=newbasket
-            
-                let newnum = JSON.parse(localStorage.basketDetails)
-                let newv=0;
-                newnum.forEach(element => {
-                    newv= newv+ Number(element.itemQuantity)
-                });
-            
-                document.querySelectorAll('.basket_status').forEach((itm)=>{
-                    itm.innerText=newv
-                    updateCartInput(newv)                     
+                            return item
+                        }
+                    })
                 
+                    if(bask.length>1){
+                        let prev = '{"itemID":"'+todelete[0].itemID+'","itemQuantity":"'+todelete[0].itemQuantity+'"}'
+                        let newlocStorage
+                        
+                        
+                        newlocStorage = localStorage.basketDetails.replace(prev,'')
+                    
+                    
+                        if(newlocStorage.search(',')===1){
+                        newlocStorage =  newlocStorage.replace(',','')
+                        }else if(newlocStorage.search(',,')>0){
+                        newlocStorage=  newlocStorage.replace(',,',',')
+                        }else if(newlocStorage.search('},')>0){
+                        newlocStorage=  newlocStorage.replace('},','}')
+                        }
+                    
+                        localStorage.basketDetails= newlocStorage
+                        let newnum = JSON.parse(localStorage.basketDetails)
+                        let newv=0;
+                        newnum.forEach(element => {
+                            newv= newv+ Number(element.itemQuantity)
+                        });
+            
+                        document.querySelectorAll('.basket_status').forEach((itm)=>{
+                            itm.innerText=newv
+                            updateCartInput(newv)                     
+                        
+                        })
+                    }else if(bask.length===1){
+                        localStorage.basketDetails= null
+                        document.querySelectorAll('.basket_status').forEach((itm)=>{
+                            itm.innerText=0
+                                            
+                        
+                        })
+                    }
+            
+                     window.location.reload()
+                                      
+
+                    
+                    
                 })
-                }  else{
-                    this.disabled=true;
-                    let toDisplayTotal = document.querySelector('#priceTotal'+this.classList[1])
-                    let unitPrice  = document.querySelector('#unitPrice'+this.classList[1]).innerText    
-                    toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
-                    toDisplayTotal.innerText = Number(valueinput.value) * Number(unitPrice)  
-                    
-                    
-                }
-                
-            
-            })
-            })
+       //update new cart items to remove the unwanted item
+              })
+           
+
+           
+
 
             //selecting address
             //custom address
@@ -1527,7 +1826,7 @@ class styler{
                         }
                     }
                 }
-                xhttp.open('POST','http://localhost:9090/checkout',true)
+                xhttp.open('POST',post_send_cart_to_backend,true)
                 xhttp.setRequestHeader('Content-type','application/json')
                 xhttp.send(localStorage.basketDetails)      //data is sent as an array  
             
@@ -1588,7 +1887,7 @@ class styler{
                  
                formData  = formData[0].split('=')[1]
               
-             xhttp.open('POST','http://localhost:9090/addressverify',true)
+             xhttp.open('POST',post_verify_delivery_address,true)
              xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
              xhttp.send('addressID='+formData)
            
@@ -1605,82 +1904,28 @@ class styler{
            
 
 
-            document.querySelectorAll('.del_ico').forEach((itm)=>{
-                
-                    itm.addEventListener('click',()=>{
-
-                        let bask = JSON.parse(localStorage.basketDetails);
-                        
-                    let todelete=  bask.filter((item)=>{
-                        
-                            if(item.itemID===(itm.classList[0]).slice(2)){
-                            
-                                return item
-                            }
-                        })
-                    
-                        if(bask.length>1){
-                            let prev = '{"itemID":"'+todelete[0].itemID+'","itemQuantity":"'+todelete[0].itemQuantity+'"}'
-                            let newlocStorage
-                            
-                            
-                            newlocStorage = localStorage.basketDetails.replace(prev,'')
-                        
-                        
-                            if(newlocStorage.search(',')===1){
-                            newlocStorage =  newlocStorage.replace(',','')
-                            }else if(newlocStorage.search(',,')>0){
-                            newlocStorage=  newlocStorage.replace(',,',',')
-                            }else if(newlocStorage.search('},')>0){
-                            newlocStorage=  newlocStorage.replace('},','}')
-                            }
-                        
-                            localStorage.basketDetails= newlocStorage
-                            let newnum = JSON.parse(localStorage.basketDetails)
-                            let newv=0;
-                            newnum.forEach(element => {
-                                newv= newv+ Number(element.itemQuantity)
-                            });
-                
-                            document.querySelectorAll('.basket_status').forEach((itm)=>{
-                                itm.innerText=newv
-                                updateCartInput(newv)                     
-                            
-                            })
-                        }else if(bask.length===1){
-                            localStorage.basketDetails= null
-                            document.querySelectorAll('.basket_status').forEach((itm)=>{
-                                itm.innerText=0
-                                                
-                            
-                            })
-                        }
-                
-
-                    
-
-                        
-                        
-                    })
-           //update new cart items to remove the unwanted item
-            })
+           
+        }
 
            }else{
             animatorEffect.applyStyle('red','inherit')
-            
+            navbarLarge.innerHTML= notLoggedInLargeScript
+            navbarSmall.innerHTML=notLoggedInsmallScript
             preloader.querySelectorAll('div')[0].innerHTML='Resource could not be found' 
             animatorEffect.updateinnerhtml('Something went wrong <a class="w3-text-black" onclick="<script>window.location.reload()</script>" href="">Retry</a>')
          
            }
        }   
    }
-   xhttp.open('GET','http://localhost:9090/usercheckout',true)
+   xhttp.open('GET',get_checkout_items,true)
    xhttp.send()
   
             
   
-}else if(currentL[3]==='view-product.html'){
+}else if(currentL[3].search('view-product.html')>-1){
+    
     animator()
+   
    let cartBTN = document.querySelectorAll('.addtoCart')
     cartBTN.forEach((btn)=>{
   
@@ -1774,11 +2019,15 @@ class styler{
     let image_prev = document.querySelectorAll('.image-prev')
     let preview_magnified = document.querySelectorAll('#preview-magnified')
     let magnify_prod_image = document.querySelector('#magnify-prod-image')
+
     image_prev.forEach((item)=>{
-       
+        
         item.addEventListener('click',function () {
+        
             let value = this.src;
-             magnify_prod_image.innerHTML ="  <img id='preview-magnified' src="+value+" alt='A50'>"         
+             magnify_prod_image.innerHTML ="  <img id='preview-magnified' src="+value+" alt='A50'>" 
+           
+            
            
         })
     })
@@ -1786,7 +2035,27 @@ class styler{
 
 
 
+    document.querySelectorAll('.favicon').forEach((icon)=>{
+       
+        icon.addEventListener('click',function(){
+        
+          
+            document.getElementById(this.id).style.color ='brown'
+               
+          let key1 ="[" 
+          let key2=']'
+           if(localStorage.favourites.indexOf(key1)>-1 && localStorage.favourites.indexOf(key2)>-1 && localStorage.favourites.indexOf(this.id)===-1 ){
+             
+                let currentFav =  (localStorage.favourites).slice('1','-1')
+                localStorage.favourites= '['+currentFav+','+this.id+']'
+             
+                
+           }else if(localStorage.favourites.indexOf(key1)===-1 && localStorage.favourites.indexOf(key2)===-1 && localStorage.favourites.indexOf(this.id)===-1){
+            localStorage.favourites = '['+this.id+']'
 
+           }
+        })
+    })
 }else if(currentL[3]==='account-recovery.html'){
     animator()
     let recovered_account = document.querySelector('#recovered_account')
@@ -1888,7 +2157,7 @@ class styler{
                     }
                 }
             }
-            xhttp.open('POST','http://localhost:9090/resetPass',true)
+            xhttp.open('POST',post_reset_password,true)
             xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
             xhttp.send('newpassword='+newpassword.value + '&confirmnewpassword='+confpassword.value)
 
@@ -1900,8 +2169,24 @@ class styler{
 
     })
     
-}else if(currentL[3]==='list-products.html'){
+}else if(currentL[3].search('list-products.html')>-1){
     animator()
+    //update favouries everytime
+    let key1 ="[" 
+    let key2=']'
+    setInterval(()=>{
+        if(localStorage.favourites.indexOf(key1)>-1 && localStorage.favourites.indexOf(key2)>-1 ){
+            xhttp.onreadystatechange = function(){
+                if(this.status==200){
+                    localStorage.favourites=''
+                    
+                }
+            }
+           xhttp.open('POST',post_add_to_favourite,true)
+           xhttp.setRequestHeader('Content-type','application/x-www-form-urlencoded')
+           xhttp.send('items='+localStorage.favourites.slice(1,-1))
+        }
+    },1000*30)
    let cartBTN = document.querySelectorAll('.addtoCart')
     cartBTN.forEach((btn)=>{
   
@@ -1992,10 +2277,34 @@ class styler{
         }
      })
     })
+    document.querySelectorAll('.favicon').forEach((icon)=>{
+       
+        icon.addEventListener('click',function(){
+        
+          
+            document.getElementById(this.id).style.color ='brown'
+               
+          let key1 ="[" 
+          let key2=']'
+           if(localStorage.favourites.indexOf(key1)>-1 && localStorage.favourites.indexOf(key2)>-1 && localStorage.favourites.indexOf(this.id)===-1 ){
+             
+                let currentFav =  (localStorage.favourites).slice('1','-1')
+                localStorage.favourites= '['+currentFav+','+this.id+']'
+             
+                
+           }else if(localStorage.favourites.indexOf(key1)===-1 && localStorage.favourites.indexOf(key2)===-1 && localStorage.favourites.indexOf(this.id)===-1){
+            localStorage.favourites = '['+this.id+']'
+
+           }
+        })
+    })
 }else if(currentL[3]==='select-address.html'){
+    
     let homeofficeaddress = document.querySelector('#home-office-address')
     let address_item = document.querySelectorAll('.address-item')
     animator()
+   
+
     let navtrack = JSON.parse(localStorage.navigationTrack)
     if(navtrack.from==='/checkout.html'){
 
@@ -2018,7 +2327,11 @@ class styler{
                     pickup_stationSec.querySelectorAll('label')[0].innerHTML='Fetching Counties. Please wait <span class="w3-animate-fading">...</span>'   //Select Country
                   
                 }else if(this.readyState===4){
+                       navbarLarge.innerHTML  = LoggedInLargeScript
+                       navbarSmall.innerHTML= LoggedInsmallScript
+                   
                          if(this.status===200){
+                             
                             pickup_stationSec.querySelectorAll('label')[0].style.color = 'black'
                             pickup_stationSec.querySelectorAll('label')[0].innerHTML ='Select County'   //Select Country
                            let Response = (JSON.parse(this.responseText)).counties.split(',')
@@ -2034,15 +2347,17 @@ class styler{
                             pickup_stationSec.querySelectorAll('label')[0].style.color = 'red'
                             pickup_stationSec.querySelectorAll('label')[0].innerHTML='Net Error. You seem to have lost your internet connection'   //Select Country
                           
+                         }else if(this.status===401){
+                            window.location.href='/authentication.html'
                          }else{
-                            console.log(this.responseText) 
+                           
                             pickup_stationSec.querySelectorAll('label')[0].style.color = 'red'
                             pickup_stationSec.querySelectorAll('label')[0].innerHTML='Resource Could not be Found'   //Select Country
                           
                          }
                 }
             }
-            xhttp.open('GET','http://localhost:9090/populate-address?county=all&area=none&stations=none',true)
+            xhttp.open('GET',get_populate_addresses_for_delivery+'?county=all&area=none&stations=none',true)
             xhttp.send()
 
             county.addEventListener('change',function(){
@@ -2083,7 +2398,7 @@ class styler{
                             }
                         }
                     }
-                    xhttp.open('GET','http://localhost:9090/populate-address?county=all&area='+this.value+'&stations=none',true)
+                    xhttp.open('GET',get_populate_addresses_for_delivery+'?county=all&area='+this.value+'&stations=none',true)
                     xhttp.send()
                 }else{
                     pickup_stationSec.querySelectorAll('label')[0].style.color = 'red'
@@ -2124,7 +2439,7 @@ class styler{
                             }
                         }
                     }
-                    xhttp.open('GET','http://localhost:9090/populate-address?county=all&area=none&stations='+value+'&query=none',true)
+                    xhttp.open('GET',get_populate_addresses_for_delivery+'?county=all&area=none&stations='+value+'&query=none',true)
                     xhttp.send()
                 }else{
                     pickup_stationSec.querySelectorAll('label')[1].style.color = 'red'
@@ -2147,7 +2462,7 @@ class styler{
                         if(this.status===200){
                             stationLabel.applyStyle('green','inherit')
                             stationLabel.updateinnerhtml(value + ' area selected <i class="fas fa-check"></i>')   
-                            grabBYID('#computedPricePickup').innerHTML=    'Shipment Charges'+'<span class="w3-text-brown"> KES '+JSON.parse(this.responseText).fee + '</span>'
+                            grabBYID('#computedPricePickup').innerHTML=    'Shipment Charges :'+'<span class="w3-text-brown"> KES '+JSON.parse(this.responseText).fee + '</span>'
                             proceedbtn.disabled= false
                              shippingcharges= JSON.parse(this.responseText).fee
                              addit_descr = JSON.parse(this.responseText).addressDesc
@@ -2162,7 +2477,7 @@ class styler{
                         }
                     }
                     }
-                    xhttp.open('GET','http://localhost:9090/populate-address?county=all&area=none&stations='+value+'&query=price',true)
+                    xhttp.open('GET',get_populate_addresses_for_delivery+'?county=all&area=none&stations='+value+'&query=price',true)
                     xhttp.send() 
                    
                 }else{
@@ -2246,7 +2561,7 @@ class styler{
 
                                   }
                               }
-                              xhttp.open('GET','http://localhost:9090/verifyaddress?id='+this.parentNode.id)
+                              xhttp.open('GET',get_verify_address+'?id='+this.parentNode.id)
                               xhttp.send()
                     
 
@@ -2264,7 +2579,7 @@ class styler{
                     }
                 }
                 }
-                xhttp.open('GET','http://localhost:9090/customaddresses',true)
+                xhttp.open('GET',get_custom_addresses,true)
                 xhttp.send() 
         }
         }else{
@@ -2272,9 +2587,9 @@ class styler{
         }
 
 }else if(currentL[3].search('receipt.html')>-1){
-  
-   
-  
+    let footer = document.querySelector('#footer-content')
+  let navbarLarge = document.querySelector('#nav-bar-large')
+    let navbarSmall = document.querySelector('#nav-bar-small')
     let recieptCard = document.querySelector('#recieptCard')
     let orderID = document.querySelector('#orderID')
     let orderPrice = document.querySelector('#orderPrice')
@@ -2283,6 +2598,7 @@ class styler{
     //   xhttp.onreadystatechange = function(){
 
     //   }
+
     let grabQuery = (window.location.href).split('?')
   
     if(grabQuery.length===2){
@@ -2294,34 +2610,50 @@ class styler{
                 if(this.readyState===1){
 
                 }else if(this.readyState===4){
+
                     if(this.status===200){
-                        loaderreceipt.style.display = 'none'
-                      recieptCard.style.display = 'block'
-                      orderID.innerHTML = JSON.parse(this.responseText).orderNO
-                      orderPrice.innerHTML = JSON.parse(this.responseText).amount
+                        if(JSON.parse(this.responseText).authentication===false && JSON.parse(this.responseText).authentication!==true ) {
+             
+                            window.location.href= '/authentication.html'
+                               
+                          }else if(JSON.parse(this.responseText).authentication===true){
+                              
+                            navbarLarge.innerHTML=LoggedInLargeScript
+                            navbarSmall.innerHTML=LoggedInsmallScript
+                            loaderreceipt.style.display = 'none'
+                            recieptCard.style.display = 'block'
+                            orderID.innerHTML = JSON.parse(this.responseText).orderNO
+                            orderPrice.innerHTML = JSON.parse(this.responseText).amount
+                          }            
+                        
                     }else if(this.status===0){
                        
                         loaderreceipt.innerHTML ='<div class="w3-pale-red w3-large w3-center w3-margin-bottom">Internet Error</div>You seem to have lost your internet connection. <span style="text-decoration:underline;color:brown"  onclick="window.location.reload()" class="w3-btn">Click here to retry</span>'
-                    }else{ 
-                       
-                      
+                        navbarLarge.innerHTML=notLoggedInLargeScript
+                        navbarSmall.innerHTML=NotLoggedInsmallScript
+                    }else{        
+                        navbarLarge.innerHTML=notLoggedInLargeScript
+                        navbarSmall.innerHTML=NotLoggedInsmallScript
                         loaderreceipt.innerHTML = '<div class="w3-pale-red w3-large w3-center w3-margin-bottom">Report Error</div>Oops. We could not generate a reciept <div class="w3-btn" style="text-decoration:underline;color:brown"  onclick=" window.location.reload()" > Click here to retry </div>'+
                         '<br>If the problem persists <a style="text-decoration:underline;font-weight:bold;color:blue" href="">click here contact customer care</a> '      
                     }
                 }
             } 
-        xhttp.open('GET','http://localhost:9090/generateReceipt?transaction='+transcode[1],true)
+        xhttp.open('GET',get_generate_receipt+'?transaction='+transcode[1],true)
         xhttp.send()
 
 
        
         }else{
-            loaderreceipt.innerHTML = '<div class="w3-pale-red w3-large w3-center w3-margin-bottom">Error Generating Report</div>Oops. We could not generate a reciept <div class="w3-btn" style="text-decoration:underline;color:brown"  onclick=" window.location.reload()" > Click here to retry </div>'+
+         
+            loaderreceipt.innerHTML = '<div class="w3-pale-red w3-large w3-center w3-margin-bottom">Error Generating Receipt</div>Oops. We could not generate a reciept <div class="w3-btn" style="text-decoration:underline;color:brown"  onclick=" window.location.reload()" > Click here to retry </div>'+
             '<br>If the problem persists <a style="text-decoration:underline;font-weight:bold;color:blue" href="">click here contact customer care</a> '      
        
         }
     }else{
-
+        console.log(LoggedInLargeScript)
+        navbarLarge.innerHTML=LoggedInLargeScript
+        navbarSmall.innerHTML=LoggedInsmallScript
         loaderreceipt.innerHTML = '<div class="w3-pale-red w3-large w3-center w3-margin-bottom">Error Generating Report</div>Oops. We could not generate a reciept <div class="w3-btn" style="text-decoration:underline;color:brown"  onclick=" window.location.reload()" > Click here to retry </div>'+
         '<br>If the problem persists <a style="text-decoration:underline;font-weight:bold;color:blue" href="">click here contact customer care</a> '      
    
@@ -2330,10 +2662,4 @@ class styler{
 
 }else{
     animator()
-}
- 
-
-     
-
-
 }
