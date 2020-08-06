@@ -5,8 +5,9 @@
         <title>Checkout</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <link rel="stylesheet" href="./assests/styles/fontawesome.css">
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
          <style>
              .testcase{
                  border:3px solid green;
@@ -14,8 +15,7 @@
            
          </style>
 
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+    
          <script  src="./assests/scripts/url.js"></script>
          <script defer src="./assests/scripts/script.js"></script> 
     </head>
@@ -31,7 +31,7 @@
             <div id="cart-items-wrapper" >    
                 <div class="w3-card-2" id="checkout-sect">
                     <div class="w3-panel w3-center w3-large" style="text-decoration: underline;font-size: 2em;">Checkout</div>
-                     
+                     <input type="text" name="csrf" hidden id="csrf">
                      <div  class="progress-section w3-margin-bottom w3-row w3-center w3-text-black w3-border-bottom">
                       
                             <div class="cart-confirm  progress-item  w3-col s4 l4 "  >
@@ -81,11 +81,11 @@
                     <div  id="cart-checkout">
                         <div class="w3-margin-top" >
                             <div class="w3-panel w3-center" style="font-weight: bold;text-decoration: underline;">Cart Details</div>
-                            <div class="w3-row w3-center w3-grey">
-                                <div class="w3-col s4 l5">Item</div>
-                                <div class="w3-col l2 s2">Quantity</div>
-                                <div class="w3-col s3 l2">Delete</div>
-                                <div class="w3-col s3 l3">Total Price</div>
+                            <div class="checkout-title w3-center w3-grey">
+                                <div class="">Item</div>
+                                <div class="">Quantity</div>
+                                <div class="">Delete</div>
+                                <div class="">Total Price</div>
 
                             </div>
                         </div>
@@ -98,6 +98,7 @@
                          
                             
 
+                            
                             <div id="total-amount" style="font-weight: bold;text-decoration: underline;" class="w3-center w3-margin-top">Total Amount <span class="w3-small" >(Shipping Charges Not inc)</span></div>
                             <div class="w3-center w3-text-orange w3-margin-top" style="font-weight: bold;text-decoration:underline">KES <span  id="cartTotal"> 0 </span> </div>
                         
@@ -151,7 +152,7 @@
                     <div  style="display: none;" id='paym_opt'>
                         
                         <div class=" w3-border-right w3-border-left w3-border-bottom w3-border-black" id="payForm">
-                            <div style="font-weight:bolder;border:1px dashed green;" class="w3-panel w3-pale-yellow w3-center ">You are about to pay  <span style="font-weight: bold;" id="aboutTOpay"> </span><span class="w3-small">(Product Totals & shippment Cost) </span></div>
+                            <div style="font-weight:bolder;border:1px dashed green;" class="w3-panel w3-pale-yellow w3-center ">You are about to pay  <span style="font-weight: bolder;text-decoration:underline" id="aboutTOpay"> </span><br><span class="w3-tiny">(Product Totals & shippment Cost) </span></div>
                             
                             <div style="text-decoration: underline;"  class="w3-center w3-medium w3-margin-top ">Choose a Payment Method </div>
                        
@@ -167,7 +168,7 @@
                                                    
                             </div>
                             <div class="w3-display-container" id="paypal" >
-                                <p class="w3-center">Paypal</p>
+                                <p class="w3-center">Paypal <br><span aria-disabled="true" class="w3-text-gray w3-tiny w3-center">Unavailable</span></p>
                          
                                            
                             </div>
@@ -185,7 +186,7 @@
                                        <li>Go to Lipa Mpesa </li>
                                        <li>Select Paybill/Buy Goods</li>
                                        <li>Enter Till Number</li>
-                                       <li>Enter Amount to Pay (Kes 2000)</li>
+                                       <li>Enter Amount to Pay (Kes <span  style="font-weight: bolder;text-decoration: underline;" id="amto"></span>)</li>
                                        <li>Enter you Mpesa Pin</li>
                                    </ul>
                                </div>
@@ -228,9 +229,46 @@
         
 
     
-        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+           <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+           <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  -->
         <script src="./assests/scripts/jquery.connections.js"></script>
-        <script >
+        <script >  
+         let bask =(document.cookie).split(';').filter((item)=>{
+                 
+           
+            if(item.search('verifiedBasket')>-1){
+                
+                return item;
+            }
+            })
+            if(bask.length>0){
+                bask  = bask[0].split('=')[1]
+             }
+            
+            let veradd =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('verifiedAddress')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(veradd.length>0){
+                veradd  = veradd[0].split('=')[1]
+               }
+
+               let verifTotal=(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('verifiedTotalAmount')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(verifTotal.length>0){
+                verifTotal  =   verifTotal[0].split('=')[1]
+               }
+              
+             
+              
             $(document).ready(()=>{
                 $('#cart_itm').connections({
                     to:'#addr_itm',
@@ -242,9 +280,21 @@
                 })
                 $('#mpesaOnline').click(function(){
                 
+                    let topayout =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('topayout')>-1){
+                     
+                     return item;
+                 }
+              })
+              
+               if(topayout.length>0){
+                topayout  =  topayout[0].split('=')[1]
+               }
+               $('#amto').html(topayout)
                     $('#pay-mpesa').toggle(200)
                     $('#cash-on-delivery').hide()
-                    
+               
                     $('#mpesaOnline').append('<i style="display: block;" class="fas fa-check w3-display-middle"></i>').css({'background-color':'#ccffcc',"border":"2px solid green"})
                     $('#mpesaonDelivery').html( '<p class="w3-center">Mpesa on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
                     $('#cashOndelivery').html( '<p class="w3-center">Cash on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
@@ -270,8 +320,12 @@
                        
                         $.ajax({
                             method:'POST',
-                            url:'http://localhost:9090/verifympesa',
-                            data:formdata,
+                            url:post_mpesa_online,
+                            data:formdata+"&_csrf="+$('#csrf').val()+"&address="+veradd+"&basket="+bask+"&verifiedTotal="+verifTotal,
+                            xhrFields:{
+                              withCredentials:true
+
+                            },
                             success : function(data,status,xhr){
                                if(xhr.status===200){
                                 $('#pay-mpesa label').css({'color':'green'})
@@ -294,13 +348,15 @@
                                 $('#pay-mpesa label').css({'color':'red'})
                                  $('#pay-mpesa label').html('Oops. You seem to have lost your internet connection')
                                  $('#pay-mpesa button').attr('disabled',false)
-                               }else if(xhr.status===401){
+                               }else if(xhr.status===403){
                                 $('#pay-mpesa label').css({'color':'red'})
-                                 $('#pay-mpesa label').html('Oops. The Mpesa Transacton Code Provides is incorrect')
+                                 $('#pay-mpesa label').html(xhr.responseText)
                                  $('#pay-mpesa button').attr('disabled',false)
+                               }else if(xhr.status==401){
+                                 window.location.href=authenticate
                                }else{
                                 $('#pay-mpesa label').css({'color':'red'})
-                                 $('#pay-mpesa label').html('Oops. Something went wrong.')
+                                 $('#pay-mpesa label').html(xhr.responseText)
                                  $('#pay-mpesa button').attr('disabled',false)
                                }
                             
@@ -313,7 +369,16 @@
 
 
                 $('#mpesaonDelivery').click(()=>{
-                   
+                    let topayout =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('topayout')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(topayout.length>0){
+                topayout  =  topayout[0].split('=')[1]
+               }
                     
                     $('#cashOndelivery').html( '<p class="w3-center">Cash on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
                     $('#paypal').html( '<p class="w3-center">Paypal</p>').css({'background-color':'white',"border":"2px solid lightblue"})
@@ -323,7 +388,7 @@
                     
                     if($('#cash-on-delivery').css('display')==='none'){
                         $('#cash-on-delivery').toggle(200,()=>{ 
-                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> through Mpesa when you collect your '+
+                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES '+topayout+'</span> through Mpesa when you collect your '+
                           '  items at your delivery address<br><br>'+
                             '<button style="font-weight: bold;background-color:green" class="w3-btn w3-border w3-border-green w3-text-black">Proceed</button>')
                             $('#cash-on-delivery button').click(()=>{
@@ -331,10 +396,15 @@
                                 $('#cash-on-delivery button').css({'background-color':'white'}).html('<span class="w3-small">Processing </span><img class="loadgif-button" src="./assests/images/328.gif" alt="loader">')
                                 $.ajax({
                             method:'POST',
-                            url:'http://localhost:9090/payondelivery',
-                            data:'paymentoption=MpesaOndelivery',
+                            url:post_pay_on_delivery,
+                            data:'paymentoption=MpesaOndelivery&_csrf='+$('#csrf').val()+"&address="+veradd+"&basket="+bask+"&verifiedTotal="+verifTotal,
+                            xhrFields:{
+                                withCredentials:true
+                            },
                             success : function(data,status,xhr){
-                                $('#cash-on-delivery button').html('Success').css({'color':'black','background-color':'lightgreen'}).attr('disabled',true)
+                                if(xhr.status===200){
+                                    $('#cash-on-delivery button').html('Success. Payment Method Accepted.').css({'color':'black','background-color':'lightgreen'}).attr('disabled',true)
+                          
                                 localStorage.removeItem('basketDetails')
                                localStorage.removeItem('navigationTrack')
                                localStorage.removeItem('cartOkay')
@@ -346,12 +416,18 @@
                                document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
                                 window.location.href='receipt.html?verify-code='+ data
 
+                                }
+                              
                             },
                             error: function(xhr,status,err){
-                            
-                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
-                                    $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
+                            if(xhr.status==401){
+                              window.location.href= authenticate
+                            }else{
+                                $('#cash-on-delivery button').html(xhr.responseText).css({'color':'red','background-color':'white'}).fadeOut(5000,()=>{
+                                    $('#cash-on-delivery button').fadeIn(1000).css({'color':'black','background-color':'green'}).html('Proceed')
                                 })
+                            }
+                               
                                
 
                             }
@@ -366,8 +442,18 @@
                        
                     
                     }else{
+                        let topayout =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('topayout')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(topayout.length>0){
+                topayout  =  topayout[0].split('=')[1]
+               }
 
-                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> through Mpesa when you collect your '+
+                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#003300">"MPESA ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES '+topayout+'</span> through Mpesa when you collect your '+
                           '  items at your delivery address<br><br>'+
                             '<button style="font-weight: bold;background-color:green" class="w3-btn  w3-border w3-border-green w3-text-black">Proceed</button>')
                             $('#cash-on-delivery button').click(()=>{
@@ -376,8 +462,11 @@
                   
                                 $.ajax({
                             method:'POST',
-                            url:'http://localhost:9090/payondelivery',
-                            data:'paymentoption=MpesaOndelivery',
+                            url:post_pay_on_delivery,
+                            xhrFields:{
+                                withCredentials:true
+                            },
+                            data:'paymentoption=MpesaOndelivery&_csrf='+$('#csrf').val(),
                             success : function(data,status,xhr){
                                 $('#cash-on-delivery button').html('Success').css({'color':'black','background-color':'lightgreen'}).attr('disabled',true)
                                 localStorage.removeItem('basketDetails')
@@ -393,7 +482,7 @@
 
                             },
                             error: function(xhr,status,err){
-                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
+                                $('#cash-on-delivery button').html(this.responseText).css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
                                     $('#cash-on-delivery button').css({'color':'black','background-color':'green'}).html('Proceed').fadeIn(500)
                                 })
                                
@@ -412,6 +501,16 @@
                  
                 })
                 $('#cashOndelivery').click(()=>{
+                    let topayout =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('topayout')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(topayout.length>0){
+                topayout  =  topayout[0].split('=')[1]
+               }
                     $('#mpesaOnline').html( '<p class="w3-center">Pay With Mpesa</p>').css({'background-color':'white',"border":"2px solid lightblue"})
                     $('#mpesaonDelivery').html( '<p class="w3-center">Mpesa on Delivery</p>').css({'background-color':'white',"border":"2px solid lightblue"})
                     $('#cashOndelivery').append('<i style="display: block;" class="fas fa-check w3-display-middle "></i>').css({'background-color':'#ccffcc',"border":"2px solid green"})
@@ -420,8 +519,8 @@
                     $('#pay-mpesa').hide()
                     if(  $('#cash-on-delivery').css('display')==='none'){
                         $('#cash-on-delivery').toggle(200,()=>{
-                        
-                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> cash when you collect your '+
+                   
+                            $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES '+topayout+'</span> cash when you collect your '+
                           '  items at your delivery address<br><br>'+
                             '<button style="font-weight: bold;color:black;background-color:green"  id="cashONDelivery" class="w3-btn  w3-border w3-border-green">Proceed</button>')
                             $('#cash-on-delivery button').click(()=>{
@@ -430,10 +529,14 @@
                        
                         $.ajax({
                             method:'POST',
-                            url:'http://localhost:9090/payondelivery',
-                            data:'paymentoption=cashOndelivery',
+                            url:post_pay_on_delivery,
+                            xhrFields:{
+                                withCredentials:true
+                            },
+                            data:'paymentoption=cashOndelivery&_csrf='+$('#csrf').val()+"&address="+veradd+"&basket="+bask+"&verifiedTotal="+verifTotal,
                             success : function(data,status,xhr){
-                                $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
+                                if(xhr.status===200){
+                                    $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
                                 localStorage.removeItem('basketDetails')
                                localStorage.removeItem('navigationTrack')
                                localStorage.removeItem('cartOkay')
@@ -444,12 +547,19 @@
                                document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                                document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;"; 
                                 window.location.href='receipt.html?verify-code='+ data
+                                }
+                          
 
                             },
                             error: function(xhr,status,err){
-                                $('#cash-on-delivery button').css({'color':'red','background-color':'white'}).html('Error').fadeOut(2000,()=>{
+                                if(xhr.status===401){
+                                    window.location.href = authenticate
+                                }else{
+                                    $('#cash-on-delivery button').css({'color':'red','background-color':'white'}).html(xhr.responseText).fadeOut(5000,()=>{
                                     $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
                                 })
+                                }
+                               
                                
 
                             }
@@ -461,7 +571,17 @@
                   
                      
                     }else{
-                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES 2000</span> cash when you collect your '+
+                        let topayout =(document.cookie).split(';').filter((item)=>{
+                 
+                 if(item.search('topayout')>-1){
+                     
+                     return item;
+                 }
+              })
+               if(topayout.length>0){
+                topayout  =  topayout[0].split('=')[1]
+               }
+                        $('#cash-on-delivery').html('You payment method is <span style="text-decoration:underline;font-weight:bold;color:#006666">"CASH ON DELIVERY"</span>. <br> You will Pay <span style="font-weight: bold;text-decoration:underline">KES '+topayout+'</span> cash when you collect your '+
                           'items at your delivery address<br><br>'+
                             '<button  style="font-weight: bold;background-color:green" id="cashONDelivery" class="w3-btn w3-border w3-border-green w3-text-black">Proceed</button>')   
                      
@@ -471,10 +591,14 @@
                        
                        $.ajax({
                             method:'POST',
-                            url:'http://localhost:9090/payondelivery',
-                            data:'paymentoption=cashOndelivery',
+                            url:post_pay_on_delivery,
+                            xhrFields:{
+                                withCredentials:true
+                            },
+                            data:'paymentoption=cashOndelivery&_csrf='+$('#csrf').val(),
                             success : function(data,status,xhr){
-                                $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
+                                if(xhr.status==200){
+                                    $('#cash-on-delivery button').css({'color':'black','background-color':'lightgreen'}).html('Success')
                                 localStorage.removeItem('basketDetails')
                                localStorage.removeItem('navigationTrack')
                                localStorage.removeItem('cartOkay')
@@ -485,12 +609,19 @@
                                document.cookie = "cartTotal=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                                document.cookie = " VAT=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
                                 window.location.href='receipt.html?verify-code='+ data
+                                }
+                       
 
                             },
                             error: function(xhr,status,err){
-                                $('#cash-on-delivery button').html('Error').css({'color':'red','background-color':'white'}).fadeOut(2000,()=>{
+                                if(xhr.status===401){
+                                    window.location.href = authenticate
+                                }else{
+                                    $('#cash-on-delivery button').html('An Error Occured : '+xhr.responseText).css({'color':'red','background-color':'white'}).fadeOut(7000,()=>{
                                     $('#cash-on-delivery button').fadeIn(500).css({'color':'black','background-color':'green'}).html('Proceed')
                                 })
+                                }
+                              
                                
 
                             }

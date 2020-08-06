@@ -5,15 +5,20 @@
         <title>Dashboard</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
          <script  src="./assests/scripts/url.js"></script>
          <script defer src="./assests/scripts/script.js"></script>
     </head>
     <body>
-         
-        <div id="page-wrapper">
+        <div id="pageloader" class="w3-display-container w3-border">
+            <div class="w3-display-middle w3-center">
+                <div class="w3-large">Loading. Please wait</div><br>
+                <img src="./assests/images/830.gif" alt="loader">
+            </div>
+         </div>
+        <div class="w3-hide" id="page-wrapper">
             <div id="content-wrapper">
                 <div id="sticky-content"  >
                     <div id="nav-section"  class="w3-row">
@@ -27,52 +32,59 @@
                     <div class="w3-col s3 l5" ><i class="fas fa-user-circle" id="user_avatar"></i> </div>
                     <!-- <div class="w3-col s9" id="sign-in-sett">  <button class="w3-small w3-button w3-orange w3-round-xlarge">Sign in or Register</button> </div> -->
                 </div>
-                <div class="w3-row" id="settings-act">
-                    <a href="oders.html">
+                <div class="w3-row" style="position:relative" id="settings-act">
+                     <a href="oders.html">
                         <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas   fa-book-medical w3-margin-left"></i> Manage Orders <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
                     </a>
+
                     <a href="favourites.html">
-                        <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas  fa-bookmark w3-margin-left"></i> My Favourites <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
+                     <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas  fa-bookmark w3-margin-left"></i> My Favourites <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
                     </a>
+
                     <a href="coupons.html">
                         <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas  fa-book-medical w3-margin-left"></i> My Coupons <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
                     </a>
+
                     <a href="address-book.html">
                         <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas  fa-map-marker w3-margin-left"></i> Address Book <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
                     </a>
-                    <a href="personal-details.html">
+
+                   <a href="personal-details.html">
                         <div class="w3-col s12 w3-padding-24 w3-border-top"> <i class="fas  fa-book-medical w3-margin-left"></i> Personal Details <span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > <span class="settings-act-icon"> > </span> </span></div>
                    
                     </a>
-                    <a id="logoutSmall" href="logout.html">
-                        <div style="font-weight: bold;" class="w3-col s12 w3-margin-left w3-padding-24 w3-border-top">Logout <i class="fas w3-text-red fa-arrow-right w3-margin-left"></i><span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > </div>
-                   
-                    </a>
 
+                     <a id="logoutSmall" href="/index.html?action=logout">
+                        <div style="font-weight: bold;" class="w3-col s12  w3-padding-24 w3-border-top">Logout <i class="fas w3-text-red fa-arrow-right w3-margin-left"></i><span style="position: absolute;right:3%;font-weight: bolder;font-size: 1.2em;" > </span></div></div>
+                   
+                    </a> 
+               </div>
                 
                 </div>
+                <div id="footer-wrapper">
+                    <input type="text" value='0'  class="cartVALUE w3-hide">
+                   <div id="nav-bar-small"></div>
+                    <div id="footer-content">
+                    
+                    </div>
+               
+                </div>
 
-               </div>
+        </div>
             
     
                
                           
-            </div>
+         
            
-        <div id="footer-wrapper">
-            <input type="text" value='0'  class="cartVALUE w3-hide">
-           <div id="nav-bar-small"></div>
-            <div id="footer-content">
             
-            </div>
-       
-        </div>
-        </div>
+    
     
     
       
-            <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
-    <script src="./assests/scripts/prepload.js"></script>
+             <!-- <script src="./assests/scripts/jquery-3.4.1.min.js"></script> -->
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+          <script src="./assests/scripts/prepload.js"></script>
 
             
     </body>

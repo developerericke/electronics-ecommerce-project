@@ -2,13 +2,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Favourites</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
+        <script src="./assests/scripts/url.js"></script>
          <script src="./assests/scripts/script.js"></script>
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+       
     </head>
     <body>
          
@@ -53,8 +55,10 @@
         </div>
     
     
-        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
-        <script  src="./assests/scripts/url.js"></script>
+      
+             <!-- <script src="./assests/scripts/jquery-3.4.1.min.js"></script> -->
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+      
         <script src="./assests/scripts/prepload.js"></script>
         <script>
           $(document).ready(()=>{
@@ -66,22 +70,32 @@
            $.ajax({
                url:get_favourites,
                method:'GET',
+               xhrFields:{
+             withCredentials:true
+             },
                success: function(data,status,xhr){
-                navbarLarge.html(LoggedInLarge)
+                if(xhr.status===200){
+                    navbarLarge.html(LoggedInLarge)
                            navbarSmall.html(LoggedInsmall);
                   loader.hide(0,()=>{
                     myfavbox.show(400,function(){
                     
                       
+                       if( data.items.length===0){
+                        this.innerHTML='<div class="w3-panel w3-center w3-pale-yellow w3-padding-32" style="font-weight:bold">You have 0 products on your favourites basket</div>'
+                       }else{
                         this.innerHTML ='' 
-                        data.forEach(item => {
+                        data.items.forEach(item => {
                             this.innerHTML = this.innerHTML  + ' <div id="'+ item.id+'" class="myfav-content">'+
                          '      <div><img src="'+item.image+'" alt="'+item.title+'"></div>'+
-                              ' <div>  <h5 style="font-weight:bold">'+item.title+'</h5></div>'+
+                              ' <div>  <h5 class="w3-tiny" style="font-weight:bold">'+item.title+'</h5></div>'+
                               ' <div class="buyFav"><i style="cursor: pointer;" class="fas w3-hover-text-green   w3-xlarge fa-shopping-cart"></i><br><span style="font-weight:bold" class="w3-text-green">Buy Now</span></div>'+
                               ' <div class="remFav"><i style="cursor: pointer;" class="fas w3-xlarge delete-icon   fa-trash w3-center"></i><br><span style="font-weight:bold">Remove</span></div>'+
                           ' </div>'
                       }); 
+                       }
+                   
+                      
                         
                      
                        let remFav = document.querySelectorAll('.remFav')
@@ -95,13 +109,16 @@
                                 $.ajax({
                                     method:'POST',
                                     url :post_delete_favourite,
+                                    xhrFields:{
+                                        withCredentials:true
+                                        },
                                     data:'id='+item.parentNode.id,
                                     success: ()=>{
-                                        this.style.color ='green'
+                                        this.style.color ='red'
                                         this.innerHTML = "Removed"
                                         setTimeout(()=>{
                                             window.location.reload()
-                                        },500)
+                                        },300)
                                         
                                     },
                                     error:  ()=> {
@@ -126,12 +143,21 @@
                     }) 
 
                   })
+                } else if(xhr.status===401){
+                    console.log(xhr.status)
+                    window.location.href=authenticate
+                }else{
+                    $('#loader #content').css('color','red').html('<span style="text-decoration:underline;font-weight:bold">An Error Occured.Error Code :'+ xhr.status + '</span> <br><br><a class="w3-text-black" href="">Click here to Retry</a>')
+              
+                 }   
+               
                },
                error: function(xhr,status,error){
                  if(xhr.status===401){
-                    window.location.href='/authentication.html'
+                   
+                    window.location.href=authenticate
                  }  else{
-                    $('#loader #content').css('color','red').html('<span style="text-decoration:underline;font-weight:bold"> Error :'+ error + '</span> <br><br><a class="w3-text-black" href="">Click here to Retry</a>')
+                    $('#loader #content').css('color','red').html('<span style="text-decoration:underline;font-weight:bold">An Error Occured.Error Code :'+ xhr.status + '</span> <br><br><a class="w3-text-black" href="">Click here to Retry</a>')
               
                  }
                }

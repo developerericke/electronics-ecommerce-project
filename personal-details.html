@@ -2,13 +2,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Dashboard : PERSONAL DETAILS</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
-    
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
     </head>
     <body>
         <div id="pageloader" class="w3-display-container w3-border">
@@ -32,7 +31,9 @@
                <div id="pers-det" class="w3-card-2">
                       <div id="personalDetails">
                           <div id="formSect">
+                            <input type="text" name="csrf" id="csrf" hidden>
                             <div class="w3-row" >
+                             
                                 <div class="w3-col s6 l6">
                                     <input id='currentName' disabled class="w3-input w3-border w3-margin-top w3-margin-bottom" value="" type="text" name="names" >
                                 </div>
@@ -86,7 +87,8 @@
        
         </div>
         </div>
-        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+             <!-- <script src="./assests/scripts/jquery-3.4.1.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script  src="./assests/scripts/url.js"></script>
         <script src="./assests/scripts/prepload.js"></script>
     

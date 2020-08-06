@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Verification</title>
+    <link rel="stylesheet" href="./assests/styles/w3.css">
+    <link rel="stylesheet" href="./assests/styles/mobile-view.css">
+    <link rel="stylesheet" href="./assests/styles/large-screen.css">
+</head>
+<body>
+    <div style="font-weight: bold;" class="w3-padding-32 w3-margin-left">Verifying your Email .Please wait <span class="w3-animate-fading"> . . .</span></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script  src="./assests/scripts/url.js"></script>
+    <script>
+ $(document).ready(()=>{
+     let token = window.location.href.split('?')[1]
+     
+     if(token!==undefined){
+         if(token.search('verify'>-1)){
+            $.ajax({
+         method:'GET',
+         url:get_verify_email+'?token='+token.split('=')[1],
+         success:function(data,status,xhr){
+            $('div').html('Email Verified Successfuly.Redirecting <span class="w3-animate-fading">....</span>')
+            window.location.href = authenticate
+         },
+         error:function(xhr,status,error){
+            if(xhr.status===401){
+                $('div').addClass('w3-text-red').html(xhr.responseText+ " <a href=' /index.html?action=logout'> Click here to logout and Retry</a>")
+           
+         }else{
+            $('div').addClass('w3-text-red').html(xhr.responseText) 
+         }
+          
+         }
+     })
+    
+         }else{
+            $('div').addClass('w3-text-red').html("Invalid Verification Token")
+         }
+         
+        
+       
+     }else{
+         
+        $('div').addClass('w3-text-red').html("Invalid Verification Token")
+     }
+  
+    })
+    </script>
+   
+</body>
+</html>

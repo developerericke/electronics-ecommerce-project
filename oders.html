@@ -5,9 +5,10 @@
         <title>My Orders</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
     </head>
     <body>
          
@@ -91,118 +92,323 @@
             </div>
         </div>
     
-        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+      <!-- <script src="./assests/scripts/jquery-3.4.1.min.js"></script> -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script  src="./assests/scripts/url.js"></script>
         <script src="./assests/scripts/prepload.js"></script>
          <script>
              $(document).ready(()=>{
-                 let orders = $('#orders')
-                 let loader = $('#orders-section #loader')
-
-                 $.ajax({
-                     method:'GET',
-                     url:'http://localhost:9090/orders',
-                     success: (data,status,xhr)=>{
-                        footer.html(footerContent)
-                         if(data.authentication===true){
-                            navbarLarge.html(LoggedInLarge)
-                           navbarSmall.html(LoggedInsmall)
-                            loader.hide(0,()=>{
-                                orders.show(500,function(){
-                                    $('#filter-section').show(100)
-                                    $('#orderTitle').show(100)
-                                    $('#populateOrder').show(100)
-                            
-                                 
-                                data.order.forEach(element => {
+             let orders = $('#orders')
+             let loader = $('#orders-section #loader')
+            footer.html(footerContent)
+             navbarLarge.html(LoggedInLarge)
+             navbarSmall.html(LoggedInsmall)
+             let checkQuery = window.location.href
+             if(checkQuery.search("q")>-1){
+                    let querystring = checkQuery.split("?")[1].search('q=')
+                    if(querystring>-1){
+                     let extractedString = checkQuery.split("?")[1].split('=')[1]
                      
-                       document.querySelector('#populateOrder').innerHTML =  document.querySelector('#populateOrder').innerHTML+
-                        '<div class="order-sec">'+
-                        '<div style="font-weight:bold" class="order-id">'+ element.id+'</div>'+
-                        '<div class="order-data-time">'+ element.orderDate+'</div>'+
-                        '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
-                        '<div class="order-descr">'+ element.description+'</div>'+
-                        '<div style="font-weight:bold" class="order-status">'+ element.status+'</div>'+
-                        '<div class="delivery-date">'+element.deliveryDate+'</div>'+
-                       ' </div>'
-                    })
-                    document.querySelectorAll('.order-sec').forEach((item)=>{
-                        if(item.querySelectorAll('.order-status')[0].innerHTML==='In Transit'){
-                       
-                            item.querySelectorAll('.order-status')[0].style.color='green'
-                        }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Delivered'){
-                            item.querySelectorAll('.order-status')[0].style.color='black'
-                        }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Awaiting Dispatch'){
-                            item.querySelectorAll('.order-status')[0].style.color='brown'
-                        }
-                           
-                        
-                    })
+                 
+                $.ajax({
+             method:'GET',
+             xhrFields:{
+             withCredentials:true
+             },
+             url:get_orders+"?oderview="+extractedString,
+             success: (data,status,xhr)=>{
+                if(xhr.status===200){
+             loader.hide()
+             orders.show(500)
+             $('#filter-section').show()
+             $('#orderTitle').show()
+             $('#populateOrder').show()
 
-                                $('#resetfilter').click(()=>{
-                                    window.location.href ="/oders.html"
-                                })
-                                let filterType = $('#filterType')
-                                let SortResult = $('#SortResult')
-                                let searchKeywords = $('#searchKeywords')
-                                $('#applyFilter').click(()=>{
-                                   
-                                    filterType.css('border','1px solid lightblue')
-                                    SortResult.css('border','1px solid lightblue')
-                                    if(filterType.val()==='default'){
-                                        filterType.css('border','1px solid red')
-                                    }else if(SortResult.val()==='default'){
-                                         SortResult.css('border','1px solid red')
-                                    }else{
-                                        orders.hide()
-                                            $('#filter-section').hide()
-                                            $('#orderTitle').hide()
-                                            $('#populateOrder').hide()
-                                            loader.show()
-                                            document.querySelector('#populateOrder').innerHTML=''
-                                           $.ajax({
-                                               method:"GET",
-                                               url:'http://localhost:9090/orders?filter='+filterType.val()+'&sort='+ SortResult.val()+'&keywords='+searchKeywords.val(),
-                                               success:function(data,status,xhr){
-                                                loader.hide()
-                                             orders.show(500)
-                                            $('#filter-section').show()
-                                            $('#orderTitle').show()
-                                            $('#populateOrder').show()
-                                           
-                                            data.order.forEach(element => {
-                     
-                     document.querySelector('#populateOrder').innerHTML =  document.querySelector('#populateOrder').innerHTML+
-                      '<div class="order-sec">'+
-                      '<div class="order-id">'+ element.id+'</div>'+
-                      '<div class="order-data-time">'+ element.orderDate+'</div>'+
-                      '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
-                      '<div class="order-descr">'+ element.description+'</div>'+
-                      '<div class="order-status">'+ element.status+'</div>'+
-                      '<div class="delivery-date">'+element.deliveryDate+'</div>'+
-                     ' </div>'
-                  })
-                                            }
-                                           })
-                                    }
-                                })
-                
-                
-                            })
-                            })
+             data.order.forEach(element => {
 
-                         }else{
-                            window.location.href='/authentication.html'
-                         }
-                        
-                         
-                     },
-                     error:(xhr,status,error)=>{
-
-                        $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('Error :'+ error+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
-                     }
-                 })
+             document.querySelector('#populateOrder').innerHTML = document.querySelector('#populateOrder').innerHTML+
+             '<div class="order-sec">'+
+                 '<div class="order-id">'+ element.id+'</div>'+
+                 '<div class="order-data-time">'+ element.orderDate+'</div>'+
+                 '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
+                 '<div class="order-descr">'+ element.description+'</div>'+
+                 '<div class="order-status">'+ element.status+'</div>'+
+                 '<div class="delivery-date">'+element.deliveryDate+'</div>'+
+                 ' </div>'
              })
+             
+
+             document.querySelectorAll('.order-sec').forEach((item)=>{
+             if(item.querySelectorAll('.order-status')[0].innerHTML==='In Transit'){
+
+             item.querySelectorAll('.order-status')[0].style.color='green'
+             }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Delivered'){
+             item.querySelectorAll('.order-status')[0].style.color='black'
+             }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Awaiting Dispatch'){
+             item.querySelectorAll('.order-status')[0].style.color='brown'
+             }
+
+
+             })
+
+             $('#resetfilter').click(()=>{
+             window.location.href ="/oders.html"
+             })
+             let filterType = $('#filterType')
+             let SortResult = $('#SortResult')
+             let searchKeywords = $('#searchKeywords')
+             $('#applyFilter').click(()=>{
+
+             filterType.css('border','1px solid lightblue')
+             SortResult.css('border','1px solid lightblue')
+             if(filterType.val()==='default'){
+             filterType.css('border','1px solid red')
+             }else if(SortResult.val()==='default'){
+             SortResult.css('border','1px solid red')
+             }else{
+             orders.hide()
+             $('#filter-section').hide()
+             $('#orderTitle').hide()
+             $('#populateOrder').hide()
+             loader.show()
+             document.querySelector('#populateOrder').innerHTML=''
+
+             $.ajax({
+             method:"GET",
+             xhrFields:{
+             withCredentials:true
+             },
+             url:get_filter_oders+filterType.val()+'&sort='+
+             SortResult.val()+'&keywords='+searchKeywords.val(),
+             success:function(data,status,xhr){
+             if(xhr.status===200){
+             loader.hide()
+             orders.show(500)
+             $('#filter-section').show()
+             $('#orderTitle').show()
+             $('#populateOrder').show()
+
+             data.order.forEach(element => {
+
+             document.querySelector('#populateOrder').innerHTML = document.querySelector('#populateOrder').innerHTML+
+             '<div class="order-sec">'+
+                 '<div class="order-id">'+ element.id+'</div>'+
+                 '<div class="order-data-time">'+ element.orderDate+'</div>'+
+                 '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
+                 '<div class="order-descr">'+ element.description+'</div>'+
+                 '<div class="order-status">'+ element.status+'</div>'+
+                 '<div class="delivery-date">'+element.deliveryDate+'</div>'+
+                 ' </div>'
+             })
+
+             }else if(xhr.status===401){
+                 //error
+                 window.location.href =authenticate
+             }else{
+              
+                $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error  '+
+                  xhr.responseText+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             },
+             error:function(xhr,status,error){
+                if(xhr.status===401){
+             window.location.href =authenticate
+             }else{
+                 
+             $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error Code '+
+             xhr.status+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             }
+             })
+             }
+             })
+
+
+
+             ////dont look
+
+             }else if(xhr.status===401){
+                 //error
+                 window.location.href =authenticate
+             }else{
+                $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error Code '
+             + xhr.status+ ' : Description -'+ xhr.responseText+' <br><br><a class="w3-text-black" href=""> Click here to retry</a>')  
+             }
+           
+             },
+             //erorrrrr
+             error:(xhr,status,error)=>{
+                if(xhr.status===401){
+             window.location.href =authenticate
+             }else{
+              
+             $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error Code '
+             + xhr.status+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             }
+            })
+
+                    }else{
+                        defaultfetcher()
+                    }
+                   
+             }else{
+                defaultfetcher()
+             
+            }})
+
+            function defaultfetcher(){
+                let orders = $('#orders')
+             let loader = $('#orders-section #loader')
+                $.ajax({
+             method:'GET',
+             xhrFields:{
+             withCredentials:true
+             },
+             url:get_orders,
+             success: (data,status,xhr)=>{
+             if(xhr.status===200){
+             footer.html(footerContent)
+             navbarLarge.html(LoggedInLarge)
+             navbarSmall.html(LoggedInsmall)
+             loader.hide(0,()=>{
+             orders.show(500,function(){
+             $('#filter-section').show(100)
+             $('#orderTitle').show(100)
+             $('#populateOrder').show(100)
+
+
+             data.order.forEach(element => {
+
+             document.querySelector('#populateOrder').innerHTML = document.querySelector('#populateOrder').innerHTML+
+             '<div class="order-sec">'+
+                 '<div style="font-weight:bold" class="order-id">'+ element.id+'</div>'+
+                 '<div class="order-data-time">'+ element.orderDate+'</div>'+
+                 '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
+                 '<div class="order-descr">'+ element.description+'</div>'+
+                 '<div style="font-weight:bold" class="order-status">'+ element.status+'</div>'+
+                 '<div class="delivery-date">'+element.deliveryDate+'</div>'+
+                 ' </div>'
+             })
+             document.querySelectorAll('.order-sec').forEach((item)=>{
+             if(item.querySelectorAll('.order-status')[0].innerHTML==='In Transit'){
+
+             item.querySelectorAll('.order-status')[0].style.color='green'
+             }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Delivered'){
+             item.querySelectorAll('.order-status')[0].style.color='black'
+             }else if(item.querySelectorAll('.order-status')[0].innerHTML==='Awaiting Dispatch'){
+             item.querySelectorAll('.order-status')[0].style.color='brown'
+             }
+
+
+             })
+
+             $('#resetfilter').click(()=>{
+             window.location.href ="/oders.html"
+             })
+             let filterType = $('#filterType')
+             let SortResult = $('#SortResult')
+             let searchKeywords = $('#searchKeywords')
+             $('#applyFilter').click(()=>{
+
+             filterType.css('border','1px solid lightblue')
+             SortResult.css('border','1px solid lightblue')
+             if(filterType.val()==='default'){
+             filterType.css('border','1px solid red')
+             }else if(SortResult.val()==='default'){
+             SortResult.css('border','1px solid red')
+             }else{
+             orders.hide()
+             $('#filter-section').hide()
+             $('#orderTitle').hide()
+             $('#populateOrder').hide()
+             loader.show()
+             document.querySelector('#populateOrder').innerHTML=''
+
+             $.ajax({
+             method:"GET",
+             xhrFields:{
+             withCredentials:true
+             },
+             url:get_filter_oders+filterType.val()+'&sort='+
+             SortResult.val()+'&keywords='+searchKeywords.val(),
+             success:function(data,status,xhr){
+             if(xhr.status===200){
+             loader.hide()
+             orders.show(500)
+             $('#filter-section').show()
+             $('#orderTitle').show()
+             $('#populateOrder').show()
+
+             data.order.forEach(element => {
+
+             document.querySelector('#populateOrder').innerHTML = document.querySelector('#populateOrder').innerHTML+
+             '<div class="order-sec">'+
+                 '<div class="order-id">'+ element.id+'</div>'+
+                 '<div class="order-data-time">'+ element.orderDate+'</div>'+
+                 '<div class="expected-delivery">'+ element.expectedDelivery+'</div>'+
+                 '<div class="order-descr">'+ element.description+'</div>'+
+                 '<div class="order-status">'+ element.status+'</div>'+
+                 '<div class="delivery-date">'+element.deliveryDate+'</div>'+
+                 ' </div>'
+             })
+
+             }else if(xhr.status===401){
+                 //error
+                 window.location.href =authenticate
+             }else{
+              
+                $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error '+
+                  xhr.responseText+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             },
+             error:function(xhr,status,error){
+                if(xhr.status===401){
+             window.location.href =authenticate
+             }else{
+                 
+             $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error Code '+
+             xhr.status+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             }
+             })
+             }
+             })
+
+
+             })
+             })
+
+             }else if(xhr.status===401){
+             window.location.href =authenticate
+             }else{
+             $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error '+
+             xhr.responseText+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+
+
+
+
+             },
+             error:(xhr,status,error)=>{
+                
+             if(xhr.status===401){
+             window.location.href =authenticate
+             }else{
+              
+             $('#orders-section #content').css({'color':'red','font-weight':'bold'}).html('An Error occured. Error Code '
+             + xhr.status+ '<br><br><a class="w3-text-black" href=""> Click here to retry</a>')
+
+             }
+             }
+             })
+            }
          </script>       
     
     </body>

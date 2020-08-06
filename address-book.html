@@ -2,12 +2,13 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Dashboard :Address Book</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
-        <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+    <link rel="stylesheet" href="./assests/styles/mobile-view.css">
+    <link rel="stylesheet" href="./assests/styles/large-screen.css">
+    <script defer src="./assests/scripts/solid.js"></script>
+    <script defer src="./assests/scripts/fontawesome.js"></script> 
+ 
         
         
     </head>
@@ -26,7 +27,7 @@
                     </div>
                    
                 </div> 
-                <div class="w3-cad-2">
+                <div class="w3-card-2">
                     <div id="address-settings" class="w3-border">
                         <div style="text-decoration: underline;font-weight: bold;" class=" w3-margin-left w3-xlarge w3-margin-top w3-margin-bottom">Settings</div>
                         <div class="w3-large w3-margin-left" style="font-weight: bold;text-decoration: underline;">Manage Address</div>
@@ -46,9 +47,9 @@
                                <div id="addressFormStatus" style="font-weight: bold;" class="w3-panel w3-small w3-center"></div>
                                 <label id="recipientLabel" for="recipient" class="w3-small" style="font-weight: bold;">Recipient Name</label>
                                 <input required placeholder="i.e JOE DOE" class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="recipient" id="recipient">
-                                
+                                <input type="text" name="_csrf" hidden id="csrf">
                                 <label id='phoneLabel' for="phone" class="w3-small" style="font-weight: bold;">Phone</label>
-                                <input maxlength="13" minlength="13"  required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="phone" id="phone">
+                                <input maxlength="13" minlength="12"  required class="w3-input w3-center w3-border  w3-margin-bottom" type="text" name="phone" id="phone">
                                
                                 <label id='CountyLabel' for="County" class="w3-small" style="font-weight: bold;" >County</label>
                                 <input required class="w3-input w3-center w3-border w3-margin-bottom" type="text" name="County" id="County">
@@ -90,12 +91,10 @@
         </div>
     
 
-        <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
-        <script  src="./assests/scripts/url.js"></script>
-        <script src="./assests/scripts/prepload.js"></script>
-        
-       
-       
+    <!-- <script src="./assests/scripts/jquery-3.4.1.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <script  src="./assests/scripts/url.js"></script>
+    <script src="./assests/scripts/prepload.js"></script>
     
     </body>
     </html>

@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assests/styles/w3.css">
+    <title>Auth Callback</title>
+</head>
+<body>
+    <div class="w3-margin w3-large" style="font-weight:bold">Ensuring you Login is safe. <span class="w3-animate-fading">Hold on a sec ...</span> </div>
+    <script  src="./assests/scripts/url.js"></script>
+    <script src="./assests/scripts/jquery-3.4.1.min.js"></script>
+    <script>
+        $(document).ready(()=>{
+           if(window.location.href.search('token') >-1){
+            let tok1= window.location.href.split('?')[1].search('token')
+        
+            let url = window.location.href.split('?')[1].search('nextURL')
+            if(tok1>-1){
+            let token =window.location.href.split('?')[1].split('&')[0].split('=')[1]
+            fetch(post_login_cb,{
+                credentials:'include',
+                method:'POST',
+                headers:{
+                    'Content-Type':'application/x-www-form-urlencoded'
+                },
+                body: 'token='+token
+            }).then((response)=>{
+             if(response.status===200){
+                if(url>-1){
+                            let filteredURL = window.location.href.split('?')[1].split('&')[1].split('=')[1]
+                            if(filteredURL!=='' || filteredURL!==null || filteredURL!==undefined){
+                                window.location.href= filteredURL
+                            }
+                        }else{
+                            window.location.href= 'http://auth.mydomain.com:9090'
+                        }
+             }else{
+                 document.write('Something went wrong.Error Code : '+response.status)
+             }
+            }).catch(error=>{
+                document.write(error)
+            })
+        
+                  
+        }else{
+            document.write('We are unable to Log you in securely.Try agin later')
+        }
+                        
+                       
+                     
+                        
+        
+        }
+        
+        })
+    </script>
+</body>
+</html>

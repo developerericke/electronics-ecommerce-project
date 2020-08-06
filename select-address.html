@@ -2,12 +2,12 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dashboard</title>
+        <title>Select Address</title>
         <link rel="stylesheet" href="./assests/styles/w3.css">
         <link rel="stylesheet" href="./assests/styles/mobile-view.css">
-         <link rel="stylesheet" href="./assests/styles/large-screen.css">
-         <script defer src="./assests/images/fontawesome-free-5.13.0-web/js/solid.js"></script>
-         <script src="./assests/images/fontawesome-free-5.13.0-web/js/fontawesome.js"></script>
+        <link rel="stylesheet" href="./assests/styles/large-screen.css">
+        <script defer src="./assests/scripts/solid.js"></script>
+        <script defer src="./assests/scripts/fontawesome.js"></script> 
          <script  src="./assests/scripts/url.js"></script>
          <script defer src="./assests/scripts/script.js"></script>
     </head>
@@ -25,8 +25,12 @@
                   <div class="w3-panel w3-large" style="font-weight: bold;text-decoration: underline;color:darkolivegreen">Select Preffered Delivery Address</div>
                   
                   <div id="home-office-address">
-                   
-                     <button id="add-address-btn" class="w3-btn w3-black w3-center w3-round-large">Add another Address</button>
+                      <div id="status"></div>
+                     <div id="available-address">
+                         
+                        
+                     </div>
+                     
                   </div>
 
                   <div id="pickup-station" >
@@ -64,16 +68,17 @@
                           
             </div>
     
-            <div id="footer-wrapper">
-                <input type="text" value='0'  class="cartVALUE w3-hide">
-               <div id="nav-bar-small"></div>
-                <div id="footer-content">
-                
-                </div>
-           
-            </div>
         </div>
-    
+        
+        <div id="footer-wrapper">
+            <input type="text" value='0'  class="cartVALUE w3-hide">
+           <div id="nav-bar-small"></div>
+            <div id="footer-content">
+            
+            </div>
+       
+        </div>
+    </div>
     
     
     </body>

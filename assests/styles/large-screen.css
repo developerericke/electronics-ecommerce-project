@@ -183,8 +183,17 @@
     }
     .favo-icon {
         cursor: pointer;
-        margin-left: 10px;
+      
      
+    }
+    .favicon:hover{
+        text-decoration: underline;
+    }
+    .favo-icon2{
+        margin-left: -30px;
+        font-size: xx-large;
+        cursor: pointer;
+        margin-bottom: 5px;
     }
     .prev-price{
         color: red;
@@ -239,6 +248,27 @@
         
     
     }
+    .similar{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-top:10px;
+        max-width: 97%;
+       margin-left: 1.5%;
+        justify-content: flex-start;
+        border: 1px solid gray;
+    }
+    .similarItem{
+        border: 1px solid gray;
+        flex:0 0 15%;
+        text-align: center;
+        height: 150px;
+    }
+    .similarItem img{
+        height: 100%;
+        width: 80%;
+        margin:0 10%;
+    }
     .highlight-list{
         box-sizing: border-box;
         display: flex;
@@ -249,9 +279,10 @@
        
     }
     .highlight-list-item{
+        overflow: hidden;
         flex: 0 0 49%;
         margin-bottom: 20px;
-        height:400px;
+        height:470px;
         padding:20px 0px;
         border:1px solid gray;
         margin-left:0.5%;
@@ -512,17 +543,39 @@
         font-weight: bold;
     }
    
-   .cart-item-desc{
+   /* .cart-item-desc{
       width: 60%;
-       height: 130px;
+     
        display: block;
+   } */
+   .checkout-title{
+       display: flex;
+       flex-direction: row;
+       flex-wrap: wrap;
+       justify-content: space-around;
+
    }
+   .checkout-title div{
+       flex:0 0 25%;
+   }
+   .checkoutItem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.checkoutItem  .checkouuItemDiv{
+   margin:10px 0;
+   
+    flex:0 0 25%;
+}
    .cart-item-title{
        font-weight: bold;
    }
    .cart-item-desc img{
        width: 100px; 
-       height: 100px;
+       height: 120px;
    }
    #cart-checkout{
        width:80%;
@@ -596,14 +649,32 @@
     padding-left: 10px;
     width:40%;
 }
-.select-del-address {
-    margin-left: 30%;
+#available-address{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    
 }
-#add-address-btn{
-    margin-top:40px;
-    margin-left: 40%;
-    margin-bottom: 50px;
+#available-address .title{
+    font-weight: bold;
+   
 }
+#available-address .content{
+    color:gray;
+    font-size: smaller;
+}
+#available-address .select-del-address{
+    font-size: smaller;
+    width:90%;
+}
+.address-sel{
+    background-color:white;
+    border: 1px solid gray;
+    flex:0 0 30%;
+    margin:20px 10px;
+    padding: 2px 10px;
+}
+
 #pickup-station{
     width: 90%;
     margin-left: 5%;
@@ -767,13 +838,13 @@
   margin-left:1%;
   height: 60%;
   padding:10px;
-  margin-bottom:20px;
- 
+  margin-bottom:4px;
+ border: 1px solid gray;
 }
 
 #magnify-prod-image{
     margin-top:10px;
-    width:60%;
+    width:70%;
     border:1px solid gray;
     margin-left:3%;
 }
@@ -921,7 +992,7 @@
 }
 .product-item{
    flex:0 0 25%;
-   height:350px;
+   height:400px;
    padding: 1px 4px;
    border:2px solid black;
    margin:20px 0;
