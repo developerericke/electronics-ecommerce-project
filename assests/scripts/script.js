@@ -558,7 +558,7 @@ class styler{
              if(this.status===200){
                  statusBar.style.backgroundColor='#ccffcc'
                  statusBar.style.color = 'black'
-                 statusBar.innerHTML ='<span style="font-weight:bold"><i class="fas w3-text-green fa-check"></i> Registration Was Succesfull'
+                 statusBar.innerHTML ='<span style="font-weight:bold"><i class="fas w3-text-green fa-check"></i> Registration Was Succesful.Please check your Email Inbox for Futher Instructions'
                  inputs.forEach((input)=>{
                      input.value=''                    
                  })
@@ -571,7 +571,7 @@ class styler{
              }else if(this.status===500){
                 statusBar.style.backgroundColor='#ffcccc'
                 statusBar.style.color = 'black'
-                statusBar.innerText ='Your Request cannot be Completed.Try again Later'
+                statusBar.innerHTML ='Your Request cannot be Completed.Try again Later'
                 inputs.forEach((input)=>{
                     input.value=''                    
                 })
@@ -579,7 +579,7 @@ class styler{
              }else if(this.status===0){
                 statusBar.style.backgroundColor='#ffcccc'
                 statusBar.style.color = 'black'
-                statusBar.innerText ='Oops. Something went wromg.Give it a try in a few.'
+                statusBar.innerHTML ='Oops. Something went wromg.Give it a try in a few.'
              }else if(this.status===400){
                 statusBar.style.backgroundColor='#ffcccc'
                 statusBar.style.color = 'black'
@@ -595,7 +595,7 @@ class styler{
              }else{
                 statusBar.style.backgroundColor='#ffcccc'
                 statusBar.style.color = 'black'
-                statusBar.innerText = this.responseText
+                statusBar.innerHTML = this.responseText
              }
          }
      }

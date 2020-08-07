@@ -52,7 +52,7 @@ if(urlRoute==='' || urlRoute.search('index.html')>-1){
             //display categories
     
             data.categories.forEach(element => {
-                 categoriessectionDATA.append('<li style="cursor: pointer;"> <a href="view-product.html?id='+element+'">'+element+'</a></li>')
+                 categoriessectionDATA.append('<li style="cursor: pointer;"> <a href="list-products.html">'+element+'</a></li>')
             });
             //highlight section
     
