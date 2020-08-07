@@ -76,7 +76,7 @@ notLoggedInLargeScript = ''+
 notLoggedInsmallScript =' <div class="w3-row" id="nav-bar-small">\
 <a id="small-home-link" href="/index.html"><div class="w3-col s3">Home<br><i  class="fas fa-home"></i> </div></a>\
 <a id="small-cart-link" href="/checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>\
-<a href="/support.html"><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
+<a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
 <a  id="small-dashboard-link" href="'+authenticate+'"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>\
 \
 </div>'
@@ -118,7 +118,7 @@ LoggedInLargeScript = ''+
 LoggedInsmallScript =' <div class="w3-row" id="nav-bar-small">\
 <a id="small-home-link" href="/index.html"><div class="w3-col s3">Home<br><i  class="fas fa-home"></i> </div></a>\
 <a id="small-cart-link" href="/checkout.html"><div class="w3-col s3 shop_basket">Cart <br><i class="fas w3-text-green fa-shopping-cart"></i><sup  style="font-weight: bolder;" class="basket_status w3-text-brown"></sup> </div></a>\
-<a href="/support.html"><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
+<a href=""><div class="w3-col s3">Support <br><i class="fas fa-headset"></i> </div></a>\
 <a id="small-dashboard-link" href="/dashboard.html"><div class="w3-col s3">My Account <br><i class="fas fa-user"></i></div></a>\
 \
 </div>'
