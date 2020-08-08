@@ -28,7 +28,7 @@ let get_filter_oders = 'https://api.eric-works.buzz/orders?filter='
 let get_verify_email ='https://api.eric-works.buzz/verifyemail'
 
 //post methods
-let post_add_user ='https://auth.mydomain.com:9090/register'
+let post_add_user ='https://api.eric-works.buzz/register'
 let post_login_user ='https://api.eric-works.buzz/loginUser'
 let post_recover_account = 'https://api.eric-works.buzz/recoverAccount'
 let post_set_address_as_default ='https://api.eric-works.buzz/defautaddress'
