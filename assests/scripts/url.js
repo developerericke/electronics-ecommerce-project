@@ -5,7 +5,7 @@
 
 //subdomain routes
 let defDomain= 'https://commerce-254.eric-works.buzz'
-let authenticate = 'https://commerce254.auth.eric-works.buzz/auth/'
+let authenticate = 'https://auth.commerce254.auth.eric-works.buzz/auth/'
 let authcb = 'https://api.commerce254.eric-works.buzz/auth/callback/'
 //get methods
 let get_home_page_products = 'https://api.commerce254.eric-works.buzz/homepage'  
