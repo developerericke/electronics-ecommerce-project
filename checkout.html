@@ -233,43 +233,45 @@
            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
         <script src="./assests/scripts/jquery.connections.js"></script>
         <script >  
-         let bask =(document.cookie).split(';').filter((item)=>{
-                 
-           
-            if(item.search('verifiedBasket')>-1){
-                
-                return item;
-            }
-            })
-            if(bask.length>0){
-                bask  = bask[0].split('=')[1]
-             }
-            
-            let veradd =(document.cookie).split(';').filter((item)=>{
-                 
-                 if(item.search('verifiedAddress')>-1){
-                     
-                     return item;
-                 }
-              })
-               if(veradd.length>0){
-                veradd  = veradd[0].split('=')[1]
-               }
-
-               let verifTotal=(document.cookie).split(';').filter((item)=>{
-                 
-                 if(item.search('verifiedTotalAmount')>-1){
-                     
-                     return item;
-                 }
-              })
-               if(verifTotal.length>0){
-                verifTotal  =   verifTotal[0].split('=')[1]
-               }
-              
+     
              
               
             $(document).ready(()=>{
+                let bask =(document.cookie).split(';').filter((item)=>{
+                 
+           
+                 if(item.search('verifiedBasket')>-1){
+                     
+                     return item;
+                 }
+                 })
+                 if(bask.length>0){
+                     bask  = bask[0].split('=')[1]
+                  }
+                 
+                 let veradd =(document.cookie).split(';').filter((item)=>{
+                      
+                      if(item.search('verifiedAddress')>-1){
+                          
+                          return item;
+                      }
+                   })
+                    if(veradd.length>0){
+                     veradd  = veradd[0].split('=')[1]
+                    }
+     
+                    let verifTotal=(document.cookie).split(';').filter((item)=>{
+                      
+                      if(item.search('verifiedTotalAmount')>-1){
+                          
+                          return item;
+                      }
+                   })
+                    if(verifTotal.length>0){
+                     verifTotal  =   verifTotal[0].split('=')[1]
+                    }
+                   
+
                 $('#cart_itm').connections({
                     to:'#addr_itm',
                     'class': 'testcase'
