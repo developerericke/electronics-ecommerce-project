@@ -1,6 +1,5 @@
 # electronics-ecommerce-project
-An Ecommerce Platform for electronics Project 
+An Ecommerce Platform for electronics Products
 
-Check under assets/scripts for url.js.It has all necessary guides. App.js has more information too
 
-You can find the website demo here https://commerce254.000webhostapp.com/
+You can find the website demo here https://eric-works.buzz
